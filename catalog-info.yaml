@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: frontend
+  description: Pantalasa frontend service
+  labels:
+    earthly.dev/demo: true
+  annotations:
+    earthly.dev/service-discovery: frontend
+  tags:
+    - golang
+  links:
+    - url: https://grafana.dev.pantalasa.org
+      title: Grafana central panel
+spec:
+  type: frontend
+  lifecycle: production
+  owner: eng-team
+  system: public-websites
