@@ -19,3 +19,9 @@ jobs:
       - name: Node service tests
         run: |
           npm test
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
