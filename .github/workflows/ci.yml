@@ -25,4 +25,4 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
-          snyk monitor --all-projects --project-name="frontend"
+          snyk monitor --all-projects
