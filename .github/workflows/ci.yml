@@ -12,12 +12,14 @@ jobs:
   frontend_service_build:
     runs-on: lunar
     steps:
-      - name: Set up Docker
-        uses: docker/setup-docker-action@v4
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           clean: true
+      - name: Set up Docker
+        uses: docker/setup-docker-action@v4
+        with:
+          set-host: true
       - name: Node service tests
         run: |
           npm test
