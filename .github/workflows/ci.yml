@@ -19,8 +19,9 @@ jobs:
       - name: Node service tests
         run: |
           npm test
-      - name: Snyk vulnerability scan
+      - name: Install Snyk
         uses: snyk/actions/setup@master
+      - name: Run Snyk vulnerability scan
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
