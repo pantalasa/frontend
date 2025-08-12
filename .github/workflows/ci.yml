@@ -23,5 +23,5 @@ jobs:
         uses: snyk/actions/setup@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          command: snyk monitor --all-projects --project-name="frontend"
+        run: |
+          snyk monitor --all-projects --project-name="frontend"
