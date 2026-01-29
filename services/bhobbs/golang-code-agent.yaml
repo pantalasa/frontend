@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1421
+metadata:
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/golang-code-agent
+  title: golang-code-agent
+  description: "golang-code-agent service for SendGrid integration."
+  tags:
+    - email
+    - mc-orchestra
+  name: golang-code-agent

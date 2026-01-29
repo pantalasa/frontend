@@ -1,0 +1,99 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: core-api-gateway
+  title: core-api-gateway
+  description: Core API Gateway API for ZW Core
+  annotations:
+    backstage.io/source-location: url:https://github.com/Zipwhip/core-api-gateway
+    github.com/project-slug: zipwhip/core-api-gateway
+    github.com/team-slug: zipwhip/developers
+    jira/component: core-api-gateway
+    jira/project-key: TMINFRA
+    pagerduty.com/service-id: PT8ZW7U
+    twilio.com/alerting-slack-channel-id-dev: "C04SQD21U9F"
+    twilio.com/alerting-slack-channel-id-prod: "C01G6UDFSMV"
+    twilio.com/alerting-slack-channel-id-stage: "C05Q8A3DNH3"
+    twilio.com/data-classification: restricted
+    twilio.com/email: team_zipwhip-core-messaging-engineering@twilio.com
+    twilio.com/eu-available: "false"
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-gdpr: "false"
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-iso: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "true"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/internet-facing: "false"
+    twilio.com/pd-incident-owner-schedule: P2E936R
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "1"
+    twilio.com/sla-impacting: "false"
+    twilio.com/slack-id: "C02H6JYEM7G"
+  links:
+    - title: Carrier Phone Mapping API
+      url: https://zipwhip.atlassian.net/wiki/spaces/INFRA/pages/2595455011/Carrier+Phone+Mapping+API
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup_org_zip-817
+  system: zw-core-messaging
+  dependsOn:
+    - resource:default/dynamodb-permissionstable
+    - resource:default/dynamodb-clientcarrieridmappingtable
+    - resource:default/dynamodb-jwkskeyscachetable
+    - resource:default/zw-core-config-aurora-cluster
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dynamodb-clientcarrieridmappingtable
+  description: DynamoDB table for client carrier mappings
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - database
+    - dynamodb
+    - dynamodb-clientcarrieridmappingtable
+spec:
+  type: database
+  owner: group:default/sup_org_zip-817
+  system: zw-core-messaging
+  dependencyOf:
+    - component:default/core-api-gateway
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dynamodb-permissionstable
+  description: DynamoDB table for user permissions
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - database
+    - dynamodb
+    - dynamodb-permissionstable
+spec:
+  type: database
+  owner: group:default/sup_org_zip-817
+  system: zw-core-messaging
+  dependencyOf:
+    - component:default/core-api-gateway
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dynamodb-jwkskeyscachetable
+  description: DynamoDB table for user cached JWKS keys
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - database
+    - dynamodb
+    - dynamodb-jwkskeyscachetable
+spec:
+  type: database
+  owner: group:default/sup_org_zip-817
+  system: zw-core-messaging
+  dependencyOf:
+    - component:default/core-api-gateway

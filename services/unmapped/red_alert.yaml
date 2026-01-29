@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "sup-org-2324"
+metadata:
+  name: red_alert
+  title: red_alert
+  description: "red_alert service for SendGrid integration."
+  tags:
+    - email
+    - unmapped
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/red_alert

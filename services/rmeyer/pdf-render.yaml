@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: library
+  lifecycle: production
+  owner: "group:default/sup-org-1505"
+metadata:
+  name: pdf-render
+  title: pdf-render
+  description: "pdf-render service for SendGrid integration."
+  tags:
+    - email
+    - unmapped
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/pdf-render

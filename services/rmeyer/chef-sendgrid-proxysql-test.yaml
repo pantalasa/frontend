@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: chef-sendgrid-proxysql-test
+  title: chef-sendgrid-proxysql-test
+  description: "Chef configuration for SendGrid ProxySQL test environment."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/chef-sendgrid_proxysql_test
+  tags:
+    - email-db
+    - email-dna

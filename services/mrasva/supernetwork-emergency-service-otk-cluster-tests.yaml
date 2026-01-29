@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: supernetwork-emergency-service-otk-cluster-tests
+  title: supernetwork-emergency-service-otk-cluster-tests
+  description: cluster tests migrated to run on OTK
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/supernetwork-emergency-service-otk-cluster-tests
+    buildkite.com/project-slug: twilio/twilio-internal-supernetwork-emergency-service-otk-cluster-tests
+    github.com/project-slug: twilio-internal/supernetwork-emergency-service-otk-cluster-tests
+    jira/project-key: SNH
+    pagerduty.com/service-id: P8XXSPT
+    twilio.com/email: team_super-network-health@twilio.com
+    twilio.com/ldap-group: team_super-network-health
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+    twilio.com/slack-channel-name: eng-snh-stage-alerts
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/supernetwork-emergency-service-otk-cluster-tests-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-supernetwork-emergency-service-otk-cluster-tests
+  - title: IaC Repository
+    url: https://www.github.com/twilio-internal/supernetwork-emergency-service-otk-cluster-tests-iac
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-579
+  system: super-network-emergency-systems

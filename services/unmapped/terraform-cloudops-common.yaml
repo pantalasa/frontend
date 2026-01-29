@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "sup-org-2324"
+metadata:
+  name: terraform-cloudops-common
+  title: terraform-cloudops-common
+  description: "terraform-cloudops-common service for SendGrid integration."
+  tags:
+    - email
+    - unmapped
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/terraform-cloudops-common

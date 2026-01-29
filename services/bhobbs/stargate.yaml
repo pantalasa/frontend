@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1923
+  system: "email-datalake"
+metadata:
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: eng-email-data-platform@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/stargate/blob/master/README.md
+    github.com/project-slug: sendgrid/stargate
+    buildkite.com/project-slug: sendgrid/stargate
+    snyk.io/target-id: sendgrid/stargate
+    pagerduty.com/service-id: "PZ0HBCK"
+    jira/project-key: DPSG
+    jira/component: "Stargate"
+    twilio.com/slack-id: CDKSZDJ86
+    twilio.com/alerting-slack-channel-id-stage: CDJA5JYF6
+    twilio.com/alerting-slack-channel-id-prod: CDJA5JYF6
+    twilio.com/internet-facing: "false"
+    backstage.io/source-location: url:https://github.com/sendgrid/stargate
+  name: email-stargate
+  title: email-stargate
+  description: "Stargate service efficiently processes MSK Kafka events, using filtering logic to control wanted events and fields before pushing data into snowflake"
+  tags:
+    - email
+    - email-stargate

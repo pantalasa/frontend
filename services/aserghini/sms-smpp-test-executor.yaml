@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sms-smpp-test-executor
+  title: sms-smpp-test-executor
+  description: End-to-End SMPP Test Executor
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/sms/sms-smpp-test-executor
+    github.com/project-slug: sms/sms-smpp-test-executor
+    pagerduty.com/service-id: PNBSD8X
+    twilio.com/email: team_sms-customer-edge@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PZV0VW5
+    twilio.com/security-tier: '2'
+  links: []
+  tags:
+  - sms
+spec:
+  type: service
+  lifecycle: experimental
+  owner: jm-sup-org-34
+  system: sms-smpp-api
+  dependsOn:
+  - component:default/sms-smpp-api-proxy
+  - component:default/sms-smpp-session

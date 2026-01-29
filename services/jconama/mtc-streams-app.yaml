@@ -1,0 +1,22 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-2446"
+  system: message-traffic-control-service
+  lifecycle: production
+metadata:
+  name: mtc-streams-app
+  tags:
+    - messaging
+  title: mtc-streams-app
+  annotations:
+    twilio.com/email: team-mtc@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: P6QZ8RE
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: PFXZBE9
+  description: The mtc role for mtc-streams-worker
+apiVersion: backstage.io/v1alpha1

@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1714
+  system: email-authorization
+  providesApis:
+  - access-policy-service-api
+metadata:
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/access-policy-service
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/access-policy-service/blob/main/README.md
+    buildkite.com/project-slug: sendgrid/access-policy-service
+    github.com/project-slug: sendgrid/access-policy-service
+    jira/component: APS
+    jira/project-key: CLRAM
+    pagerduty.com/service-id: P67TBRO
+    snyk.io/target-id: sendgrid/access-policy-service
+    twilio.com/alerting-slack-channel-id-prod: C0233THSQE4
+    twilio.com/email: eng-RAM_sg@twilio.com
+    twilio.com/internet-facing: "false"
+    twilio.com/security-tier: "1"
+    twilio.com/service-tier: "2"
+    twilio.com/slack-id: C03BSSZFPDF
+  links:
+  - title: Runbook
+    url: https://github.com/sendgrid/access-policy-service/blob/main/docs/RUNBOOK.md
+  name: access-policy-service
+  title: access-policy-service
+  description: "The Access Policy Service is a TSG authorization service"
+  tags:
+  - email
+  - access-policy-service
+  - go
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: access-policy-service-api
+  description: "The Access Policy Service is a TSG authorization service"
+  tags:
+  - email
+  - access-policy-service-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: sup-org-1714
+  system: email-authorization
+  definition:
+    $text: https://github.com/sendgrid/access-policy-service/blob/main/reference/openapi.yml

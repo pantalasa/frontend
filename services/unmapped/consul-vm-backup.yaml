@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "sup-org-2324"
+metadata:
+  name: consul-vm-backup
+  title: consul-vm-backup
+  description: "consul-vm-backup service for SendGrid integration."
+  tags:
+    - email
+    - unmapped
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/consul-vm-backup

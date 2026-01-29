@@ -1,0 +1,37 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-1358"
+  system: messaging-dlr
+  dependsOn:
+    - component:default/messaging-ratequeue-ext1-slave
+    - component:default/messaging-ratequeue-ext1-master
+    - component:default/messaging-inflight-service
+    - component:default/messaging-app-dequeue
+    - component:default/message-state-service
+    - component:default/carrierops-provider-service
+    - component:default/messaging-inflight-dlr-service
+    - component:default/accounts-api
+    - component:default/pied-piper-ingest
+    - component:default/message-receipt-processor
+  lifecycle: production
+metadata:
+  name: messaging-dlr-processor
+  tags:
+    - messaging
+  links:
+    -
+      url: "https://github.com/twilio-internal/messaging-dlr-processor-deploy"
+      title: Deployment Repository
+  title: messaging-dlr-processor
+  annotations:
+    twilio.com/email: sms-core@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: P4NPJP0
+    twilio.com/security-tier: 0
+    twilio.com/in-scope-hipaa: true
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+  description: Service for processing message acknowledgements and delivery receipts (SMS, MMS)
+apiVersion: backstage.io/v1alpha1

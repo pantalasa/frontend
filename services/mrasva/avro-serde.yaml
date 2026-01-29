@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: library
+  lifecycle: production
+  owner: sup-org-579
+  system: super-network-emergency-systems
+metadata:
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "3"
+    twilio.com/email: team_super-network-health@twilio.com
+    twilio.com/slack-channel-name: "#eng-snh-stage-alerts"
+    backstage.io/techdocs-ref: url:https://code.hq.twilio.com/super-network/avro-serde/blob/main/README.md
+    github.com/project-slug: super-network/avro-serde
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/internet-facing: "false"
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/avro-serde
+  name: avro-serde
+  title: avro-serde
+  description: "Simple Scala library for serializing and deserializing Avro schemas and creating Scala classes based on the schema."

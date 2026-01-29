@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1586
+  system: geopod
+metadata:
+  name: tolkien-cache-invalidator
+  title: tolkien-cache-invalidator
+  description: "tolkien-cache-invalidator  receives messages from SQS, and tries to invalidate cache stored in local redis instance."
+  tags:
+    - email
+    - geopod
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-edge@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/tolkien-cache-invalidator/blob/main/README.md
+    pagerduty.com/service-id: PH5E2YF
+    backstage.io/source-location: url:https://github.com/sendgrid/tolkien-cache-invalidator
+    github.com/project-slug: sendgrid/tolkien-cache-invalidator
+    twilio.com/slack-id: CF7MT3UAC

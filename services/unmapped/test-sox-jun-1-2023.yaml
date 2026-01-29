@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "sup-org-2324"
+metadata:
+  name: test-sox-jun-1-2023
+  title: test-sox-jun-1-2023
+  description: "test-sox-jun-1-2023 service for SendGrid integration."
+  tags:
+    - email
+    - unmapped
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/test-sox-jun-1-2023

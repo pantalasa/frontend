@@ -1,0 +1,108 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: messaging-msg-send
+  title: messaging-msg-send
+  description: Core Messaging API service
+  annotations:
+    backstage.io/source-location: "url:https://code.hq.twilio.com/messaging/msg-send"
+    buildkite.com/project-slug: twilio/messaging-msg-send
+    github.com/project-slug: "messaging/msg-send"
+    jira/project-key: MSGOI
+    pagerduty.com/service-id: PSEKL51
+    snyk.io/org-id: ac29b1af-d088-4cd2-b1ef-cb55ef16a52f
+    snyk.io/targets: messaging/msg-send
+    twilio.com/alerting-slack-channel-id-dev: C04EZFUGRTK
+    twilio.com/alerting-slack-channel-id-prod: C04E6A7TYMD
+    twilio.com/alerting-slack-channel-id-stage: C04ELP5DJCB
+    twilio.com/data-classification: "confidential"
+    twilio.com/email: team_omnichannel-interface@twilio.com
+    twilio.com/eu-available: "false"
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-gdpr: "false"
+    twilio.com/in-scope-hipaa: "true"
+    twilio.com/in-scope-iso: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "false"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/internet-facing: "false"
+    twilio.com/security-tier: "1"
+    twilio.com/service-tier: "1"
+    twilio.com/sla-impacting: "true"
+  links:
+    - title: Deployment Repository
+      url: https://github.com/twilio-internal/messaging-msg-send-deploy
+    - title: Documentation
+      url: https://twilio-productivity.atlassian.net/wiki/spaces/MSG/pages/360742914/messaging-msg-send+Landing+Page
+    - title: Runbook
+      url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382769792/messaging-msg-send
+    - title: Datadog Dashboard
+      url: https://app.datadoghq.com/dashboard/mr2-ycw-xhs/omnichannel-interface-messaging-msg-send?fromUser=false&overlay=events&overlayQuery=omnichannel_interface_load_messaging-msg-send%2A&refresh_mode=sliding&from_ts=1760480200492&to_ts=1760566600492&live=true
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-2448
+  system: system:default/msg-send
+  providesApis:
+    - api:messaging-msg-send
+  dependsOn:
+    - resource:messaging/github-repo-28506 # Primary Repository, code.hq.twilio.com/messaging/msg-send
+    - resource:twilio-internal/github-repo-812049897 # Deploy, github.com/twilio-internal/messaging-msg-send-deploy
+    - resource:messaging/github-repo-90756 # Terraform, code.hq.twilio.com/messaging/msg-send-terraform
+    - resource:twilio-internal/github-repo-866759369 # Rate limit overrides, github.com/twilio-internal/msg-send-workflow-automation
+    - component:default/messaging-ott-sender-lookup
+    - component:default/mms-send
+    - component:default/sms-send
+    - component:default/messaging-service-send
+    - component:default/messaging-ott-send
+    - component:default/dsg-content-monitoring-service
+    - component:default/messaging-ott-rbm-outbound
+    - component:default/message-state-service
+    - component:default/messaging-number-pool-service
+    - component:default/messaging-service-configuration
+    - component:default/accounts-api
+    - component:default/messaging-limits-store
+    - component:default/mtc-sgs
+    - component:default/feature-service
+    - component:default/comms-api-broadcast-internal-api
+    - component:default/channelorch-ems-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: com-twilio-messaging-msg-send-darlo-store
+  description: Used to store account-sid to rate-limit-override mapping values for msg-send. s3 file is pulled by spice.ai side car to accelerate the mappings to msg-send.
+spec:
+  type: s3-bucket
+  owner: group:default/sup-org-2448
+  system: system:default/msg-send
+  dependencyOf:
+    - component:default/messaging-msg-send
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: msg-send-cps-elasticache
+  description: Used as the backend state store RPS rate limits and daily limit counters.
+  tags:
+    - redis
+spec:
+  type: database
+  owner: group:default/sup-org-2448
+  system: system:default/msg-send
+  dependencyOf:
+    - component:default/messaging-msg-send
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: messaging-msg-send
+  description: "API spec for messaging-msg-send"
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:sup-org-1714
+  system: msg-send
+  definition:
+    $text: https://code.hq.twilio.com/messaging/msg-send/blob/master/docs/open-api-spec/msg-send.omnichannel.oas3.yaml

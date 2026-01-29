@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: schema-tesla
+  title: schema-tesla
+  description: "schema-tesla service for database schema management."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/schema_tesla
+  tags:
+    - email-db
+    - email-dna

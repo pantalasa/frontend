@@ -1,0 +1,20 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-1381"
+  system: online-learning-pipelines
+  lifecycle: experimental
+metadata:
+  name: mi-data-engine-executor
+  title: mi-data-engine-executor
+  annotations:
+    twilio.com/email: messaging-intelligence@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 4
+    pagerduty.com/service-id: PHUUA1R
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: PWS471W
+  description: "MI Data Engine Executor : EMR Serverless, Athena, Clue"
+apiVersion: backstage.io/v1alpha1

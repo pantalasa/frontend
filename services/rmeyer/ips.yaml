@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-1673"
+  system: email-delivery
+metadata:
+  name: ips
+  title: ips
+  description: "IP Service provides the endpoints that satisfy business functions or internal requirements for everything IP addresses in SendGrid."
+  tags:
+  - email
+  - ep-delivery
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/ips
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/ips/blob/main/README.md
+    github.com/project-slug: sendgrid/ips
+    pagerduty.com/service-id: P4GYKB9
+    twilio.com/data-classification: "confidential"
+    twilio.com/email: email-ep-delivery@twilio.com
+    twilio.com/eu-available: "true"
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-gdpr: "false"
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-iso: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "true"
+    twilio.com/in-scope-sox: "true"
+    twilio.com/internet-facing: "false"
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/sla-impacting: "false"
+    twilio.com/slack-id: CDJCC7ETD
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ips-sendips-internal-api
+  description: "The Internal Send IPs Endpoints for IP Management."
+  tags:
+  - email
+  - ips-sendips-internal-api
+  - ips
+spec:
+  type: openapi
+  lifecycle: production
+  owner: "group:default/sup-org-1673"
+  system: email-delivery
+  definition:
+    $text: https://github.com/sendgrid/ips/blob/main/openapi/send_ips_internal.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ips-fulfillment-api
+  description: "The IP Fulfillment APIs."
+  tags:
+  - email
+  - ips-fulfillment-api
+  - ips
+spec:
+  type: openapi
+  lifecycle: production
+  owner: "group:default/sup-org-1673"
+  system: email-delivery
+  definition:
+    $text: https://github.com/sendgrid/ips/blob/main/openapi/fulfillment.yaml

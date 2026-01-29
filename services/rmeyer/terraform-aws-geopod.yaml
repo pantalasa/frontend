@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: terraform
+  lifecycle: production
+  owner: sup-org-1586
+  system: geopod
+metadata:
+  name: terraform-aws-geopod
+  title: terraform-aws-geopod
+  description: "terraform-aws-geopod is used for any AWS dependencies that need to be created for AWS-geopod project."
+  tags:
+    - email
+    - geopod
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-edge@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/terraform-aws-geopod/blob/main/README.md
+    pagerduty.com/service-id: PH5E2YF
+    backstage.io/source-location: url:https://github.com/sendgrid/terraform-aws-geopod
+    github.com/project-slug: sendgrid/terraform-aws-geopod
+    twilio.com/slack-id: CF7MT3UAC

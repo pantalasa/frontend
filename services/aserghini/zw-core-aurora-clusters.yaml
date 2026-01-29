@@ -1,0 +1,59 @@
+kind: Resource
+spec:
+  type: database
+  owner: "group:default/sup_org_zip-817"
+  system: zw-core-messaging
+metadata:
+  name: zw-core-config-aurora-cluster
+  tags:
+    - auroradb
+    - database
+  annotations:
+    twilio.com/data-classification: restricted
+  description: auora cluster for config of TMINFRA services
+apiVersion: backstage.io/v1alpha1
+---
+kind: Resource
+spec:
+  type: database
+  owner: "group:default/sup_org_zip-817"
+  system: zw-core-messaging
+metadata:
+  name: zw-opt-aurora-cluster
+  tags:
+    - auroradb
+    - database
+  annotations:
+    twilio.com/data-classification: restricted
+  description: auora cluster for router opt settings
+apiVersion: backstage.io/v1alpha1
+---
+kind: Resource
+spec:
+  type: database
+  owner: "group:default/sup_org_zip-817"
+  system: zw-core-messaging
+metadata:
+  name: zw-reporting-cluster
+  tags:
+    - auroradb
+    - database
+  annotations:
+    twilio.com/data-classification: restricted
+  description: auora cluster for router opt settings
+apiVersion: backstage.io/v1alpha1
+---
+kind: Resource
+spec:
+  type: database
+  owner: "group:default/sup_org_zip-817"
+  system: zw-core-messaging
+metadata:
+  name: zw-workerid-service
+  tags:
+    - auroradb
+    - database
+  annotations:
+    twilio.com/data-classification: restricted
+  description: auora cluster for worker-id service
+apiVersion: backstage.io/v1alpha1

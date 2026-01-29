@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sms-route-state-api
+  title: sms-route-state-api
+  description: 'SMS/MMS Route state information service '
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/sms/sms-route-state-api
+    github.com/project-slug: sms/sms-route-state-api
+    pagerduty.com/service-id: PVB14I4
+    twilio.com/email: team_routing-core@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+  links:
+  - title: Runbook
+    url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382783479
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/sms-route-state-api-deploy
+  tags:
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-734
+  system: messaging-routing-service
+  dependsOn:
+  - component:default/sms-product-configuration-service
+  - component:default/eventbus
+  - component:default/ud-entity-schema-api

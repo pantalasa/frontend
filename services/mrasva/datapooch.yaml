@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: datapooch
+  title: datapooch
+  description: Datadog API mock used for testing purposes only
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/datapooch
+    github.com/project-slug: super-network/datapooch
+    pagerduty.com/service-id: PBLO97C
+    twilio.com/email: super-network-monitoring@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+  links: []
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-579
+  system: carrier-test-platform

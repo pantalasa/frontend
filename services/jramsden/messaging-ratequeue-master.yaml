@@ -1,0 +1,30 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-649"
+  system: sms-rate-limiting
+  dependsOn:
+    - component:default/messaging-ratequeue-master
+    - component:default/messaging-ratequeue-slave
+    - component:default/nagios-frontend-v2
+  lifecycle: production
+metadata:
+  name: messaging-ratequeue-master
+  tags:
+    - sms
+  links:
+    -
+      url: "https://github.com/twilio-internal/messaging-ratequeue-master-deploy"
+      title: Deployment Repository
+  title: messaging-ratequeue-master
+  annotations:
+    twilio.com/email: team_messaging-queuing@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: P4NPJP0
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: P3EUJ41
+  description: Ratequeue cluster for SMS Messaging Channel
+apiVersion: backstage.io/v1alpha1

@@ -1,0 +1,22 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-734"
+  system: sms-test-infrastructure
+  lifecycle: production
+metadata:
+  name: routing-load-tester2
+  tags:
+    - sms
+  title: routing-load-tester2
+  annotations:
+    twilio.com/email: team_routing-core@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 5
+    pagerduty.com/service-id: PVB14I4
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+  description: Role for running load tests of messaging-routing stack with different server mesh for admin endpoints
+apiVersion: backstage.io/v1alpha1

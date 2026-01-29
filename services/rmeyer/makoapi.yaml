@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-1658"
+  system: email-v2-api
+metadata:
+  name: makoapi
+  title: makoapi
+  tags:
+    - email
+    - ep-configuration
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/makoapi
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/makoapi/blob/main/README.md
+    github.com/project-slug: sendgrid/makoapi
+    twilio.com/email: email-ep-configuration@twilio.com
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/slack-id: C01EVRFDP0T

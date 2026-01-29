@@ -1,0 +1,20 @@
+kind: Component
+spec:
+  type: service
+  owner: jm-sup5.30
+  system: mdp-data-lake-system
+  lifecycle: production
+metadata:
+  name: mdp-data-engine-executor
+  title: mdp-data-engine-executor
+  annotations:
+    twilio.com/email: team_messaging-data-infra@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 4
+    pagerduty.com/service-id: P8G5P66
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: PR5HVZL
+  description: MDP Data Engine Executor -- Glue, Athena
+apiVersion: backstage.io/v1alpha1

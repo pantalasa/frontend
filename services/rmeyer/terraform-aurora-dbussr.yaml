@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-1673"
+metadata:
+  name: terraform-aurora-dbussr
+  title: terraform-aurora-dbussr
+  description: "terraform-aurora-dbussr service for SendGrid integration."
+  tags:
+    - email
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/terraform-aurora-dbussr

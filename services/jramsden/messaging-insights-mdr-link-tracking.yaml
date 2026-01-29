@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: messaging-insights-mdr-link-tracking
+  title: messaging-insights-mdr-link-tracking
+  description: 'Processor parsing raw data for link shortening/ click tracking insights data'
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/twilio/messaging-insights-mdr-link-tracking
+    github.com/project-slug: twilio/messaging-insights-mdr-link-tracking
+    pagerduty.com/service-id: PBFDZ8P
+    twilio.com/email: team_messaging-insights@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PWS471W
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '3'
+  links: []
+  tags:
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-2040
+  system: messaging-delivery-and-engagement-insights
+  dependsOn:
+  - component:default/ud-entity-schema-api
+  - component:default/eventbus

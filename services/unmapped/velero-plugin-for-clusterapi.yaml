@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "sup-org-2324"
+metadata:
+  name: velero-plugin-for-clusterapi
+  title: velero-plugin-for-clusterapi
+  description: "velero-plugin-for-clusterapi service for SendGrid integration."
+  tags:
+    - email
+    - unmapped
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/velero-plugin-for-clusterapi

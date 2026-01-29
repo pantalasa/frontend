@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: messaging-k6
+  title: messaging-k6
+  description: Messaging APIs load testing infrastructure (name is after [graphana k6](https://k6.io/))
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/messaging-k6
+    buildkite.com/project-slug: twilio/twilio-internal-messaging-k6
+    github.com/project-slug: twilio-internal/messaging-k6
+    jira/project-key: MDP
+    pagerduty.com/service-id: P8G5P66
+    twilio.com/email: team_messaging-data-infra@twilio.com
+    twilio.com/ldap-group: team_messaging-data-infra
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '4'
+    twilio.com/slack-channel-name: eng-messaging-data-platform
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/messaging-k6-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-messaging-k6
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup5.30
+  system: mdp-state-management-system

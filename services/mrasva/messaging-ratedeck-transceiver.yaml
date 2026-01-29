@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: messaging-ratedeck-transceiver
+  title: messaging-ratedeck-transceiver
+  description: A service which manages rate and ratedeck input from different communication
+    channels and sends results of rate ingestion to relevant parties
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/carrierops/messaging-ratedeck-transceiver  
+    github.com/project-slug: carrierops/messaging-ratedeck-transceiver
+    twilio.com/github-server: code.hq.twilio.com
+    buildkite.com/project-slug: twilio/carrierops-messaging-ratedeck-transceiver 
+    jira/project-key: SNCE
+    snyk.io/org-id: ccd9f4a3-9bb3-48c3-a25b-2da4db09a45a
+    snyk.io/project-id: 6e362932-e795-4c06-a6ee-f4aab13ae54f 
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'true'
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '3'
+    pagerduty.com/service-id: PESCFOL
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/email: super-cost@twilio.com
+  links:
+    - url: "https://code.hq.twilio.com/carrierops/messaging-ratedeck-transceiver"
+      title: "Application Repository"
+    - url: "https://github.com/twilio-internal/messaging-ratedeck-transceiver-deploy"
+      title: "Deployment Repository"
+    - url: "https://buildkite.com/twilio/carrierops-messaging-ratedeck-transceiver"
+      title: "Buildkite Pipeline"
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-682
+  system: rate-ingestion
+  dependsOn:
+  - component:default/eventbus
+  - component:default/ud-entity-schema-api

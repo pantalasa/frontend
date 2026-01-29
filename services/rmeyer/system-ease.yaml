@@ -1,0 +1,433 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: email-ease-query-api
+  title: Email EASE API (/v3/messages)
+  description: API for querying EASE
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:default/sup-org-1505
+  system: email-ease
+  dependsOn:
+    - component:default/email-ease-rts-api
+  # TODO: This is copied from stats-api repo,
+  # we need to figure out a way to keep it in sync
+  # since there are multiple "Backstage API" combined in the single stats-api OpenAPI spec.
+  definition: |
+    openapi: 3.0.3
+    info:
+      title: Twilio Email Logs and Statistics API
+      version: "0.0.0"  # we are not really maintaining the version number here
+      description: API for querying email logs and email statistics
+
+    servers:
+      - description: |
+          Production endpoint that load-balances via Route53 over global data residency regions (us-east-1, us-east-2).
+          This is for EASE / Email Logs endpoints only.
+          us-east-1 and us-east-2 both contain the entire data set, so either region can be used to query all data.
+        url: https://global.statsapi-prod.sendgrid.tech
+      - description: prod-us-east-1
+        url: https://statsapi-ing.general-prod-a.us-east-1.aws.k8s.sendgrid.net
+      - description: prod-us-east-2
+        url: https://statsapi-ing.general-prod-a.us-east-2.aws.k8s.sendgrid.net
+      - description: Load-balanced over global data residency regions in staging (only us-east-2)
+        url: https://global.statsapi-staging.sendgrid.tech
+      - description: stage-us-east-2
+        url: https://statsapi-ing.general-stage-a.us-east-2.aws.k8s.sendgrid.net
+
+    security:
+      # First option: bypass key + JWT (skip signature validation)
+      - BypassKeyAuth: [ ]
+        SGGatewayJWTAuth: [ "messages.read" ]
+      # Second option: JWT (with signature validation)
+      - SGGatewayJWTAuth: [ "messages.read" ]
+      # Third option: API Key (for client compatibility with public endpoint)
+      - APIKeyAuth: [ ]
+
+    paths:
+
+      /v1/messages/{msgId}:
+        get:
+          summary: Get all details for the specified message
+          x-ogen-operation-group: EASE
+          operationId: EASEGetMessageById
+          parameters:
+            - name: msgId
+              in: path
+              required: true
+              schema:
+                type: string
+              description: The ID of the message you are requesting details for.
+          responses:
+            '200':
+              description: Detailed information for the specified message, including all events related to the message
+              content:
+                application/json:
+                  schema:
+                    $ref: 'ease.yaml#/components/schemas/EASEGetMessageByIdResponse'
+            '400':
+              description: Bad request.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+            '404':
+              description: Message not found.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+            '429':
+              description: Too many requests, rate limit exceeded.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+            default:
+              description: 'Default error response'
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+      /v1/messages:
+        get:
+          summary: Search all messages using the provided query filters.
+          x-ogen-operation-group: EASE
+          operationId: EASEGetMessagesByFilter
+          parameters:
+            - name: query
+              in: query
+              required: false
+              schema:
+                type: string
+              description: |
+                **URL-encoded filter expression in the format of query={query_type}="{query_content}"**
+
+                Allowed operators:
+                - `=`
+                - `!=`
+                - `<`
+                - `>`
+                - `<=`
+                - `>=`
+                - `-` (to)
+                - `+`
+                - `/`
+                - `*`
+                - `-` (subtraction)
+                - `AND`
+                - `BETWEEN`
+                - `NOT BETWEEN`
+                - `CONTAINS`
+                - `DAY`
+                - `FALSE`
+                - `HOUR`
+                - `IN`
+                - `NOT IN`
+                - `INTERVAL`
+                - `IS`
+                - `IS NOT`
+                - `LIKE`
+                - `NOT LIKE`
+                - `MINUTE`
+                - `MONTH`
+                - `NOT`
+                - `NULL`
+                - `OR`
+                - `SECOND`
+                - `TIMESTAMP`
+                - `TRUE`
+                - `YEAR`
+
+                **Allowed event fields:**
+                - msg_id
+                - from_email
+                - subject
+                - to_email
+                - status
+                - template_id
+                - marketing_campaign_name
+                - marketing_campaign_id
+                - api_key_id
+                - events
+                - category
+                - unique_args
+                - outbound_ip
+                - last_event_time
+                - clicks
+                - asm_group_id
+                - teammate
+
+            - name: limit
+              in: query
+              required: false
+              schema:
+                type: integer
+                minimum: 1
+                maximum: 1000
+                default: 10
+              description: Number of messages to return (1–1000).
+            - name: "time_range_chunks"
+              in: query
+              required: false
+              schema:
+                $ref: 'email_logs.yaml#/components/schemas/TimeRangeChunks'
+          responses:
+            '200':
+              description: A page of messages matching the filter.
+              content:
+                application/json:
+                  schema:
+                    $ref: 'ease.yaml#/components/schemas/EASEGetMessagesByFilterResponse'
+            '400':
+              description: Bad request.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+            '429':
+              description: Too many requests, rate limit exceeded.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+            default:
+              description: 'Default error response'
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+
+    components:
+
+      securitySchemes:
+
+        BypassKeyAuth:
+          type: apiKey
+          in: header
+          name: X-Jwt-Bypass-Key
+          description: Bypass key for internal service authentication. If a valid bypass key is provided, then JWT signature validation will be skipped in `SGGatewayJWTAuth`.
+
+        SGGatewayJWTAuth:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
+          description: Authentication using JWT bearer token. Validates the JWT coming from SG Gateway
+
+        APIKeyAuth:
+          type: http
+          scheme: bearer
+          bearerFormat: APIKey
+          description: Authentication using API token. Used for compatibility with public endpoint.
+
+      schemas:
+
+        ErrorResponse:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                $ref: '#/components/schemas/Error'
+          description: Standard SendGrid error response.
+
+        Error:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Error message.
+            field:
+              type: string
+              description: (Optional) The field that caused the error.
+          required:
+            - message
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: email-ease-csv-export-api
+  title: Email EASE CSV Export API (/v3/messages/export)
+  description: API for requesting and downloading CSV exports from EASE
+spec:
+  owner: group:default/sup-org-1505
+  type: openapi
+  lifecycle: production
+  system: email-ease
+  dependsOn:
+    - component:default/email-ease-rts-api
+    - component:default/email-ease-rts-worker
+  # TODO: Move this to an OpenAPI spec in the rts repo
+  definition: |
+    openapi: 3.0.3
+    info:
+      title: Twilio Email Logs and Statistics API - CSV Export
+    paths:
+      /v1/messages/download:
+        post:
+          summary: Request a CSV export of messages matching the provided query filters.
+          responses:
+            '202':
+              description: CSV export request accepted.
+            default:
+              description: 'Default error response'
+      /v1/messages/download/{download_id}:
+        get:
+          summary: Download the CSV export file for the specified export ID.
+          parameters:
+            - name: download_id
+              in: path
+              required: true
+              schema:
+                type: string
+              description: The ID of the CSV export to download.
+          responses:
+            '200':
+              description: CSV export file.
+              content:
+                text/csv:
+                  schema:
+                    type: string
+                    format: binary
+            default:
+              description: 'Default error response'
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+spec:
+  title: Email EASE Snowflake Database
+  type: database
+  owner: group:default/sup-org-1505
+  system: email-ease
+  dependsOn:
+    - resource:default/email-ease-s3-snowpipe-ingest-s3-bucket
+metadata:
+  name: email-ease-snowflake
+  description: "Snowflake database for EASE"
+  links:
+    - title: Schema Definition
+      url: https://github.com/sendgrid/snowflake-schema-ease
+  annotations:
+    twilio.com/data-classification: restricted
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-1505"
+  lifecycle: production
+  providesApis:
+    - api:default/email-ease-query-api
+    - api:default/email-ease-csv-export-api
+  system: email-ease
+  dependsOn:
+    - resource:default/email-ease-snowflake
+metadata:
+  name: email-ease-rts-api
+  title: Realtime Troubleshooting Service (RTS)
+  description: "Query API service for EASE (previously codename RTS)"
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/rts
+    github.com/project-slug: sendgrid/rts
+    twilio.com/data-classification: restricted
+    twilio.com/eu-available: "false"
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-gdpr: "true"
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-iso: "true"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "true"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/internet-facing: "true"
+    twilio.com/security-tier: "0"
+    twilio.com/service-tier: "1"
+    twilio.com/sla-impacting: "false"
+  links:
+    - title: Helm Repo
+      url: https://github.com/sendgrid/helm-rts
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-1505"
+  lifecycle: production
+  system: email-ease
+metadata:
+  name: email-ease-rts-worker
+  title: Realtime Troubleshooting Service (RTS) Worker
+  description: |
+    Worker service for processing background jobs, supports CSV exports for EASE.
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-1505"
+  dependsOn:
+    - resource:default/email-ease-s3-snowpipe-ingest-s3-bucket
+metadata:
+  name: email-ease-kafkarelay
+  title: "kafkarelay-ease"
+  description: |
+    KafkaRelay deployment for EASE. Consumes events from MP Kafka and writes to S3.
+    There is a SnowPipe on the Snowflake side that ingests the data.
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/helm-kafkarelay-ease
+    github.com/project-slug: sendgrid/helm-kafkarelay-ease
+    twilio.com/data-classification: restricted
+    twilio.com/eu-available: "false"
+    twilio.com/in-scope-bcr: "true"
+    twilio.com/in-scope-gdpr: "true"
+    twilio.com/in-scope-hipaa: "true"
+    twilio.com/in-scope-iso: "true"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "true"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/internet-facing: "false"
+    twilio.com/security-tier: "1"
+    twilio.com/service-tier: "1"
+    twilio.com/sla-impacting: "false"
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+spec:
+  title: Email EASE S3 Bucket
+  type: s3-bucket
+  owner: group:default/sup-org-1505
+  system: email-ease
+metadata:
+  name: email-ease-snowpipe-ingest-s3-bucket
+  description: "S3 bucket for EASE Snowpipe ingestion"
+  annotations:
+    twilio.com/data-classification: restricted
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-1505"
+metadata:
+  name: email-ease-acceptance
+  title: ease_acceptance
+  description: "Acceptance test suite for EASE, which runs in staging"
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/ease_acceptance
+    github.com/project-slug: sendgrid/ease_acceptance
+    twilio.com/data-classification: confidential
+    twilio.com/eu-available: "false"
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-gdpr: "false"
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-iso: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "false"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/internet-facing: "false"
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "5"
+    twilio.com/sla-impacting: "false"

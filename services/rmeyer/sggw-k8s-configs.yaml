@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: Infrastructure
+  lifecycle: production
+  owner: sup-org-1586
+  system: geopod
+metadata:
+  name: sggw-k8s-configs
+  title: sggw-k8s-configs
+  description: "sggw-k8s-configs Contains the config file that's used by envoy to determine how to route requests to the appropriate backend services."
+  tags:
+    - email
+    - geopod
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-edge@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/sggw-k8s-configs/blob/main/README.md
+    pagerduty.com/service-id: PH5E2YF
+    backstage.io/source-location: url:https://github.com/sendgrid/sggw-k8s-configs
+    github.com/project-slug: sendgrid/sggw-k8s-configs
+    twilio.com/slack-id: CF7MT3UAC

@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1923
+  system: "email-reseller-platform"
+metadata:
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "1"
+    twilio.com/email: eng-resellerplatform_sg@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/underwatch/blob/main/README.md
+    github.com/project-slug: sendgrid/underwatch
+    buildkite.com/project-slug: sendgrid/underwatch
+    snyk.io/target-id: sendgrid/underwatch
+    pagerduty.com/service-id: "PYJN72Z"
+    jira/project-key: CLRP
+    jira/component: "Underwatch"
+    twilio.com/slack-id: CDKGS75TR
+    twilio.com/alerting-slack-channel-id-stage: C031JT6HNUE
+    twilio.com/alerting-slack-channel-id-prod: CDKSZHQUW
+    twilio.com/internet-facing: "false"
+    backstage.io/source-location: url:https://github.com/sendgrid/underwatch
+  links:
+    - title: Runbook
+      url: https://github.com/sendgrid/underwatch/blob/main/docs/runbook.md
+  name: underwatch
+  title: underwatch
+  description: "Underwatch propagates changes made from AWS systems back to on-prem systems."
+  tags:
+    - email
+    - underwatch
+    - go

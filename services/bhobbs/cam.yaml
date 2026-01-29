@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1714
+  system: email-account-management
+  providesApis:
+  - cam-api
+metadata:
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/cam
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/cam/blob/main/README.md
+    buildkite.com/project-slug: sendgrid/cam
+    github.com/project-slug: sendgrid/cam
+    jira/component: CAM
+    jira/project-key: CLKRAKEN
+    pagerduty.com/service-id: P66WMQ2
+    snyk.io/target-id: sendgrid/cam
+    twilio.com/alerting-slack-channel-id-prod: C0233THSQE4
+    twilio.com/email: eng-Kraken_sg@twilio.com
+    twilio.com/internet-facing: "false"
+    twilio.com/security-tier: "1"
+    twilio.com/service-tier: "2"
+    twilio.com/slack-id: C03CLFJPS49
+  name: cam
+  title: cam
+  description: "Core Account Manager is a service used to track core accounts."
+  tags:
+  - email
+  - cam
+  - go
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: cam-api
+  description: "Core Account Manager is a service used to track core accounts."
+  tags:
+  - email
+  - cam-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: sup-org-1714
+  system: email-account-management
+  definition:
+    $text: https://github.com/sendgrid/cam/blob/main/reference/cam.v1.yaml

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: intelligent-alert-classifier
+  title: intelligent-alert-classifier
+  description: This service severs a classification model to classify intelligent alerts based on importance
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/intelligent-alert-classifier
+    buildkite.com/project-slug: twilio/twilio-internal-intelligent-alert-classifier
+    github.com/project-slug: twilio-internal/intelligent-alert-classifier
+    jira/project-key: MSGINTELLI-1813
+    pagerduty.com/service-id: replace-me
+    twilio.com/email: team_messaging-intelligence@twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'true'
+    twilio.com/in-scope-sox: 'true'
+    twilio.com/ldap-group: team_messaging-intelligence
+    twilio.com/security-tier: '1'
+    twilio.com/service-tier: '3'
+    twilio.com/slack-channel-name: help-intelligent-alerts
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/intelligent-alert-classifier-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-intelligent-alert-classifier
+  - title: IaC Repository
+    url: https://github.com/twilio-internal/intelligent-alert-classifier-iac
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-1381
+  system: online-learning-pipelines

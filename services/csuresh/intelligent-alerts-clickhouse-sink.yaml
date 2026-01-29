@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: intelligent-alerts-clickhouse-sink
+  title: intelligent-alerts-clickhouse-sink
+  description: Repository created by Backstage
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/intelligent-alerts-clickhouse-sink
+    buildkite.com/project-slug: twilio/twilio-internal-intelligent-alerts-clickhouse-sink
+    github.com/project-slug: twilio-internal/intelligent-alerts-clickhouse-sink
+    jira/project-key: MSGINTELLI-1910
+    pagerduty.com/service-id: PHUUA1R
+    twilio.com/email: team_messaging-intelligence@twilio.com
+    twilio.com/ldap-group: team_messaging-intelligence
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+    twilio.com/slack-channel-name: eng-messaging-intelligence-infra
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/intelligent-alerts-clickhouse-sink-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-intelligent-alerts-clickhouse-sink
+  - title: IaC Repository
+    url: https://github.com/twilio-internal/intelligent-alerts-clickhouse-sink-iac
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-1381
+  system: online-learning-pipelines

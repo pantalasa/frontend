@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: agents-services-tests
+  title: agents-services-tests
+  description: replace-me
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/agents-services-tests
+    buildkite.com/project-slug: twilio/twilio-internal-agents-services-tests
+    github.com/project-slug: twilio-internal/agents-services-tests
+    jira/project-key: LMN
+    pagerduty.com/service-id: P8NGS3M
+    twilio.com/email: team_comms-agents@twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/ldap-group: team_comms-agents
+    twilio.com/security-tier: '1'
+    twilio.com/service-tier: '5'
+    twilio.com/slack-channel-name: replace-me
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/agents-services-tests-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-agents-services-tests
+  - title: IaC Repository
+    url: https://github.com/twilio-internal/agents-services-tests-iac
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-2446
+  system: replace-me

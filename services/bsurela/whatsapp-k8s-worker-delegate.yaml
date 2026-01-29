@@ -1,0 +1,28 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-484"
+  system: sender-management
+  lifecycle: production
+metadata:
+  name: whatsapp-k8s-worker-delegate
+  title: whatsapp-k8s-worker-delegate
+  annotations:
+    twilio.com/email: messaging-channels@twilio.com
+    twilio.com/eu-available: false
+    twilio.com/in-scope-bcr: false
+    twilio.com/in-scope-iso: false
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 3
+    pagerduty.com/service-id: PS1CR97
+    twilio.com/in-scope-gdpr: false
+    twilio.com/in-scope-soc2: false
+    twilio.com/security-tier: 2
+    twilio.com/sla-impacting: false
+    twilio.com/in-scope-hipaa: false
+    twilio.com/internet-facing: false
+    twilio.com/data-classification: confidential
+    twilio.com/pd-incident-owner-schedule: PQCIWQ1
+  description: delegate role for whatsapp cross account insertion into quantico kinesis streams - need this for quantico. it's not a role we deploy, but it needs to exist. I think the quantico system requires a twilio role when creating tables and schema in BigQuery
+apiVersion: backstage.io/v1alpha1

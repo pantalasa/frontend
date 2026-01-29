@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: rate-manager-e2e-otk-tests
+  title: rate-manager-e2e-otk-tests
+  description: Rate Manager e2e tests
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/rate-manager-e2e-otk-tests
+    buildkite.com/project-slug: twilio/twilio-internal-rate-manager-e2e-otk-tests
+    github.com/project-slug: twilio-internal/rate-manager-e2e-otk-tests
+    jira/project-key: SNCE
+    pagerduty.com/service-id: TBD
+    twilio.com/email: team_super-network-cost-engineering@twilio.com
+    twilio.com/ldap-group: team_super-network-cost-engineering
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+    twilio.com/slack-channel-name: tbd
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/rate-manager-e2e-otk-tests-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-rate-manager-e2e-otk-tests
+  - title: IaC Repository
+    url: https://www.github.com/twilio-internal/rate-manager-e2e-otk-tests-iac
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-682
+  system: rate-manager

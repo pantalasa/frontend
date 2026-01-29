@@ -1,0 +1,22 @@
+kind: Component
+spec:
+  type: service
+  owner: jm-sup-org-34
+  system: sms-beepsend-price-management
+  lifecycle: production
+metadata:
+  name: beepsend-pricelist-daemon
+  tags:
+    - sms
+  title: beepsend-pricelist-daemon
+  annotations:
+    twilio.com/email: sms-edge@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: P69YK74
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: PZV0VW5
+  description: Preparing create pricelist tasks
+apiVersion: backstage.io/v1alpha1

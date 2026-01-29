@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "sup-org-2324"
+metadata:
+  name: sendgrid-python-django-sample-app
+  title: sendgrid-python-django-sample-app
+  description: "sendgrid-python-django-sample-app service for SendGrid integration."
+  tags:
+    - email
+    - unmapped
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/sendgrid-python-django-sample-app

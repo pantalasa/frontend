@@ -1,0 +1,36 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-2040"
+  system: messaging-delivery-and-engagement-insights
+  dependsOn:
+    - component:default/accounts-api
+    - component:default/feature-service
+    - component:default/messaging-service-configuration
+    - component:default/report-center-data-engine
+    - component:default/debugger-data-service
+    - component:default/inventory-federation-service
+    - component:default/messaging-limits-store
+    - component:default/messaging-number-pool-service
+    - component:default/id-domain-service
+  lifecycle: production
+metadata:
+  name: messaging-insights-api-proxy
+  tags:
+    - messaging
+  links:
+    -
+      url: "https://github.com/twilio-internal/messaging-insights-api-proxy-deploy"
+      title: Deployment Repository
+  title: messaging-insights-api-proxy
+  annotations:
+    twilio.com/email: team_messaging-insights@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 3
+    pagerduty.com/service-id: PBFDZ8P
+    twilio.com/security-tier: 0
+    twilio.com/in-scope-hipaa: true
+    twilio.com/pd-incident-owner-schedule: PWS471W
+  description: Api proxy for Messaging Console
+apiVersion: backstage.io/v1alpha1

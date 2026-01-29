@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: schema-tusk
+  title: schema-tusk
+  description: "schema-tusk service for database schema management."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/schema_tusk
+  tags:
+    - email-db
+    - email-dna

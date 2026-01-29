@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sms-channel-gateway
+  title: sms-channel-gateway
+  description: Hosting the sms channel gateway domain API for outbound MT traffic which is responsible for forwarding traffic to the correct edge role and region based on which provider the message should be sent through.
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/sms-channel-gateway
+    buildkite.com/project-slug: twilio/twilio-internal-sms-channel-gateway
+    github.com/project-slug: twilio-internal/sms-channel-gateway
+    jira/project-key: SMSEDGE
+    pagerduty.com/service-id: P69YK74
+    twilio.com/email: team_sms-edge@twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/ldap-group: team_sms-edge
+    twilio.com/security-tier: '1'
+    twilio.com/service-tier: '1'
+    twilio.com/slack-channel-name: help-sms-edge
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/sms-channel-gateway-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-sms-channel-gateway
+  - title: IaC Repository
+    url: https://www.github.com/twilio-internal/sms-channel-gateway-iac
+  tags:
+  - hipaa
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup-org-34
+  system: smpp-edge

@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: salesforce-proxy
+  title: salesforce-proxy
+  description: Proxy for communication with salesforce, performs authentication and
+    forwards requests/responses to/from salesforce
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/salesforce-proxy
+    github.com/project-slug: super-network/salesforce-proxy
+    buildkite.com/project-slug: twilio/super-network-salesforce-proxy
+    jira/project-key: SNH
+    pagerduty.com/service-id: P8XXSPT
+    twilio.com/email: super-health@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/salesforce-proxy-deploy
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-579
+  system: super-network-emergency-systems

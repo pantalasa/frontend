@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1586
+metadata:
+  name: go-diskqueue
+  title: go-diskqueue
+  description: go-diskqueue service for SendGrid integration.
+  tags:
+  - email-edge
+  - email
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/go-diskqueue
+    twilio.com/email: email-ep-edge@twilio.com
+    twilio.com/slack-id: CF7MT3UAC
+    jira/project-key: EEDGE
+    github.com/project-slug: sendgrid/go-diskqueue

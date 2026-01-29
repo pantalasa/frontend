@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: intelligence-model-trainer
+  title: intelligence-model-trainer
+  description: Model trainer for training offline models
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/intelligence-model-trainer
+    github.com/project-slug: messaging/intelligence-model-trainer
+    pagerduty.com/service-id: PHUUA1R
+    twilio.com/email: messaging-intelligence@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PWS471W
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+  links: []
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-1381
+  system: online-learning-pipelines

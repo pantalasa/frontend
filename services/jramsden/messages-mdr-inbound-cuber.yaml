@@ -1,0 +1,33 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-2040"
+  system: messaging-insights-rc-data-layer
+  dependsOn:
+    - component:default/eventbus
+    - component:default/eventbus
+    - component:default/ud-entity-schema-api
+    - component:default/report-center-orchestrator
+  lifecycle: production
+metadata:
+  name: messages-mdr-inbound-cuber
+  title: messages-mdr-inbound-cuber
+  annotations:
+    twilio.com/email: team_messaging-insights@twilio.com
+    twilio.com/eu-available: false
+    twilio.com/in-scope-bcr: false
+    twilio.com/in-scope-iso: false
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 3
+    pagerduty.com/service-id: PBFDZ8P
+    twilio.com/in-scope-gdpr: false
+    twilio.com/in-scope-soc2: false
+    twilio.com/security-tier: 0
+    twilio.com/sla-impacting: true
+    twilio.com/in-scope-hipaa: true
+    twilio.com/internet-facing: false
+    twilio.com/data-classification: confidential
+    twilio.com/pd-incident-owner-schedule: PWS471W
+  description: Realtime cuber role for inbound mdr messages
+apiVersion: backstage.io/v1alpha1

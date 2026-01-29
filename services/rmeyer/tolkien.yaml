@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1586
+  system: geopod
+metadata:
+  name: tolkien
+  title: tolkien
+  description: "tolkien service is JWT Generation Service for the new SendGrid Gateway"
+  tags:
+    - email
+    - geopod
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-edge@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/tolkien/blob/main/README.md
+    pagerduty.com/service-id: PH5E2YF
+    backstage.io/source-location: url:https://github.com/sendgrid/tolkien
+    github.com/project-slug: sendgrid/tolkien
+    twilio.com/slack-id: CF7MT3UAC

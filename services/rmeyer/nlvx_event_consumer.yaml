@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/nlvx-event-consumer
+  title: nlvx-event-consumer
+  description: "nlvx-event-consumer service for SendGrid integration."
+  tags:
+    - email
+    - mc-nlvx
+  name: nlvx-event-consumer

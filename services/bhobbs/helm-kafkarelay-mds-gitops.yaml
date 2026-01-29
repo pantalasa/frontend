@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: Infrastructure
+  lifecycle: production
+  owner: sup-org-1923
+  system: "email-datalake"
+metadata:
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: eng-email-data-platform@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/dp-mds-snowflake-ingest/blob/master/README.md
+    github.com/project-slug: sendgrid/dp-mds-snowflake-ingest
+    buildkite.com/project-slug: sendgrid/dp-mds-snowflake-ingest
+    snyk.io/target-id: sendgrid/dp-mds-snowflake-ingest
+    pagerduty.com/service-id: "PZ0HBCK"
+    twilio.com/slack-id: CDKSZDJ86
+    twilio.com/alerting-slack-channel-id-stage: CDJA5JYF6
+    twilio.com/alerting-slack-channel-id-prod: CDJA5JYF6
+    twilio.com/internet-facing: "false"
+    backstage.io/source-location: url:https://github.com/sendgrid/dp-mds-snowflake-ingest
+  name: helm-kafkarelay-mds-gitops
+  title: helm-kafkarelay-mds-gitops
+  description: "Helm KafkaRelay MDS gitops is to hold k8s for kafkarelay-mds"
+  tags:
+    - email
+    - data-platform

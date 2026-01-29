@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: chef-mysql-mail
+  title: chef-mysql-mail
+  description: "Chef configuration for MySQL mail service."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/chef-mysql_mail
+  tags:
+    - email-db
+    - email-dna

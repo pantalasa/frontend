@@ -1,0 +1,20 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-682"
+  system: rate-ingestion
+  lifecycle: production
+metadata:
+  name: messaging-ratedeck-proxy
+  title: messaging-ratedeck-proxy
+  annotations:
+    twilio.com/email: super-cost@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 4
+    pagerduty.com/service-id: PESCFOL
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+  description: Dummy role to establish envoy proxy to AWS API Gateway
+apiVersion: backstage.io/v1alpha1

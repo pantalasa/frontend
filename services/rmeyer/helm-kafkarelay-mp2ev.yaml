@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: helm-kafkarelay-mp2ev
+  title: helm-kafkarelay-mp2ev
+  description: This is the Kafka Relay charts/config for EV. This Kafka Relay will be reading from Mp Events looking for Bounces and Delivered Events. These events will get passed on to Kinesis.
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/helm-kafkarelay-mp2ev
+    buildkite.com/project-slug: sendgrid/helm-kafkarelay-mp2ev
+    github.com/project-slug: sendgrid/helm-kafkarelay-mp2ev
+    twilio.com/in-scope-soc2: 'true'
+    twilio.com/in-scope-sox: 'true'
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '1'
+  tags:
+  - soc2
+  - sox
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-1658
+  system: email-validation

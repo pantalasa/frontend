@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: helm-autoseeder
+  title: helm-autoseeder
+  description: "Helm charts for autoseeder deployment."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/helm-autoseeder
+  tags:
+    - email-db
+    - email-dna

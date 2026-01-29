@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: cli
+  lifecycle: production
+  owner: "group:default/sup-org-1505"
+metadata:
+  name: epacli
+  title: epacli
+  description: "epacli service for SendGrid integration."
+  tags:
+    - email
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/epacli

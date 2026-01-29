@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: mysql-binlog-miner
+  title: mysql-binlog-miner
+  description: "MySQL binary log mining service."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/mysql-binlog-miner
+  tags:
+    - email-db
+    - email-dna

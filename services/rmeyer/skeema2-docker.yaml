@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: skeema2-docker
+  title: skeema2-docker
+  description: "Docker configuration for Skeema2 service."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/skeema2_docker
+  tags:
+    - email-db
+    - email-dna

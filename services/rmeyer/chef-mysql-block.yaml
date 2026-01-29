@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: chef-mysql-block
+  title: chef-mysql-block
+  description: "Chef configuration for MySQL block service."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/chef-mysql_block
+  tags:
+    - email-db
+    - email-dna

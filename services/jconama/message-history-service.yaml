@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: message-history-service
+  title: message-history-service
+  description: Message History Service is a service that handles all changes for message
+    in form of MDRs and pushes them for further analysis to s3 buckets.
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/message-history-service
+    buildkite.com/project-slug: twilio/messaging/message-history-service
+    github.com/project-slug: messaging/message-history-service
+    pagerduty.com/service-id: P8G5P66
+    twilio.com/email: team_messaging-data-infra@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '4'
+    twilio.com/slack-id: C016RLP969K
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/message-history-service-deploy
+  tags:
+  - java17
+  - message-history-service
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup5.30
+  system: mdp-business-events-system
+  dependsOn:
+  - component:default/ud-entity-schema-api
+  - component:default/eventbus

@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-1673"
+  system: email-delivery
+metadata:
+  name: go_relayd
+  title: go_relayd
+  description: "go_relayd is a port of the Twisted/Python relayd service to Go."
+  tags:
+    - email
+    - ep-delivery
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/go_relayd
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/go_relayd/blob/main/README.md
+    github.com/project-slug: sendgrid/go_relayd
+    pagerduty.com/service-id: PDWT1JS
+    twilio.com/email: email-ep-delivery@twilio.com
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/slack-id: CDJCC7ETD

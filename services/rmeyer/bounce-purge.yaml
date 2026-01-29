@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1673
+  system: email-delivery
+metadata:
+  name: bounce-purge
+  title: bounce-purge
+  description: "bounce-purge service implements the Bounce Purge feature for Twilio Sendgrid."
+  tags:
+    - email
+    - ep-delivery
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-delivery@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/bounce-purge/blob/main/README.md
+    pagerduty.com/service-id: PPVKLCL
+    backstage.io/source-location: url:https://github.com/sendgrid/bounce-purge
+    github.com/project-slug: sendgrid/bounce-purge
+    twilio.com/slack-id: CDJCC7ETD

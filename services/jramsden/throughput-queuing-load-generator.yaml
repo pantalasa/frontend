@@ -1,0 +1,32 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-649"
+  system: sms-rate-limiting
+  lifecycle: experimental
+metadata:
+  name: throughput-queuing-load-generator
+  tags:
+    - sms
+  title: throughput-queuing-load-generator
+  annotations:
+    snyk.io/org-id: ac29b1af-d088-4cd2-b1ef-cb55ef16a52f
+    twilio.com/email: team_messaging-queuing@twilio.com
+    snyk.io/target-id: f019634b-9b67-4d24-85b1-e0a62a371121
+    twilio.com/eu-available: false
+    twilio.com/in-scope-bcr: false
+    twilio.com/in-scope-iso: false
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 5
+    pagerduty.com/service-id: P4NPJP0
+    twilio.com/in-scope-gdpr: false
+    twilio.com/in-scope-soc2: false
+    twilio.com/security-tier: 2
+    twilio.com/sla-impacting: false
+    twilio.com/in-scope-hipaa: false
+    twilio.com/internet-facing: false
+    twilio.com/data-classification: confidential
+    twilio.com/pd-incident-owner-schedule: P3EUJ41
+  description: Load generator service used for load tests made by the MSG Throughput Queuing Team
+apiVersion: backstage.io/v1alpha1

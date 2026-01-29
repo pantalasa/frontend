@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sms-route-performance-consumer
+  title: sms-route-performance-consumer
+  description: Used to consume compass performance data.
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/sms/sms-route-performance-consumer
+    github.com/project-slug: sms/sms-route-performance-consumer
+    pagerduty.com/service-id: PUHVBS6
+    twilio.com/email: team_real-time-routing@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '4'
+  links:
+  - title: Runbook
+    url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382776246/
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-734
+  system: automated-route-ranking
+  dependsOn:
+  - component:default/eventbus
+  - component:default/ud-entity-schema-api

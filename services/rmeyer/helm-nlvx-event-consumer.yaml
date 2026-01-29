@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: helm-nlvx-event-consumer
+  title: helm-nlvx-event-consumer
+  description: "Helm NLVX Event Consumer service for SendGrid integration."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/helm-nlvx_event_consumer
+  tags:
+    - email
+    - mc-nlvx

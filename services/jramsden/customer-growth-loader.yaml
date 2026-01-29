@@ -1,0 +1,20 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-2040"
+  system: deliverability-score
+  lifecycle: experimental
+metadata:
+  name: customer-growth-loader
+  title: customer-growth-loader
+  annotations:
+    twilio.com/email: team_messaging-customer-growth@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 5
+    pagerduty.com/service-id: PAC7IAC
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: P883LB8
+  description: Role for TAF to generate load for customer growth team services.
+apiVersion: backstage.io/v1alpha1

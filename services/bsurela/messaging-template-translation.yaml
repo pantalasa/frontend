@@ -1,0 +1,45 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: messaging-template-translation
+  title: messaging-template-translation
+  description: Service to perform content api translation
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/messaging-template-translation
+    buildkite.com/project-slug: twilio/messaging-messaging-template-translation
+    github.com/project-slug: messaging/messaging-template-translation
+    github.com/team-slug: twilio-internal/team_messaging-channels
+    pagerduty.com/service-id: PS1CR97
+    twilio.com/data-classification: 'confidential'
+    twilio.com/eu-available: 'false'
+    twilio.com/in-scope-bcr: 'false'
+    twilio.com/in-scope-gdpr: 'false'
+    twilio.com/in-scope-iso: 'false'
+    twilio.com/in-scope-soc2: 'false'
+    twilio.com/internet-facing: 'false'
+    twilio.com/sla-impacting: 'false'
+    twilio.com/email: team_messaging-channels@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'true'
+    twilio.com/ldap-group: team_messaging-channels
+    twilio.com/pd-incident-owner-schedule: PQCIWQ1
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '1'
+    twilio.com/slack-channel-name: '#eng-messaging-contentapi'
+  links:
+    - title: Deployment Repository
+      url: https://github.com/twilio-internal/messaging-template-translation-deploy
+    - title: Buildkite Pipeline
+      url: https://www.buildkite.com/twilio/messaging-messaging-template-translation
+  tags:
+    - sox
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-1644
+  system: content-template
+  dependsOn:
+    - component:default/template-management-store
+    - component:default/message-state-service

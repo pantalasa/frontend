@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: schema-asm
+  title: schema-asm
+  description: "Schema service for ASM component."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/schema_asm
+  tags:
+    - email-db
+    - email-dna

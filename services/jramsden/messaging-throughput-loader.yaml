@@ -1,0 +1,20 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-649"
+  system: limits-store
+  lifecycle: experimental
+metadata:
+  name: messaging-throughput-loader
+  title: messaging-throughput-loader
+  annotations:
+    twilio.com/email: team_messaging-throughput@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 5
+    pagerduty.com/service-id: P4NPJP0
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: P659T4H
+  description: Role that is enable to do load tests dinamically
+apiVersion: backstage.io/v1alpha1

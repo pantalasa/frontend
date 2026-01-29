@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: messaging-ott-send
+  title: messaging-ott-send
+  description: Service to process OTT outbound messages and queue them to the ratequeue
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/messaging-ott-send
+    buildkite.com/project-slug: twilio/messaging-messaging-ott-send
+    github.com/project-slug: messaging/messaging-ott-send
+    github.com/team-slug: twilio-internal/team_messaging-channels
+    pagerduty.com/service-id: PS1CR97
+    twilio.com/data-classification: 'confidential'
+    twilio.com/eu-available: 'false'
+    twilio.com/in-scope-bcr: 'false'
+    twilio.com/in-scope-gdpr: 'false'
+    twilio.com/in-scope-iso: 'false'
+    twilio.com/in-scope-soc2: 'false'
+    twilio.com/internet-facing: 'false'
+    twilio.com/sla-impacting: 'false'
+    twilio.com/email: team_messaging-channels@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/ldap-group: team_messaging-channels
+    twilio.com/pd-incident-owner-schedule: PQCIWQ1
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "1"
+    twilio.com/slack-channel-name: eng-messaging-channels
+  links:
+    - title: Deployment Repository
+      url: https://github.com/twilio-internal/messaging-ott-send-deploy
+    - title: Buildkite Pipeline
+      url: https://www.buildkite.com/twilio/messaging-messaging-ott-send
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-2428
+  system: channels-delivery
+  dependsOn:
+    - component:default/messaging-inflight-service
+    - component:default/messaging-blacklist-service
+    - component:default/contentstore
+    - component:default/messaging-ratequeue-ott-master
+    - component:default/accounts-api
+    - component:default/eventbus
+    - component:default/message-state-service
+    - component:default/number-validation-service
+    - component:default/sms-classification-service
+    - component:default/feature-service
+    - component:default/messaging-ratequeue-ott-slave
+    - component:default/dip
+    - component:default/ott-storehouse-delivery

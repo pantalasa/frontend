@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: Infrastructure
+  lifecycle: production
+  owner: sup-org-1923
+  system: "email-datalake"
+metadata:
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: eng-email-data-platform@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/helm-kafkarelay-mds/blob/master/README.md
+    github.com/project-slug: sendgrid/helm-kafkarelay-mds
+    buildkite.com/project-slug: sendgrid/helm-kafkarelay-mds
+    snyk.io/target-id: sendgrid/helm-kafkarelay-mds
+    pagerduty.com/service-id: "PZ0HBCK"
+    jira/project-key: DPSG
+    jira/component: "DP Kafka Relay"
+    twilio.com/slack-id: CDKSZDJ86
+    twilio.com/alerting-slack-channel-id-stage: CDJA5JYF6
+    twilio.com/alerting-slack-channel-id-prod: CDJA5JYF6
+    twilio.com/internet-facing: "false"
+    backstage.io/source-location: url:https://github.com/sendgrid/helm-kafkarelay-mds
+  name: helm-kafkarelay-mds
+  title: helm-kafkarelay-mds
+  description: "Helm kafkarelay mds handles Configs for kafkarelay to MDS."
+  tags:
+    - email
+    - data-ingest
+    - kafka

@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: customer-deliverability-engine-api-e2e-tests
+  title: customer-deliverability-engine-api-e2e-tests
+  description: E2E test for customer-deliverability-engine API
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/customer-deliverability-engine-api-e2e-tests
+    buildkite.com/project-slug: twilio/twilio-internal-customer-deliverability-engine-api-e2e-tests
+    github.com/project-slug: twilio-internal/customer-deliverability-engine-api-e2e-tests
+    jira/project-key: MSGINTELLI-1102
+    pagerduty.com/service-id: PYVA89L
+    twilio.com/email: team_messaging-postflight@twilio.com
+    twilio.com/ldap-group: team_messaging-postflight
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+    twilio.com/slack-channel-name: eng-communication-insights-internal
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/customer-deliverability-engine-api-e2e-tests-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-customer-deliverability-engine-api-e2e-tests
+  - title: IaC Repository
+    url: https://www.github.com/twilio-internal/customer-deliverability-engine-api-e2e-tests-iac
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-1381
+  system: customer-deliverability-engine

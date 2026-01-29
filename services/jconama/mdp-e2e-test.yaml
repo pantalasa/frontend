@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mdp-e2e-test
+  title: mdp-e2e-test
+  description: MDP E2E Test is a collection of end-to-end tests for the Messaging
+    Data Platform (MDP)
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/mdp-e2e-test
+    buildkite.com/project-slug: twilio/messaging/mdp-find-mdr-by-msgid-app
+    github.com/project-slug: messaging/mdp-e2e-test
+    twilio.com/email: team_messaging-data-infra@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+    twilio.com/slack-id: C016RLP969K
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/mdp-e2e-test-deploy
+  tags:
+  - mdp-e2e-test
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup5.30
+  system: mdp-data-lake-system

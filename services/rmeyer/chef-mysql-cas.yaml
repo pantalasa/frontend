@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: chef-mysql-cas
+  title: chef-mysql-cas
+  description: "Chef configuration for MySQL CAS service."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/chef-mysql_cas
+  tags:
+    - email-db
+    - email-dna

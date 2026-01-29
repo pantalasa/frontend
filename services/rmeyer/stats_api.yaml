@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: stats_api
+  title: StatsAPI
+  description: API service that provides query capabilities over multiple systems related to Email Stats, Logs, Insights, etc
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/stats_api
+    github.com/project-slug: sendgrid/stats_api
+    twilio.com/data-classification: restricted
+    twilio.com/eu-available: "true"
+    twilio.com/in-scope-bcr: "true"
+    twilio.com/in-scope-gdpr: "true"
+    twilio.com/in-scope-hipaa: "true"
+    twilio.com/in-scope-iso: "true"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "true"
+    twilio.com/in-scope-sox: "true"
+    twilio.com/internet-facing: "true"
+    twilio.com/security-tier: "0"
+    twilio.com/service-tier: "1"
+    twilio.com/sla-impacting: "false"
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-1505"
+  system: email-logs-insights
+  providesApis:
+    - api:default/email-logs
+    - api:default/email-insights
+    - api:default/email-ease-query-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-1505"
+metadata:
+  name: statsapi_acceptance
+  title: statsapi_acceptance
+  description: Test suite for StatsAPI
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/statsapi_acceptance
+    github.com/project-slug: sendgrid/statsapi_acceptance
+    twilio.com/data-classification: confidential
+    twilio.com/eu-available: "false"
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-gdpr: "false"
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-iso: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "false"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/internet-facing: "false"
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "5"
+    twilio.com/sla-impacting: "false"

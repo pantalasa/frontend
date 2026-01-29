@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: nikki-kube-hw
+  title: nikki-kube-hw
+  description: "Nikki Kubernetes Hello World service."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/nikki-kube-hw
+  tags:
+    - email-db
+    - email-dna

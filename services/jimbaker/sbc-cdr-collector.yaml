@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sbc-cdr-collector
+  title: sbc-cdr-collector
+  description: Collects CDR logs from Audiocodes SBCs
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/sbc-cdr-collector
+    github.com/project-slug: super-network/sbc-cdr-collector
+    pagerduty.com/service-id: P92CX01
+    twilio.com/email: team_super-network-infrastructure-platform@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '4'
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/sbc-cdr-collector-deploy
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-640
+  system: sbc

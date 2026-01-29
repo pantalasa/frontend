@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sn-alf
+  title: sn-alf
+  description: Allows querying and configuring verification and action plans for route
+    alerts on supernetwork-emergency-service
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/sn-alf
+    github.com/project-slug: super-network/sn-alf
+    pagerduty.com/service-id: P8XXSPT
+    twilio.com/email: super-health@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+  links: []
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-579
+  system: super-network-emergency-systems

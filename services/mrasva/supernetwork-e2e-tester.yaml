@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: supernetwork-e2e-tester
+  title: supernetwork-e2e-tester
+  description: e2e tester for the supernetwork teams
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/supernetwork-e2e-tester
+    github.com/project-slug: super-network/supernetwork-e2e-tester
+    pagerduty.com/service-id: P5E0NDN
+    twilio.com/email: team_messaging-sit@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+  links: []
+spec:
+  type: service
+  lifecycle: experimental
+  owner: jm-sup-org-162
+  system: provider-service
+  dependsOn:
+  - component:default/carrierops-provider-service

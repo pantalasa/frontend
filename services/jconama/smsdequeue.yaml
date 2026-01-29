@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: smsdequeue
+  title: smsdequeue
+  description: Performs post-ratelimiting validation on SMS messages and forwards
+    to SMS edge for sending
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/twilio/smsdequeue
+    github.com/project-slug: twilio/smsdequeue
+    pagerduty.com/service-id: P4NPJP0
+    twilio.com/email: sms-core@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'true'
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '1'
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/smsdequeue-deploy
+  tags:
+  - sms
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-1358
+  system: sms-dequeue
+  dependsOn:
+  - component:default/messaging-a2p-api
+  - component:default/sms-classification-service
+  - component:default/messaging-inflight-service
+  - component:default/sms-event-platform
+  - component:default/messaging-limits-store
+  - component:default/accounts-api
+  - component:default/carrierops-provider-service
+  - component:default/messaging-ratequeue-master
+  - component:default/messaging-ratequeue-slave
+  - component:default/message-state-service
+  - component:default/messaging-routing-service
+  - component:default/dip

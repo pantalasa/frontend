@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mdp-spark-data-finalizer-app
+  title: mdp-spark-data-finalizer-app
+  description: MDP Spark Data Finalizer App repartitions data by field, Adds extra
+    partition keys if needed, Sorts by fields,Adds bloom filters to fields and removes
+    duplicates by keeping the latest update
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/mdp-spark-data-finalizer-app
+    buildkite.com/project-slug: twilio/messaging/mdp-spark-data-finalizer-app
+    github.com/project-slug: messaging/mdp-spark-data-finalizer-app
+    pagerduty.com/service-id: P8G5P66
+    twilio.com/email: team_messaging-data-infra@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/pd-incident-owner-schedule: PR5HVZL
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '4'
+    twilio.com/slack-id: C016RLP969K
+  links: []
+  tags:
+  - java17
+  - mdp-spark-data-finalizer-app
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup5.30
+  system: mdp-business-events-system

@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: helm-nlvx-noderouter
+  title: helm-nlvx-noderouter
+  description: "Helm NLVX Node Router service for SendGrid integration."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/helm-nlvx_noderouter
+  tags:
+    - email
+    - mc-nlvx

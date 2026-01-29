@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: Infrastructure
+  lifecycle: production
+  owner: sup-org-1923
+  system: email-reseller-platform
+metadata:
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "5"
+    twilio.com/email: eng-resellerplatform_sg@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/markdown-to-confluence-buildkite-plugin/blob/main/README.md
+    github.com/project-slug: sendgrid/markdown-to-confluence-buildkite-plugin
+    buildkite.com/project-slug: sendgrid/markdown-to-confluence-buildkite-plugin
+    snyk.io/target-id: sendgrid/markdown-to-confluence-buildkite-plugin
+    twilio.com/slack-id: CDKGS75TR
+    twilio.com/alerting-slack-channel-id-stage: C031JT6HNUE
+    twilio.com/alerting-slack-channel-id-prod: CDKSZHQUW
+    backstage.io/source-location: url:https://github.com/sendgrid/markdown-to-confluence-buildkite-plugin
+    twilio.com/internet-facing: "false"
+  name: markdown-to-confluence-buildkite-plugin
+  title: markdown-to-confluence-buildkite-plugin
+  description: "Markdown to Confluence Buildkite Plugin is a buildkite plugin to sync Github Markdown documentation to Confluence."
+  tags:
+    - email
+    - confluence
+    - buildkite

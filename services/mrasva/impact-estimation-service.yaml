@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: impact-estimation-service
+  title: impact-estimation-service
+  description: Automatic impact estimation for traffic route alerts
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/impact-estimation-service
+    github.com/project-slug: super-network/impact-estimation-service
+    pagerduty.com/service-id: P8XXSPT
+    twilio.com/email: super-health@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/impact-estimation-service-deploy
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-579
+  system: super-network-emergency-systems
+  dependsOn:
+  - component:default/salesforce-proxy
+  - component:default/ud-entity-schema-api
+  - component:default/eventbus
+  - component:default/supernetwork-emergency-service
+  - component:default/supernetwork-insights-mapping-service
+  - component:default/fraud-services-decision-api

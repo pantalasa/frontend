@@ -1,0 +1,250 @@
+# Comprehensive test file for all validators
+# This file intentionally contains errors to test validation
+
+---
+# Document 1: Component with MULTIPLE errors
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-service-with-errors
+  title: Test Service With Errors
+  description: This document has multiple validation errors
+  namespace: production  # ERROR: namespace should be unset or 'default'
+  annotations:
+    backstage.io/source-location: https://github.com/org/repo  # ERROR: missing 'url:' prefix
+    github.com/project-slug: org/repo
+    invalid-annotation-key: value  # ERROR: not in approved list
+    twilio.com/in-scope-hipaa: true  # ERROR: boolean not quoted
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-pci: 'false'  # ERROR: duplicate key
+    twilio.com/security-tier: 2  # ERROR: number not quoted
+spec:
+  type: service
+  lifecycle: production
+  owner: team-123
+
+---
+# Document 2: Deprecated slack-channel-name annotation
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-deprecated-slack
+  title: Test Deprecated Slack Channel Name
+  description: Uses deprecated slack-channel-name annotation
+  annotations:
+    backstage.io/source-location: url:https://github.com/org/repo
+    github.com/project-slug: org/repo
+    twilio.com/slack-channel-name: '#my-channel'  # ERROR: deprecated, use slack-id
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+spec:
+  type: service
+  lifecycle: production
+  owner: team-123
+
+---
+# Document 3: Component:service missing required in-scope fields
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-service-missing-inscope
+  title: Test Service Missing In-Scope
+  description: Missing required in-scope annotations
+  annotations:
+    backstage.io/source-location: url:https://github.com/org/repo
+    github.com/project-slug: org/repo
+    # ERROR: Missing all three in-scope fields
+spec:
+  type: service
+  lifecycle: production
+  owner: team-123
+
+---
+# Document 3: code.hq.twilio.com without github-server annotation
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-twilio-code-without-server
+  title: Test Twilio Code Without Server
+  description: Has code.hq.twilio.com source but missing github-server annotation
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/org/repo  # ERROR: needs github-server
+    github.com/project-slug: org/repo
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+spec:
+  type: service
+  lifecycle: production
+  owner: team-123
+
+---
+# Document 4: github.com WITH github-server annotation (invalid)
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-github-with-server
+  title: Test GitHub With Server
+  description: Has github.com source but incorrectly has github-server annotation
+  annotations:
+    backstage.io/source-location: url:https://github.com/org/repo
+    github.com/project-slug: org/repo
+    twilio.com/github-server: code.hq.twilio.com  # ERROR: shouldn't be set for github.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+spec:
+  type: service
+  lifecycle: production
+  owner: team-123
+
+---
+# Document 5: Component missing required metadata fields
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-missing-metadata
+  # ERROR: Missing title and description (required for Component)
+  annotations:
+    backstage.io/source-location: url:https://github.com/org/repo
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+spec:
+  type: service
+  lifecycle: production
+  owner: team-123
+
+---
+# Document 6: Component missing required spec fields
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-missing-spec
+  title: Test Missing Spec
+  description: Missing required spec fields
+  annotations:
+    backstage.io/source-location: url:https://github.com/org/repo
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+spec:
+  type: service
+  # ERROR: Missing lifecycle and owner
+
+---
+# Document 7: API missing required fields
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: test-api-missing-fields
+  # ERROR: Missing description (required for API)
+spec:
+  type: openapi
+  lifecycle: production
+  owner: team-123
+  # ERROR: Missing definition (required for API)
+
+---
+# Document 8: Component with invalid list types
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-invalid-lists
+  title: Test Invalid Lists
+  description: Has fields that should be lists but aren't
+  tags: single-tag  # ERROR: should be a list
+  links: https://example.com  # ERROR: should be a list
+  annotations:
+    backstage.io/source-location: url:https://github.com/org/repo
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+spec:
+  type: service
+  lifecycle: production
+  owner: team-123
+  dependsOn: component:other  # ERROR: should be a list
+
+---
+# Document 9: VALID Component for comparison
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-valid-service
+  title: Test Valid Service
+  description: This is a completely valid component
+  annotations:
+    backstage.io/source-location: url:https://github.com/org/repo
+    github.com/project-slug: org/repo
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/security-tier: '2'
+  tags:
+    - tag1
+    - tag2
+  links:
+    - title: Example
+      url: https://example.com
+spec:
+  type: service
+  lifecycle: production
+  owner: team-123
+  dependsOn:
+    - component:other-service
+
+---
+# Document 10: VALID code.hq.twilio.com Component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-valid-twilio-code
+  title: Test Valid Twilio Code
+  description: Valid component with code.hq.twilio.com source
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/org/repo
+    github.com/project-slug: org/repo
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'true'
+    twilio.com/in-scope-sox: 'false'
+spec:
+  type: service
+  lifecycle: production
+  owner: team-123
+
+---
+# Document 11: Component with namespace='default' (valid)
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-valid-default-namespace
+  title: Test Valid Default Namespace
+  description: Has namespace explicitly set to 'default' which is valid
+  namespace: default  # VALID: explicitly set to 'default'
+  annotations:
+    backstage.io/source-location: url:https://github.com/org/repo
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+spec:
+  type: service
+  lifecycle: production
+  owner: team-123
+
+---
+# Document 12: Source location with various invalid formats
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-invalid-source-formats
+  title: Test Invalid Source Formats
+  description: Test document (will be tested separately with different source-location values)
+  annotations:
+    backstage.io/source-location: url:http://github.com/org/repo  # ERROR: http instead of https
+spec:
+  type: library  # Not a service, so in-scope fields not required
+  lifecycle: production
+  owner: team-123

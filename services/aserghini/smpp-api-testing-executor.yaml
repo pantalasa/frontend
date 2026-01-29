@@ -1,0 +1,26 @@
+kind: Component
+spec:
+  type: service
+  owner: jm-sup-org-34
+  system: sms-smpp-api
+  lifecycle: experimental
+metadata:
+  name: smpp-api-testing-executor
+  tags:
+    - sms
+  links:
+    -
+      url: "https://code.hq.twilio.com/sms/smpp-api-testing-executor-terraform"
+      title: IaC Repository
+  title: smpp-api-testing-executor
+  annotations:
+    twilio.com/email: team_sms-customer-edge@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 5
+    pagerduty.com/service-id: PNBSD8X
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: PZV0VW5
+  description: RTD-based testing-executor for SMPP API (Tweek project)
+apiVersion: backstage.io/v1alpha1

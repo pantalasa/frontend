@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1714
+  system: email-account-management
+metadata:
+  annotations:
+    twilio.com/security-tier: "1"
+    twilio.com/service-tier: "2"
+    twilio.com/email: eng-Kraken_sg@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/vetting-decision-handler/blob/main/README.md
+    github.com/project-slug: sendgrid/vetting-decision-handler
+    buildkite.com/project-slug: sendgrid/vetting-decision-handler
+    snyk.io/target-id: sendgrid/vetting-decision-handler
+    pagerduty.com/service-id: PJJPB8T
+    jira/project-key: CLKRAKEN
+    jira/component: Vetting Decision Handler
+    twilio.com/slack-id: C03CLFJPS49
+    twilio.com/alerting-slack-channel-id-prod: C0233THSQE4
+    twilio.com/internet-facing: "false"
+    backstage.io/source-location: url:https://github.com/sendgrid/vetting-decision-handler
+  links:
+    - title: Runbook
+      url: https://github.com/sendgrid/vetting-decision-handler/blob/main/docs/runbook.md
+  name: vetting-decision-handler
+  title: vetting-decision-handler
+  description: "Vetting Decision Handler is a pipeline that handles account vetting decisions from external platforms and processes them for use within the Accounts platform."
+  tags:
+    - email
+    - vetting

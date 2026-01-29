@@ -1,0 +1,20 @@
+kind: Component
+spec:
+  type: service
+  owner: jm-sup-org-34
+  system: smpp-beepsend-edge
+  lifecycle: production
+metadata:
+  name: messaging-beepsend-smpp-out
+  title: messaging-beepsend-smpp-out
+  annotations:
+    twilio.com/email: sms-edge@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 0
+    pagerduty.com/service-id: P69YK74
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: PZV0VW5
+  description: Beepsend outgoing (provider/operator) SMPP gateway
+apiVersion: backstage.io/v1alpha1

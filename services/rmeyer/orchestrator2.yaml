@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: orchestrator2
+  title: orchestrator2
+  description: "Second generation orchestrator service."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/orchestrator2
+  tags:
+    - email-db
+    - email-dna

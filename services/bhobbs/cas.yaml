@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1714
+  system: email-account-management
+  providesApis:
+  - cas-api
+metadata:
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/cas
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/cas/blob/master/README.md
+    buildkite.com/project-slug: sendgrid/cas
+    github.com/project-slug: sendgrid/cas
+    jira/component: CAS
+    jira/project-key: CLKRAKEN
+    snyk.io/target-id: sendgrid/cas
+    twilio.com/alerting-slack-channel-id-prod: C0233THSQE4
+    twilio.com/email: eng-Kraken_sg@twilio.com
+    twilio.com/internet-facing: "false"
+    twilio.com/security-tier: "1"
+    twilio.com/service-tier: "2"
+    twilio.com/slack-id: C03CLFJPS49
+  name: cas
+  title: cas
+  description: "CAS is a microservice for associating customers with products, and managing relationships between customers."
+  tags:
+  - email
+  - cas
+  - go
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: cas-api
+  description: "CAS is a microservice for associating customers with products, and managing relationships between customers."
+  tags:
+  - email
+  - cas-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: sup-org-1714
+  system: email-account-management
+  definition:
+    $text: https://github.com/sendgrid/cas/blob/master/reference/cas.v2.yaml

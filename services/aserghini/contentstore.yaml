@@ -1,0 +1,38 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup_org_zip-810"
+  system: messaging-media
+  dependsOn:
+    - component:default/messaging-inflight-media-service
+    - component:default/id-sign-verify-service
+    - component:default/pied-piper-ingest
+    - component:default/postflight-messaging-api
+    - component:default/accounts-api
+    - component:default/eventbus
+    - component:default/ud-entity-schema-api
+    - component:default/audit-events-api
+    - component:default/feature-service
+    - component:default/squid
+    - component:default/message-state-service
+  lifecycle: production
+metadata:
+  name: contentstore
+  tags:
+    - messaging
+  links:
+    -
+      url: "https://github.com/twilio-internal/contentstore-deploy"
+      title: Deployment Repository
+  title: contentstore
+  annotations:
+    twilio.com/email: messaging-mms@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: P2ECJFE
+    twilio.com/security-tier: 0
+    twilio.com/in-scope-hipaa: true
+    twilio.com/pd-incident-owner-schedule: PRUJT1W
+  description: Service for media content download and upload for messages with media. 
+apiVersion: backstage.io/v1alpha1

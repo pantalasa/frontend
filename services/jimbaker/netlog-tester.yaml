@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: netlog-tester
+  title: netlog-tester
+  description: Repository created by Backstage
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/netlog-tester
+    buildkite.com/project-slug: twilio/twilio-internal-netlog-tester
+    github.com/project-slug: twilio-internal/netlog-tester
+    jira/project-key: SNIP
+    pagerduty.com/service-id: replace-me
+    twilio.com/email: team_super-network-infrastructure-platform@twilio.com
+    twilio.com/ldap-group: team_super-network-infrastructure-platform
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '4'
+    twilio.com/slack-channel-name: eng-snipa-alerts
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/netlog-tester-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-netlog-tester
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-640

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sntp-tests
+  title: sntp-tests
+  description: Integration and e2e tests for benchmark-api and sntp in general
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/sntp-tests
+    buildkite.com/project-slug: twilio/twilio-internal-sntp-tests
+    github.com/project-slug: twilio-internal/sntp-tests
+    jira/project-key: SNTP
+    pagerduty.com/service-id: PBLO97C
+    twilio.com/email: team_super-network-monitoring@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/ldap-group: team_super-network-monitoring
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+    twilio.com/slack-channel-name: eng-sntp-alerts
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/sntp-tests-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-sntp-tests
+  - title: IaC Repository
+    url: https://www.github.com/twilio-internal/sntp-tests-iac
+  - title: Git Repo
+    url: https://code.hq.twilio.com/super-network/sntp-tests
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-579
+  system: carrier-test-platform

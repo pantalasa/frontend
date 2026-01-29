@@ -1,0 +1,103 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: messaging-template-orch
+  title: messaging-template-orch
+  description: Service to perform content api orchestration
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/messaging-template-orch
+    buildkite.com/project-slug: twilio/messaging-messaging-template-orch
+    github.com/project-slug: messaging/messaging-template-orch
+    github.com/team-slug: twilio-internal/team_messaging-channels
+    jira/project-key: MSGADVCHNL
+    pagerduty.com/service-id: PS1CR97
+    snyk.io/org-id: ac29b1af-d088-4cd2-b1ef-cb55ef16a52f
+    snyk.io/targets: messaging/messaging-template-orch
+    twilio.com/alerting-slack-channel-id-prod: C07L6709B2Q
+    twilio.com/alerting-slack-channel-id-stage: C07J6AMHRDG
+    twilio.com/data-classification: restricted
+    twilio.com/email: messaging-channels@twilio.com
+    twilio.com/eu-available: 'false'
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-bcr: 'false'
+    twilio.com/in-scope-gdpr: 'false'
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-iso: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-soc2: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/internet-facing: 'false'
+    twilio.com/ldap-group: team_messaging-channels
+    twilio.com/pd-incident-owner-schedule: PQCIWQ1
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '1'
+    twilio.com/sla-impacting: 'false'
+    twilio.com/slack-id: C9PUBL6AE
+  links:
+    - title: Deployment Repository
+      url: https://github.com/twilio-internal/messaging-template-orch-deploy
+    - title: Buildkite Pipeline
+      url: https://www.buildkite.com/twilio/messaging-messaging-template-orch
+    - title: IaC Repository
+      url: https://code.hq.twilio.com/messaging/terraform-messaging-template-orch
+    - title: Documentation
+      url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382782131/messaging-template-orch
+    - title: Datadog Dashboard
+      url: https://app.datadoghq.com/dashboard/deq-ek9-zfy/msg-channels-messaging-template-orch
+  tags:
+    - dropwizard
+    - java17
+    - java
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-1644
+  system: content-template
+  dependsOn:
+    - component:default/template-management-store
+    - component:default/messaging-whatsapp-k8s-orch
+    - component:default/feature-service
+    - component:default/messaging-ott-storehouse
+    - component:default/pied-piper-ingest
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: messaging-template-orch-whatsapp-accounts
+  description: Queue is used for migrating legacy whatsapp templates
+  tags:
+    - queue
+spec:
+  type: queue
+  owner: group:default/sup-org-1644
+  system: content-template
+  dependencyOf:
+    - component:messaging-template-orch
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: messaging-template-orch-content-creation
+  description: Queue is used for migrating legacy whatsapp templates
+  tags:
+    - queue
+spec:
+  type: queue
+  owner: group:default/sup-org-1644
+  system: content-template
+  dependencyOf:
+    - component:messaging-template-orch
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: messaging-template-orch-account-updates
+  description: Queue is used for migrating legacy whatsapp templates
+  tags:
+    - queue
+spec:
+  type: queue
+  owner: group:default/sup-org-1644
+  system: content-template
+  dependencyOf:
+    - component:messaging-template-orch

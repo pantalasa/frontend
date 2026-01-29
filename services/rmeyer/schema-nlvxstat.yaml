@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: schema-nlvxstat
+  title: schema-nlvxstat
+  description: "Schema service for NLVX statistics."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/schema_nlvxstat
+  tags:
+    - email-db
+    - email-dna

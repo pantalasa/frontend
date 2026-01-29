@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sms-capabilities-evaluator
+  title: sms-capabilities-evaluator
+  description: Service provides synthetic testing for sellers capabilities
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/carrierops/sms-capabilities-evaluator
+    buildkite.com/project-slug: twilio/carrierops-sms-capabilities-evaluator
+    github.com/project-slug: carrierops/sms-capabilities-evaluator
+    jira/project-key: SNCE
+    pagerduty.com/service-id: PESCFOL
+    snyk.io/org-id: ccd9f4a3-9bb3-48c3-a25b-2da4db09a45a
+    snyk.io/project-id: b5798602-fac1-4c55-8728-c03baba295e4
+    twilio.com/email: super-cost@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "3"
+    twilio.com/slack-channel-name: "#help-sn-cost"
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/sms-capabilities-evaluator-deploy
+  - title: Runbook
+    url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382777757/sms-capabilities-evaluator+runbook
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-682
+  system: synthetic-testing-service
+  dependsOn:
+  - component:default/benchmark-api
+  - component:default/ud-entity-schema-api
+  - component:default/eventbus
+  - component:default/carrierops-provider-service
+  - component:default/sms-product-configuration-service
+  - component:default/network-registry
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: sms-capabilities-evaluator-api
+  description: "API for SMS Capabilities Evaluator tasks"
+  tags:
+  - supply-management
+  - sms-capabilities-evaluator-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: sup-org-682
+  system: synthetic-testing-service
+  definition:
+    $text: https://code.hq.twilio.com/carrierops/sms-capabilities-evaluator/blob/main/api/src/main/resources/sms-capabilities-evaluator-api.yaml

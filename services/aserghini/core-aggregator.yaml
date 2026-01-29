@@ -1,0 +1,122 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: core-aggregator
+  title: core-aggregator
+  description: Core Aggregator Service for ZW
+  tags:
+    - java
+  annotations:
+    backstage.io/source-location: url:https://github.com/Zipwhip/core-aggregator
+    buildkite.com/project-slug: twilio/zipwhip-core-aggregator
+    github.com/project-slug: zipwhip/core-aggregator
+    github.com/team-slug: zipwhip/developers
+    jira/component: core-aggregator
+    jira/project-key: TMINFRA
+    pagerduty.com/service-id: PT8ZW7U
+    twilio.com/alerting-slack-channel-id-dev: "C04SQD21U9F"
+    twilio.com/alerting-slack-channel-id-prod: "C01G6UDFSMV"
+    twilio.com/alerting-slack-channel-id-stage: "C05Q8A3DNH3"
+    twilio.com/data-classification: restricted
+    twilio.com/email: team_zipwhip-core-messaging-engineering@twilio.com
+    twilio.com/eu-available: "false"
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-gdpr: "false"
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-iso: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "true"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/internet-facing: "false"
+    twilio.com/pd-incident-owner-schedule: P2E936R
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "1"
+    twilio.com/sla-impacting: "true"
+    twilio.com/slack-id: "C02H6JYEM7G"
+  links:
+    - title: Grafana Dashboard
+      url: https://g-870ae6cc62.grafana-workspace.us-west-2.amazonaws.com/d/vWW4txRMzX/core-aggregator-overview?orgId=1&refresh=30s
+
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup_org_zip-817
+  system: zw-core-messaging
+  dependsOn:
+    - resource:default/zw-coreprod-msk-01-kafka-cluster
+    - resource:default/dynamodb-coreprod-aggregator-message-group
+    - resource:default/dynamodb-coreprod-aggregator-message-tracker
+    - resource:default/dynamodb-coreprod-carrier-aggregator-message-group
+    - resource:default/dynamodb-coreprod-carrier-aggregator-message-tracker
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dynamodb-coreprod-aggregator-message-group
+  description: DynamoDB table for message groups
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - database
+    - dynamodb
+    - dynamodb-coreprod-aggregator-message-group
+spec:
+  type: database
+  owner: group:default/sup_org_zip-817
+  system: zw-core-messaging
+  dependencyOf:
+    - component:default/core-aggregator
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dynamodb-coreprod-aggregator-message-tracker
+  description: DynamoDB table for message tracking
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - database
+    - dynamodb
+    - dynamodb-coreprod-aggregator-message-tracker
+spec:
+  type: database
+  owner: group:default/sup_org_zip-817
+  system: zw-core-messaging
+  dependencyOf:
+    - component:default/core-aggregator
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dynamodb-coreprod-carrier-aggregator-message-group
+  description: DynamoDB table for carrier message groups
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - database
+    - dynamodb
+    - dynamodb-coreprod-carrier-aggregator-message-group
+spec:
+  type: database
+  owner: group:default/sup_org_zip-817
+  system: zw-core-messaging
+  dependencyOf:
+    - component:default/core-aggregator
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dynamodb-coreprod-carrier-aggregator-message-tracker
+  description: DynamoDB table for carrier message tracking
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - database
+    - dynamodb
+    - dynamodb-coreprod-carrier-aggregator-message-tracker
+spec:
+  type: database
+  owner: group:default/sup_org_zip-817
+  system: zw-core-messaging
+  dependencyOf:
+    - component:default/core-aggregator

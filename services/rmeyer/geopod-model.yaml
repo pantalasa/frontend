@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1586
+  system: geopod
+metadata:
+  name: geopod-model
+  title: geopod-model
+  description: "geopod-model service uses Prophet to train a model using the historical Geopod received events data pulled from MDS and creates a forecast that we can use to predict Geopod capacity requirements."
+  tags:
+    - email
+    - geopod
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-edge@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/geopod-model/blob/main/README.md
+    pagerduty.com/service-id: PH5E2YF
+    backstage.io/source-location: url:https://github.com/sendgrid/geopod-model
+    github.com/project-slug: sendgrid/geopod-model
+    twilio.com/slack-id: CF7MT3UAC

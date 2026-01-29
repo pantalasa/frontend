@@ -1,0 +1,20 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-682"
+  system: engineering-onboarding-project
+  lifecycle: production
+metadata:
+  name: eic-onboarding-template-mojasaar
+  title: eic-onboarding-template-mojasaar
+  annotations:
+    twilio.com/email: super-cost@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 5
+    pagerduty.com/service-id: PESCFOL
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+  description: My Frst Deployment
+apiVersion: backstage.io/v1alpha1

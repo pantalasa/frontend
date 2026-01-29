@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1923
+  system: "email-reseller-facade"
+  providesApis:
+  - reseller-facade-google-api
+metadata:
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/reseller-facade-google
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/reseller-facade-google/blob/main/README.md
+    buildkite.com/project-slug: sendgrid/reseller-facade-google
+    github.com/project-slug: sendgrid/reseller-facade-google
+    jira/component: "Reseller Facade Google"
+    jira/project-key: CLRF
+    pagerduty.com/service-id: "P5GPBO8"
+    snyk.io/target-id: sendgrid/reseller-facade-google
+    twilio.com/alerting-slack-channel-id-prod: CDKSZHQUW
+    twilio.com/alerting-slack-channel-id-stage: C031JT6HNUE
+    twilio.com/email: eng-resellerplatform_sg@twilio.com
+    twilio.com/internet-facing: "false"
+    twilio.com/security-tier: "1"
+    twilio.com/service-tier: "0"
+    twilio.com/slack-id: CDKGS75TR
+  links:
+  - title: Runbook
+    url: https://github.com/sendgrid/reseller-facade-google/blob/main/docs/runbook.md
+  name: reseller-facade-google
+  title: reseller-facade-google
+  description: "Reseller Facade Google is a service that provides a Google marketplace integration with Twilio SendGrid."
+  tags:
+  - email
+  - reseller-facade-google
+  - go
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: reseller-facade-google-api
+  description: "The Reseller Facade Google API for integrating the Google Marketplace with Twilio SendGrid's reseller platform."
+  tags:
+  - email
+  - reseller-facade-google
+  - go
+spec:
+  type: openapi
+  lifecycle: production
+  owner: sup-org-1923
+  system: "email-reseller-facade"
+  definition:
+    $text: https://github.com/sendgrid/reseller-facade-google/blob/main/reference/google-facade-openapi.yaml

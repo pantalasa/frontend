@@ -1,0 +1,30 @@
+kind: Component
+spec:
+  type: service
+  owner: jm-sup-org-168
+  system: messaging-services-core
+  dependsOn:
+    - component:default/messaging-ratequeue-apps-master
+    - component:default/messaging-ratequeue-apps-slave
+    - component:default/nagios-frontend-v2
+  lifecycle: production
+metadata:
+  name: messaging-ratequeue-apps-slave
+  tags:
+    - messaging
+  links:
+    -
+      url: "https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382771924/messaging-ratequeue-apps"
+      title: Runbook
+  title: messaging-ratequeue-apps-slave
+  annotations:
+    twilio.com/email: messaging-services@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: P6ZTYC7
+    twilio.com/security-tier: 0
+    twilio.com/in-scope-hipaa: true
+    twilio.com/pd-incident-owner-schedule: PEPHN4O
+  description: MessagingApps RateQueue
+apiVersion: backstage.io/v1alpha1

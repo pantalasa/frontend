@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: dbmain-rdstools
+  title: dbmain-rdstools
+  description: "Database main RDS tools service."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/dbmain-rdstools
+  tags:
+    - email-db
+    - email-dna

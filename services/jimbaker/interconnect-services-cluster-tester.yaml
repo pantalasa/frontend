@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: interconnect-services-cluster-tester
+  title: interconnect-services-cluster-tester
+  description: Role for interconnect load tests.
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/interconnect-services-cluster-tester
+    github.com/project-slug: super-network/interconnect-services-cluster-tester
+    pagerduty.com/service-id: PGQ19ZB
+    twilio.com/email: sn-interconnect@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+  links: []
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-640
+  system: tnx-directory

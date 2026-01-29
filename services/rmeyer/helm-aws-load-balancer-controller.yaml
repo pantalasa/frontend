@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: helm-aws-load-balancer-controller
+  title: helm-aws-load-balancer-controller
+  description: "Helm charts for AWS Load Balancer Controller."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/helm-aws-load-balancer-controller
+  tags:
+    - email-db
+    - email-dna

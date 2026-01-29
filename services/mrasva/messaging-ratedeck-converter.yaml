@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: messaging-ratedeck-converter
+  title: messaging-ratedeck-converter
+  description: Ratedeck converter
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/carrierops/messaging-ratedeck-converter  
+    github.com/project-slug: carrierops/messaging-ratedeck-converter
+    twilio.com/github-server: code.hq.twilio.com
+    jira/project-key: SNCE
+    snyk.io/org-id: ccd9f4a3-9bb3-48c3-a25b-2da4db09a45a
+    snyk.io/project-id: 6446a6943-b806-41f8-bf4a-ff7d248d8004 
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'true'
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '3'
+    pagerduty.com/service-id: PESCFOL
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/email: super-cost@twilio.com
+    twilio.com/slack-channel-name: "#help-sn-cost"
+  links:
+    - url: "https://code.hq.twilio.com/carrierops/messaging-ratedeck-converter"
+      title: "Application Repository"
+    - url: "https://github.com/twilio-internal/messaging-ratedeck-converter-deploy"
+      title: "Deployment Repository"
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-682
+  system: rate-ingestion
+  dependsOn:
+  - component:default/eventbus
+  - component:default/ud-entity-schema-api
+  - component:default/snce-provider-cost-api

@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: messaging-mdp-metaflux
+  title: messaging-mdp-metaflux
+  description: MetaFlux Worker for MDP
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/messaging-mdp-metaflux
+    buildkite.com/project-slug: twilio/twilio-internal-messaging-mdp-metaflux
+    github.com/project-slug: twilio-internal/messaging-mdp-metaflux
+    jira/project-key: MDP
+    pagerduty.com/service-id: PQ3GN90
+    twilio.com/email: team_messaging-data-infra@twilio.com
+    twilio.com/ldap-group: team_messaging-data-infra
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+    twilio.com/slack-channel-name: eng-messaging-data-platform
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/messaging-mdp-metaflux-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-messaging-mdp-metaflux
+  - title: IaC Repository
+    url: https://github.com/twilio-internal/messaging-mdp-metaflux-iac
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup5.30
+  system: mdp-operational-analysis-system

@@ -1,0 +1,25 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-2398"
+  system: enterprise-insights
+  dependsOn:
+    - component:default/report-center-orchestrator
+    - component:default/eventbus
+    - component:default/eventbus
+    - component:default/ud-entity-schema-api
+  lifecycle: production
+metadata:
+  name: syn-events-cuber
+  title: syn-events-cuber
+  annotations:
+    twilio.com/email: data-reportcenter@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 5
+    pagerduty.com/service-id: P729B1J
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: P8O7PRY
+  description: Realtime pre-aggregator for SynEvents
+apiVersion: backstage.io/v1alpha1

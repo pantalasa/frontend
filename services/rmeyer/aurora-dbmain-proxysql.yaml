@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: aurora-dbmain-proxysql
+  title: aurora-dbmain-proxysql
+  description: "Aurora database main ProxySQL service."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/aurora-dbmain-proxysql
+  tags:
+    - email-db
+    - email-dna

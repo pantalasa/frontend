@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sms-send
+  title: sms-send
+  description: API for sending outbound (MT) SMS messages
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/sms/sms-send
+    buildkite.com/project-slug: twilio/sms-sms-send
+    github.com/project-slug: sms/sms-send
+    github.com/team-slug: team_sms-core
+    pagerduty.com/service-id: P4NPJP0
+    jira/project-key: SMSCORE
+    twilio.com/email: team_sms-core@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'true'
+    twilio.com/ldap-group: team_sms-core
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '1'
+    twilio.com/slack-channel-name: '#eng-message-flow'
+  links:
+  - title: ArgoCD - DEV
+    url: https://argo-cd.mgmt.otk.twilioinfra.com/applications/twilio-system-argo-cd/sms-send-dev-use1-002
+  - title: ArgoCD - STAGE
+    url: https://argo-cd.mgmt.otk.twilioinfra.com/applications/twilio-system-argo-cd/sms-send-stage-use1-002
+  - title: ArgoCD - PROD
+    url: https://argo-cd.mgmt.otk.twilioinfra.com/applications/twilio-system-argo-cd/sms-send-prod-use1-002
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/sms-send-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/sms-sms-send
+  - title: Source
+    url: https://code.hq.twilio.com/sms/sms-send
+  - title: Documentation
+    url: https://twilio-productivity.atlassian.net/wiki/spaces/MFLOW/pages/373850516/sms-send
+  - title: Runbook
+    url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382781476/sms-send?pageId=382781476
+  - title: Datadog Dashboard
+    url: https://app.datadoghq.com/dashboard/jw3-qhy-5dd/sms-sms-send-status
+  tags:
+  - java
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-1358
+  system: sms-outbound-api
+  dependsOn:
+  - component:default/accounts-api
+  - component:default/number-validation-service
+  - component:default/sms-classification-service
+  - component:default/geopermission-service
+  - component:default/dip
+  - component:default/inventory-caching-service
+  - component:default/messaging-routing-service
+  - component:default/messaging-a2p-api
+  - component:default/messaging-limits-store
+  - component:default/messaging-ratequeue-master
+  - component:default/sms-ratequeue-accounts-primary
+  - component:default/message-state-service
+  - component:default/messaging-inflight-service
+  - component:default/sender-id-service
+  - component:default/messaging-blacklist-service

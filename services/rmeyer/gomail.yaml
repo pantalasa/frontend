@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1586
+  system: geopod
+metadata:
+  name: gomail
+  title: gomail
+  description: "Gomail is a very simple and powerful package to send emails."
+  tags:
+    - email
+    - geopod
+    - go
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-edge@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/gomail/blob/main/README.md
+    pagerduty.com/service-id: PH5E2YF
+    backstage.io/source-location: url:https://github.com/sendgrid/gomail
+    github.com/project-slug: sendgrid/gomail
+    twilio.com/slack-id: CF7MT3UAC

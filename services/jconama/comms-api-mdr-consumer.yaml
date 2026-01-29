@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: comms-api-mdr-consumer
+  title: comms-api-mdr-consumer
+  description: A kafka consumer service to collect and store certain MDR events
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/comms-api-mdr-consumer
+    buildkite.com/project-slug: twilio/twilio-internal-comms-api-mdr-consumer
+    github.com/project-slug: twilio-internal/comms-api-mdr-consumer
+    jira/project-key: LMN
+    pagerduty.com/service-id: P6QZ8RE
+    twilio.com/email: team_comms-messages@twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/ldap-group: team_comms-messages
+    twilio.com/security-tier: '1'
+    twilio.com/service-tier: '3'
+    twilio.com/slack-channel-name: eng-serrano
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/comms-api-mdr-consumer-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-comms-api-mdr-consumer
+  - title: IaC Repository
+    url: https://www.github.com/twilio-internal/comms-api-mdr-consumer-iac
+  tags:
+  - hipaa
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-2446
+  system: messaging-bulk

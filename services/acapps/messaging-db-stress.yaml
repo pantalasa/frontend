@@ -1,0 +1,21 @@
+kind: Component
+spec:
+  type: service
+  owner: jm-sup-org-168
+  system: messaging-services-test
+  lifecycle: production
+metadata:
+  name: messaging-db-stress
+  tags:
+    - messaging
+  title: messaging-db-stress
+  annotations:
+    twilio.com/email: messaging-services@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    pagerduty.com/service-id: P6ZTYC7
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: PEPHN4O
+  description: messaging-db-stress role for database benchmarking
+apiVersion: backstage.io/v1alpha1

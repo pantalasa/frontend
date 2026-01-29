@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: chef
+  lifecycle: production
+  owner: sup-org-1673
+  system: email-delivery
+metadata:
+  name: chef-sendgrid_mysql_unsubscribe
+  title: chef-sendgrid_mysql_unsubscribe
+  tags:
+    - email
+    - ep-delivery
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-delivery@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid-ops/chef-sendgrid_mysql_unsubscribe/blob/master/README.md
+    backstage.io/source-location: url:https://github.com/sendgrid-ops/chef-sendgrid_mysql_unsubscribe
+    github.com/project-slug: sendgrid-ops/chef-sendgrid_mysql_unsubscribe
+    twilio.com/slack-id: CDJCC7ETD

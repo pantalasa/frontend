@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: Infrastructure
+  lifecycle: production
+  owner: sup-org-1923
+  system: email-reseller-platform
+metadata:
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: eng-resellerplatform_sg@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/turntable/blob/main/README.md
+    github.com/project-slug: sendgrid/turntable
+    twilio.com/internet-facing: "false"
+    backstage.io/source-location: url:https://github.com/sendgrid/turntable
+  name: turntable
+  title: turntable
+  description: "Turntable  is pipeline and supporting code for rotating AWS access keys"
+  tags:
+    - email
+    - aws-key-management
+    - reseller

@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: messaging-orchestrator
+  title: messaging-orchestrator
+  description: Orchestrator triggering business logic on MDR Updates. Runbook https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382777358/messaging-orchestrator
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/messaging-orchestrator
+    github.com/project-slug: messaging/messaging-orchestrator
+    pagerduty.com/service-id: PA9T2AV
+    twilio.com/email: team_msgorch@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'true'
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+    twilio.com/security-tier: '1'
+    twilio.com/service-tier: '1'
+    twilio.com/data-classification: 'restricted'
+    twilio.com/internet-facing: 'false'
+    twilio.com/eu-available: 'true'
+    twilio.com/sla-impacting: 'true'
+    twilio.com/in-scope-gdpr: 'false'
+    twilio.com/in-scope-bcr: 'false'
+    twilio.com/in-scope-soc2: 'false'
+    twilio.com/in-scope-iso: 'false'
+  links:
+    - title: IaC Repository
+      url: https://code.hq.twilio.com/messaging/messaging-orchestrator-terraform
+    - title: Buildkite Pipeline
+      url: https://buildkite.com/twilio/messaging-messaging-orchestrator
+    - title: Deployment Repository
+      url: https://github.com/twilio-internal/messaging-orchestrator-deploy
+    - title: E2E Tests Repository
+      url: https://code.hq.twilio.com/messaging/mcitll-e2e-monitors
+    - title: Cluster Tests
+      url: https://ci.stage.twilio.com/job/messaging-orchestrator-cluster-tests/
+  tags:
+    - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-1777
+  system: messaging-orchestrator
+  dependsOn:
+    - component:default/messaging-inflight-service
+    - component:default/messaging-app-dequeue
+    - component:default/message-state-service
+    - component:default/pied-piper-ingest
+    - component:default/eventbus
+    - component:default/ud-entity-schema-api
+    - component:default/messaging-msg-send
+    - component:default/contentstore
+    - component:default/carrierops-provider-service

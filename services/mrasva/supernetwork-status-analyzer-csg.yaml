@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: supernetwork-status-analyzer-csg
+  title: supernetwork-status-analyzer-csg
+  description: SNTP CSG module for automated SMS and voice testing
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/supernetwork-status-analyzer-csg
+    github.com/project-slug: super-network/supernetwork-status-analyzer-csg
+    pagerduty.com/service-id: PBLO97C
+    twilio.com/email: super-network-monitoring@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'true'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '3'
+  links: []
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-579
+  system: carrier-test-platform
+  dependsOn:
+  - component:default/supernetwork-status-analyzer
+  - component:default/inventory-proxy
+  - component:default/inventory-caching-service
+  - component:default/network-registry

@@ -1,0 +1,229 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: number-info-service
+  title: number-info-service
+  description: Number Info Service for comprehensive number lookups and validation
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/dip/number-info-service
+    backstage.io/kubernetes-id: dip
+    backstage.io/kubernetes-namespace: dip
+    buildkite.com/project-slug: twilio/dip-number-info-service
+    github.com/project-slug: dip/number-info-service
+    github.com/team-slug: dip/team-dip-pricing
+    jira/project-key: DIPPRC
+    pagerduty.com/service-id: P3CXC64
+    twilio.com/data-classification: restricted
+    twilio.com/email: team_dip-pricing@twilio.com
+    twilio.com/eu-available: "false"
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-gdpr: "false"
+    twilio.com/in-scope-hipaa: "true"
+    twilio.com/in-scope-iso: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "false"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/internet-facing: "false"
+    twilio.com/ldap-group: team_dip-pricing
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "1"
+    twilio.com/sla-impacting: "false"
+    twilio.com/slack-channel-name: "#eng-dip-pricing"
+  links:
+    - title: Runbook
+      url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382763489
+    - title: Deployment Repository
+      url: https://github.com/twilio-internal/number-info-service-deploy
+    - title: Buildkite Pipeline
+      url: https://www.buildkite.com/twilio/dip-number-info-service
+    - title: IaC Repository
+      url: https://code.hq.twilio.com/dip/number-info-service-terraform
+    - title: Admin UI
+      url: https://oneadmin.internal.us1.twilio.com/number-info
+  tags:
+    - hipaa
+spec:
+  type: service
+  lifecycle: production
+  owner: group:sup-org-2688
+  system: dip
+  dependsOn:
+    - component:default/id-encrypt-decrypt-service
+    - component:default/ud-entity-schema-api
+    - component:default/sn-messaging-decision-rates
+    - component:default/eventbus
+    - component:default/dsg-threat-network
+    - resource:default/number-info-service-dynamodb-pni-dip
+    - resource:default/number-info-service-dynamodb-cic-mobile
+    - resource:default/number-info-service-dynamodb-conf-dip
+    - resource:default/number-info-service-dynamodb-conf-changelog-dip
+    - resource:default/number-info-service-kafka-number-lookup-events
+    - resource:default/number-info-service-kafka-shadow-number-lookup-events
+  providesApis:
+    - api:default/number-info-api
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: number-info-api
+  description: |
+    Number Info Service API provides comprehensive APIs to manage number info providers and retrieve number information.
+
+    This OpenAPI specification includes multiple API versions and functional areas:
+
+    **Version 1 (v1):**
+    - Number Info API: DID and country code lookups
+    - Providers API: Provider management
+    - Cache API: Cache rules and bulk operations
+    - Supplementary Data API: Supplementary data CRUD operations
+    - Network Cache Policy API: Network information management
+    - HLR Lookup Configuration API: HLR lookup settings
+    - Shadow Testing Configuration API: Shadow testing management
+    - Connectivity API: Connectivity information
+    - Health Check: Service ping endpoint
+
+    **Version 2 (v2):**
+    - Number Info API: DID lookups (enhanced)
+    - Providers API: Provider management and credentials with enable/disable controls
+    - Routing API: Routing policies, routes management, and lookup operations
+    - Cache API: Cache rule management (SID-based)
+
+    **Legacy Endpoints (no version prefix):**
+    - Number Info API: Direct DID and country code lookups
+    - Configuration Changelog API: Configuration change tracking
+  tags:
+    - number-info
+    - dip
+    - lookups
+    - routing
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:sup-org-2688
+  system: dip
+  definition:
+    $text: https://code.hq.twilio.com/dip/number-info-service/blob/master/server/api/swagger.json
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: number-info-service-dynamodb-pni-dip
+  description: DynamoDB table for phone number information (PNI) lookups and caching
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - dynamodb
+    - database
+    - pni
+    - cache
+spec:
+  type: database
+  owner: group:sup-org-2688
+  system: dip
+  dependencyOf:
+    - component:default/number-info-service
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: number-info-service-dynamodb-cic-mobile
+  description: DynamoDB table for CIC (Carrier Information Cache) mobile data storage
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - dynamodb
+    - database
+    - cic
+    - carrier
+spec:
+  type: database
+  owner: group:sup-org-2688
+  system: dip
+  dependencyOf:
+    - component:default/number-info-service
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: number-info-service-dynamodb-conf-dip
+  description: DynamoDB table for DIP service configuration data
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - dynamodb
+    - database
+    - configuration
+spec:
+  type: database
+  owner: group:sup-org-2688
+  system: dip
+  dependencyOf:
+    - component:default/number-info-service
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: number-info-service-dynamodb-conf-changelog-dip
+  description: DynamoDB table for DIP configuration change audit log
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - dynamodb
+    - database
+    - configuration
+    - audit
+    - changelog
+spec:
+  type: database
+  owner: group:sup-org-2688
+  system: dip
+  dependencyOf:
+    - component:default/number-info-service
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: number-info-service-kafka-number-lookup-events
+  description: Kafka topic for publishing number lookup events to downstream consumers
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - kafka
+    - queue
+    - events
+    - number-lookup
+spec:
+  type: queue
+  owner: group:sup-org-2688
+  system: dip
+  dependencyOf:
+    - component:default/number-info-service
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: number-info-service-kafka-shadow-number-lookup-events
+  description: Kafka topic for shadow/canary number lookup events for testing and validation
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - kafka
+    - queue
+    - events
+    - shadow
+    - testing
+spec:
+  type: queue
+  owner: group:sup-org-2688
+  system: dip
+  dependencyOf:
+    - component:default/number-info-service

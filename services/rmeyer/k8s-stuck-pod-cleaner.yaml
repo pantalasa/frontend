@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1586
+metadata:
+  name: k8s-stuck-pod-cleaner
+  title: k8s-stuck-pod-cleaner
+  description: k8s-stuck-pod-cleaner service for SendGrid integration.
+  tags:
+  - email-edge
+  - email
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/k8s-stuck-pod-cleaner
+    twilio.com/email: email-ep-edge@twilio.com
+    twilio.com/slack-id: CF7MT3UAC
+    jira/project-key: EEDGE
+    github.com/project-slug: sendgrid/k8s-stuck-pod-cleaner

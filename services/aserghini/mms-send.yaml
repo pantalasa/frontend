@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mms-send
+  title: mms-send
+  description: Validation and entry-point for all MT (outbound) MMS messages
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/twilio/mms-send
+    buildkite.com/project-slug: twilio/mms-send
+    github.com/project-slug: twilio/mms-send
+    github.com/team-slug: team_mms
+    pagerduty.com/service-id: P2ECJFE
+    twilio.com/email: messaging-mms@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'true'
+    twilio.com/pd-incident-owner-schedule: PRUJT1W
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '1'
+    twilio.com/ldap-group: team_mms
+    twilio.com/slack-id: C01J4A69CR1
+    twilio.com/alerting-slack-channel-id-prod: C0280TW8DC1
+    twilio.com/alerting-slack-channel-id-stage: C0280TW8DC1
+    jira/project-key: MMSGW
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/mms-send-deploy
+  - title: Buildkite Pipeline
+    url: https://buildkite.com/twilio/twilio-mms-send
+  - title: Datadog Dashboard
+    url: https://app.datadoghq.com/dashboard/d4r-bg3-b7z/msg-mms-send
+  tags:
+  - mms
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup_org_zip-810
+  system: mms-edge
+  dependsOn:
+  - component:default/messaging-ratequeue-mms-slave
+  - component:default/messaging-ratequeue-mms-master
+  - component:default/message-state-service
+  - component:default/contentstore
+  - component:default/sms-classification-service
+  - component:default/accounts-api
+  - component:default/eventbus
+  - component:default/dip
+  - component:default/inventory-caching-service
+  - component:default/inventory-federation-service
+  - component:default/messaging-blacklist-service
+  - component:default/messaging-inflight-service
+  - component:default/number-validation-service
+  - component:default/messaging-routing-service
+  - component:default/twiml-application-service
+  - component:default/messaging-limits-store
+  - component:default/geopermission-service
+  - component:default/feature-service
+  - component:default/messaging-a2p-api
+  - component:default/messaging-limits-store

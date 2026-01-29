@@ -1,0 +1,15 @@
+kind: Component
+spec:
+  type: service
+  owner: sup-org-2324
+  lifecycle: production
+metadata:
+  name: analytics.js-integration-sendgrid
+  tags:
+    - email
+    - unmapped
+  title: analytics.js-integration-sendgrid
+  annotations:
+    backstage.io/source-location: "url:https://github.com/sendgrid/analytics.js-integration-sendgrid"
+  description: analytics.js-integration-sendgrid service for SendGrid integration.
+apiVersion: backstage.io/v1alpha1

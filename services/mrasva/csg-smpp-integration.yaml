@@ -1,0 +1,20 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-579"
+  system: carrier-test-platform
+  lifecycle: production
+metadata:
+  name: csg-smpp-integration
+  title: csg-smpp-integration
+  annotations:
+    twilio.com/email: super-network-monitoring@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 3
+    pagerduty.com/service-id: PBLO97C
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+  description: SMPP server for CSG integration with Twilio used for outbound testing
+apiVersion: backstage.io/v1alpha1

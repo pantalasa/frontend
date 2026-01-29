@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: number-validation-service
+  title: number-validation-service
+  description: Number Validation Service
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/dip/number-validation-service
+    buildkite.com/project-slug: twilio/dip-number-validation-service
+    github.com/project-slug: dip/number-validation-service
+    github.com/team-slug: dip/team-dip-pricing
+    jira/project-key: DIPPRC
+    pagerduty.com/service-id: P3CXC64
+    twilio.com/data-classification: restricted
+    twilio.com/email: team_dip-pricing@twilio.com
+    twilio.com/eu-available: "false"
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-gdpr: "false"
+    twilio.com/in-scope-hipaa: "true"
+    twilio.com/in-scope-iso: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "false"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/internet-facing: "false"
+    twilio.com/ldap-group: team_dip-pricing
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+    twilio.com/security-tier: "0"
+    twilio.com/service-tier: "1"
+    twilio.com/sla-impacting: "false"
+    twilio.com/slack-channel-name: "#eng-dip-pricing"
+  links:
+    - title: Runbook
+      url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382770367
+    - title: Deployment Repository
+      url: https://github.com/twilio-internal/number-validation-service-deploy
+    - title: Buildkite Pipeline
+      url: https://www.buildkite.com/twilio/dip-number-validation-service
+  tags:
+    - hipaa
+spec:
+  type: service
+  lifecycle: production
+  owner: group:sup-org-2688
+  system: dip
+  providesApis:
+    - api:default/number-validation-api
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: number-validation-api
+  description: "Number Validation Service API provides validation for phone numbers, short numbers, and message headers. Validation decisions are based on Google's libphonenumber library augmented with custom phone number ranges."
+  tags:
+    - validation
+    - phone-numbers
+    - dip
+    - hipaa
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:sup-org-2688
+  system: dip
+  definition:
+    $text: https://code.hq.twilio.com/dip/number-validation-service/blob/master/server/openapi.json

@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: configuration
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: chef-mysql-nlvxstat
+  title: chef-mysql-nlvxstat
+  description: "Chef MySQL NLVX Stats configuration for SendGrid integration."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/chef-mysql_nlvxstat
+  tags:
+    - email
+    - mc-nlvx

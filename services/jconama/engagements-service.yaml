@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: engagements-service
+  title: engagements-service
+  description: Repository created by Backstage
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/engagements-service
+    buildkite.com/project-slug: twilio/twilio-internal-engagements-service
+    github.com/project-slug: twilio-internal/engagements-service
+    jira/project-key: LMN
+    twilio.com/email: team_comms-contacts@twilio.com
+    twilio.com/ldap-group: team_comms-contacts
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+    twilio.com/slack-channel-name: eng-contacts-service
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/engagements-service-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-engagements-service
+  tags:
+    - java
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-2824
+  system: email-sg-gateway

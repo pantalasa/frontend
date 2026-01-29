@@ -1,0 +1,27 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-579"
+  system: carrier-test-platform
+  dependsOn:
+    - component:default/supernetwork-status-analyzer-telq
+    - component:default/supernetwork-status-analyzer-texter
+    - component:default/data-producer-api
+    - component:default/supernetwork-status-analyzer-prog-voice
+    - component:default/supernetwork-status-analyzer-csg
+    - component:default/testing-platform-stub-module
+  lifecycle: production
+metadata:
+  name: supernetwork-status-analyzer
+  title: supernetwork-status-analyzer
+  annotations:
+    twilio.com/email: super-network-monitoring@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 3
+    pagerduty.com/service-id: PBLO97C
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+  description: Allows triggering and scheduling of SMS and voice tests and is responsible for storing and returning results.
+apiVersion: backstage.io/v1alpha1

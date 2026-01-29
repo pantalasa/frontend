@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "sup-org-2324"
+metadata:
+  name: golang-poc-buildkite-plugin
+  title: golang-poc-buildkite-plugin
+  description: "golang-poc-buildkite-plugin service for SendGrid integration."
+  tags:
+    - email
+    - unmapped
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/golang-poc-buildkite-plugin

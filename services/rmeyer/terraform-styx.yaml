@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: terraform
+  lifecycle: production
+  owner: sup-org-1673
+  system: email-delivery
+metadata:
+  name: terraform-styx
+  title: terraform-styx
+  description: "terraform-styx service for SendGrid integration."
+  tags:
+    - email
+    - ep-delivery
+  annotations:
+    twilio.com/email: email-ep-delivery@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/terraform-styx/blob/master/README.md
+    pagerduty.com/service-id: PPVKLCL
+    backstage.io/source-location: url:https://github.com/sendgrid/terraform-styx
+    github.com/project-slug: sendgrid/terraform-styx
+    twilio.com/slack-id: CDJCC7ETD

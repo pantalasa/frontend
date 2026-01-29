@@ -1,0 +1,27 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-2824"
+  system: notification-services
+  dependsOn:
+    - component:default/stored-credentials-service
+    - component:default/status-callback
+  lifecycle: production
+metadata:
+  name: rtd-apns-gateway
+  links:
+    -
+      url: "https://github.com/twilio-internal/rtd-apns-gateway-deploy"
+      title: Deployment Repository
+  title: rtd-apns-gateway
+  annotations:
+    twilio.com/email: conversations_edge_east@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: P3PWPTV
+    twilio.com/security-tier: 0
+    twilio.com/in-scope-hipaa: true
+    twilio.com/pd-incident-owner-schedule: PT3ETZO
+  description: Forwards notification requests to APNS via HTTP/2
+apiVersion: backstage.io/v1alpha1

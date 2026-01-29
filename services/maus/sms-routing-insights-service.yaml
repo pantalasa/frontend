@@ -1,0 +1,29 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-734"
+  system: messaging-routing-service
+  lifecycle: production
+metadata:
+  name: sms-routing-insights-service
+  tags:
+    - messaging
+  links:
+    -
+      url: "https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/635142158"
+      title: Runbook
+    -
+      url: "https://github.com/twilio-internal/sms-routing-insights-service-deploy"
+      title: Deployment Repository
+  title: sms-routing-insights-service
+  annotations:
+    twilio.com/email: sms-ui@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 3
+    pagerduty.com/service-id: PPEE63X
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+  description: Service providing content for the SMS routing insights dashboard
+apiVersion: backstage.io/v1alpha1

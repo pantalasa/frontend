@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mdp-mle-gateway
+  title: mdp-mle-gateway
+  description: Messaging Data Platform MLE Gateway
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/sms/mdp-mle-gateway
+    github.com/project-slug: sms/mdp-mle-gateway
+    pagerduty.com/service-id: P69YK74
+    twilio.com/email: sms-edge@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PZV0VW5
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+  links: []
+  tags:
+  - sms
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup-org-34
+  system: sms-beepsend-insights
+  dependsOn:
+  - component:default/message-state-service
+  - component:default/eventbus

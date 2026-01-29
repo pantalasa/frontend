@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "sup-org-2324"
+metadata:
+  name: PRScannerDemo-SIGNAL2021
+  title: PRScannerDemo-SIGNAL2021
+  description: "PRScannerDemo-SIGNAL2021 service for SendGrid integration."
+  tags:
+    - email
+    - unmapped
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/PRScannerDemo-SIGNAL2021

@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: postflight-messaging-api
+  title: postflight-messaging-api
+  description: CRUD api for communication-logs
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/twilio/postflight-messaging-api
+    github.com/project-slug: twilio/postflight-messaging-api
+    pagerduty.com/service-id: PHOWIEY
+    twilio.com/email: messaging-communication-logs@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: TBC
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '2'
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/postflight-messaging-api-deploy
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-3134
+  system: communication-logs-api

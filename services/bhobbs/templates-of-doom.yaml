@@ -1,0 +1,102 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: group:sup-org-1421
+  system: email-templates
+  providesApis:
+    - api:dynamic-templates-api
+    - api:designs-api
+    - api:transactional-templates-api
+metadata:
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/templates-of-doom
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/templates-of-doom/blob/main/README.md
+    buildkite.com/project-slug: sendgrid/templates-of-doom
+    github.com/project-slug: sendgrid/templates-of-doom
+    jira/component: Templates of Doom
+    jira/project-key: MCORCH
+    pagerduty.com/service-id: PAV9FZS
+    snyk.io/target-id: 123e4567-e89b-12d3-a456-426614174000
+    twilio.com/alerting-slack-channel-id-prod: CDKSZHQUW
+    twilio.com/alerting-slack-channel-id-stage: C031JT6HNUE
+    twilio.com/data-classification: confidential
+    twilio.com/email: eng-mcorchestra_sg@twilio.com
+    twilio.com/eu-available: "true"
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-gdpr: "true"
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-iso: "true"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "true"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/internet-facing: "true"
+    twilio.com/security-tier: "1"
+    twilio.com/service-tier: "1"
+    twilio.com/sla-impacting: "true"
+    twilio.com/slack-id: CDKGS75TR
+  links:
+    - title: Runbook
+      url: https://github.com/sendgrid/templates-of-doom/blob/main/docs/runbook.md
+  name: templates-of-doom
+  title: templates-of-doom
+  description: "Templates of Doom service for SendGrid integration providing dynamic templates, designs, and transactional templates management"
+  tags:
+    - email
+    - templates-of-doom
+    - dynamic-templates
+    - designs
+    - transactional-templates
+    - go
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: dynamic-templates-api
+  description: "Dynamic Templates API for sending emails with dynamic content and handlebar substitutions via SendGrid's v3 Web API."
+  tags:
+    - email
+    - dynamic-templates-api
+    - mail-send
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:sup-org-1421
+  system: email-templates
+  definition:
+    $text: https://github.com/sendgrid/templates-of-doom/blob/master/reference/dynamic_templates_api.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: designs-api
+  description: "Designs API for creating, managing, and organizing design templates that can be used as starting points for email messages."
+  tags:
+    - email
+    - designs-api
+    - template-design
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:sup-org-1421
+  system: email-templates
+  definition:
+    $text: https://github.com/sendgrid/templates-of-doom/blob/master/reference/designs_api.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: transactional-templates-api
+  description: "Transactional Templates API for creating, managing, and versioning transactional email templates with support for legacy and dynamic generations."
+  tags:
+    - email
+    - transactional-templates-api
+    - template-versioning
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:sup-org-1421
+  system: email-templates
+  definition:
+    $text: https://github.com/sendgrid/templates-of-doom/blob/master/reference/transaction_templates_api.yaml

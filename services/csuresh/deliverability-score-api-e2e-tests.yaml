@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: deliverability-score-api-e2e-tests
+  title: deliverability-score-api-e2e-tests
+  description: Customer Deliverability Score API Repo for E2E Tests
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/deliverability-score-api-e2e-tests
+    buildkite.com/project-slug: twilio/twilio-internal-deliverability-score-api-e2e-tests
+    github.com/project-slug: twilio-internal/deliverability-score-api-e2e-tests
+    jira/project-key: MCG
+    pagerduty.com/service-id: NA
+    twilio.com/email: team_messaging-customer-growth@twilio.com
+    twilio.com/ldap-group: team_messaging-customer-growth
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+    twilio.com/slack-channel-name: eng-messaging-customer-growth
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/deliverability-score-api-e2e-tests-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-deliverability-score-api-e2e-tests
+  - title: IaC Repository
+    url: https://www.github.com/twilio-internal/deliverability-score-api-e2e-tests-iac
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-2040
+  system: customer-deliverability-engine

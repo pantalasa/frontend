@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: interconnect-directory-monkey-backend
+  title: interconnect-directory-monkey-backend
+  description: Backend for interconnect directory API Monkey frontend.
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/interconnect-directory-monkey-backend
+    buildkite.com/project-slug: twilio/super-network-interconnect-directory-monkey-backend
+    github.com/project-slug: super-network/interconnect-directory-monkey-backend
+    jira/project-key: SNIC
+    pagerduty.com/service-id: PGQ19ZB
+    twilio.com/email: sn-interconnect@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: "0"
+    twilio.com/service-tier: "1"
+    twilio.com/slack-channel-name: help-interconnect
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/data-classification: public
+    twilio.com/internet-facing: "false"
+    twilio.com/eu-available: "false"
+    twilio.com/sla-impacting: "false"
+    twilio.com/in-scope-gdpr: "false"
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-soc2: "false"
+    twilio.com/in-scope-iso: "false"
+  links:
+    - title: Deployment Repository
+      url: https://github.com/twilio-internal/interconnect-directory-monkey-backend-deploy
+  tags:
+    - java
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-640
+  system: tnx-directory

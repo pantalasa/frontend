@@ -1,0 +1,20 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-2398"
+  system: enterprise-insights
+  lifecycle: production
+metadata:
+  name: account-insights-e2e-runner
+  title: account-insights-e2e-runner
+  annotations:
+    twilio.com/email: data-reportcenter@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 5
+    pagerduty.com/service-id: P729B1J
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: P8O7PRY
+  description: Runs a sanity check against Account Insights (Report Center) all day long
+apiVersion: backstage.io/v1alpha1

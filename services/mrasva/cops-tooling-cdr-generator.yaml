@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: cops-tooling-cdr-generator
+  title: cops-tooling-cdr-generator
+  description: 'This service generates CDRs (call description records) and puts them into S3 for an external service to consume.'
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/carrierops/cdr-generator
+    github.com/project-slug: carrierops/cdr-generator
+    buildkite.com/project-slug: twilio/carrierops-cdr-generator
+    jira/project-key: SNCE
+    snyk.io/org-id: ccd9f4a3-9bb3-48c3-a25b-2da4db09a45a
+    snyk.io/project-id: f070cdbe-036c-4938-a4a8-bbec26cc7c1a
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'true'
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '3'
+    pagerduty.com/service-id: PESCFOL
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/email: super-cost@twilio.com
+    twilio.com/slack-channel-name: "#help-sn-cost"
+  links:
+    - title: Runbook
+      url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382770589/cops-tooling-cdr-generator+runbook
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-682
+  system: cdr-generator
+  dependsOn:
+  - component:default/accounts-api
+  - component:default/eventbus
+  - component:default/tx-internal-pricing-api
+  - component:default/ud-entity-schema-api
+  - component:default/voicecon-neustar-lookup
+  - component:default/inventory-caching-service
+  - component:default/messaging-dip-auxiliary

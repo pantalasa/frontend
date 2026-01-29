@@ -1,0 +1,30 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-1358"
+  system: messaging-dlr
+  dependsOn:
+    - component:default/messaging-ratequeue-ext1-master
+    - component:default/messaging-ratequeue-ext1-slave
+    - component:default/nagios-frontend-v2
+  lifecycle: production
+metadata:
+  name: messaging-ratequeue-ext1-master
+  tags:
+    - messaging
+  links:
+    -
+      url: "https://github.com/twilio-internal/messaging-ratequeue-ext1-master-deploy"
+      title: Deployment Repository
+  title: messaging-ratequeue-ext1-master
+  annotations:
+    twilio.com/email: sms-core@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: P4NPJP0
+    twilio.com/security-tier: 0
+    twilio.com/in-scope-hipaa: true
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+  description: Ratequeue cluster for ACKs and DLRs.
+apiVersion: backstage.io/v1alpha1

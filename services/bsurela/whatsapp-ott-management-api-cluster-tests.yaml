@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: whatsapp-ott-management-api-cluster-tests
+  title: whatsapp-ott-management-api-cluster-tests
+  description: Cluster tests for whatsapp messaging-ott-management-api
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/whatsapp-ott-management-api-cluster-tests
+    buildkite.com/project-slug: twilio/twilio-internal-whatsapp-ott-management-api-cluster-tests
+    github.com/project-slug: twilio-internal/whatsapp-ott-management-api-cluster-tests
+    pagerduty.com/service-id: PJSPQ3P
+    twilio.com/data-classification: 'confidential'
+    twilio.com/eu-available: 'false'
+    twilio.com/in-scope-bcr: 'false'
+    twilio.com/in-scope-gdpr: 'false'
+    twilio.com/in-scope-iso: 'false'
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-soc2: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/internet-facing: 'false'
+    twilio.com/sla-impacting: 'false'
+    twilio.com/email: team_messaging-channels@twilio.com
+    twilio.com/ldap-group: team_messaging-channels
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+    twilio.com/slack-channel-name: eng-messaging-channels-content
+  links:
+    - title: Deployment Repository
+      url: https://github.com/twilio-internal/whatsapp-ott-management-api-cluster-tests-deploy
+    - title: Buildkite Pipeline
+      url: https://www.buildkite.com/twilio/twilio-internal-whatsapp-ott-management-api-cluster-tests
+    - title: IaC Repository
+      url: https://github.com/twilio-internal/whatsapp-ott-management-api-cluster-tests-iac
+  tags:
+    - messaging
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-484
+  system: messaging-channels-platform

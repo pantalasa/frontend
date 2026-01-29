@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: source-number-config
+  title: source-number-config
+  description: Source Number Config Service for ZW Core
+  tags:
+    - java
+  annotations:
+    backstage.io/source-location: url:https://github.com/Zipwhip/source-number-config-service
+    jira/project-key: TMINFRA
+    jira/component: source-number-config
+    buildkite.com/project-slug: twilio/zipwhip-source-number-config-service
+    github.com/project-slug: zipwhip/source-number-config-service
+    github.com/team-slug: zipwhip/developers
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/in-scope-soc2: 'true'
+    twilio.com/in-scope-iso: 'false'
+    twilio.com/in-scope-gdpr: 'false'
+    twilio.com/in-scope-bcr: 'false'
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '1'
+    pagerduty.com/service-id: PT8ZW7U
+    twilio.com/pd-incident-owner-schedule: P2E936R
+    twilio.com/email: team_zipwhip-core-messaging-engineering@twilio.com
+    twilio.com/internet-facing: 'false'
+    twilio.com/data-classification: restricted
+    twilio.com/eu-available: 'false'
+    twilio.com/sla-impacting: 'false'
+    twilio.com/slack-id: 'C02H6JYEM7G'
+    twilio.com/alerting-slack-channel-id-prod: 'C01G6UDFSMV'
+    twilio.com/alerting-slack-channel-id-stage: 'C05Q8A3DNH3'
+    twilio.com/alerting-slack-channel-id-dev: 'C04SQD21U9F'
+  links:
+    - title: Documentation
+      url: https://zipwhip.atlassian.net/wiki/spaces/INFRA/pages/1576960288/Source+Number+Config+Service
+    - title: Grafana Dashboard
+      url: https://g-870ae6cc62.grafana-workspace.us-west-2.amazonaws.com/d/1uUaykX7z/source-number-config?orgId=1
+
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup_org_zip-817
+  system: zw-core-messaging
+  dependsOn:
+    - resource:default/source-number-config-documentdb
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: source-number-config-documentdb
+  description: DocumentDB database for source number configuration data
+  annotations:
+    twilio.com/data-classification: restricted
+  tags:
+    - database
+    - documentdb
+    - docdb-cluster-docdb-01
+spec:
+  type: database
+  owner: group:default/sup_org_zip-817
+  system: zw-core-messaging
+  dependencyOf:
+    - component:default/source-number-config

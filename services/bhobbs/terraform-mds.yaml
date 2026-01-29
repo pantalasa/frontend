@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: Infrastructure
+  lifecycle: production
+  owner: sup-org-1923
+  system: "email-datalake"
+metadata:
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: eng-email-data-platform@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid-ops/terraform-mds/blob/master/README.md
+    github.com/project-slug: sendgrid-ops/terraform-mds
+    buildkite.com/project-slug: sendgrid-ops/terraform-mds
+    snyk.io/target-id: sendgrid-ops/terraform-mds
+    pagerduty.com/service-id: "PZ0HBCK"
+    twilio.com/slack-id: CDKSZDJ86
+    twilio.com/alerting-slack-channel-id-stage: CDJA5JYF6
+    twilio.com/alerting-slack-channel-id-prod: CDJA5JYF6
+    twilio.com/internet-facing: "false"
+    backstage.io/source-location: url:https://github.com/sendgrid-ops/terraform-mds
+  name: terraform-mds
+  title: terraform-mds
+  description: "Terraform MDS is used to create and delete s3 instances, and set up the lambda for EMR jobs for MDS"
+  tags:
+    - email
+    - terraform

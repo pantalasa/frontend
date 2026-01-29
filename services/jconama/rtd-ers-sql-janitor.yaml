@@ -1,0 +1,22 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-2824"
+  system: notification-services
+  dependsOn:
+    - component:default/feature-service
+  lifecycle: production
+metadata:
+  name: rtd-ers-sql-janitor
+  title: rtd-ers-sql-janitor
+  annotations:
+    twilio.com/email: conversations_edge_east@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: P3PWPTV
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: PT3ETZO
+  description: Background service to janitor expired ERS records and other janitoring tasks
+apiVersion: backstage.io/v1alpha1

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: supernetwork-emergency-service
+  title: supernetwork-emergency-service
+  description: Provider outage verification and alerting system for voice and messaging
+    operations
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/supernetwork-emergency-service
+    github.com/project-slug: super-network/supernetwork-emergency-service
+    buildkite.com/project-slug: twilio//super-network-supernetwork-emergency-service
+    snyk.io/org-id: 0b32c3c8-1097-4b97-85db-8c719794b0b2
+    snyk.io/project-ids: b4cdab52-2667-433c-8687-00bf4c160b11
+    jira/project-key: SNH
+    pagerduty.com/service-id: P8XXSPT
+    twilio.com/email: super-health@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '2'
+  links:
+  - title: "Runbook"
+    url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382768771/supernetwork-emergency-service
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-579
+  system: super-network-emergency-systems
+  dependsOn:
+  - component:default/data-producer-api
+  - component:default/impact-estimation-service
+  - component:default/sn-alf
+  - component:default/avro-serde
+  - component:default/broken-routes
+  - component:default/benchmark-api
+  - component:default/dogtray
+  - component:default/carrierops-provider-service
+  - component:default/caesar
+  - component:default/eventbus
+  - component:default/ud-entity-schema-api

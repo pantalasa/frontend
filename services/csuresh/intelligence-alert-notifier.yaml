@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: intelligence-alert-notifier
+  title: intelligence-alert-notifier
+  description: Intelligent Alerts Pipeline - Alert Notifier sends alerts to communication
+    channels
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/intelligence-alert-notifier
+    github.com/project-slug: messaging/intelligence-alert-notifier
+    pagerduty.com/service-id: PHUUA1R
+    twilio.com/email: messaging-intelligence@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PWS471W
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/intelligence-alert-notifier-deploy
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-1381
+  system: online-learning-pipelines
+  dependsOn:
+  - component:default/eventbus
+  - component:default/ud-entity-schema-api
+  - component:default/intelligence-configuration-manager

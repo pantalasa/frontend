@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/helm-nlvx-logevents
+  title: helm-nlvx-logevents
+  description: "Helm NLVX Log Events service for SendGrid integration."
+  tags:
+    - email
+    - mc-nlvx
+  name: helm-nlvx-logevents

@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-1505"
+metadata:
+  name: k8s-sgstats-hadoop
+  title: k8s-sgstats-hadoop
+  description: "k8s-sgstats-hadoop service for SendGrid integration."
+  tags:
+    - email
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/k8s-sgstats-hadoop

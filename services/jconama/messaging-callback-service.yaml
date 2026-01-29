@@ -1,0 +1,56 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-1777"
+  system: callbacks
+  dependsOn:
+    - component:default/pied-piper-ingest
+    - component:default/accounts-api
+    - component:default/ud-entity-schema-api
+    - component:default/eventbus
+    - component:default/id-sign-verify-service
+    - component:default/message-state-service
+    - component:default/eventbus
+    - component:default/twiml-application-service
+    - component:default/twilioproxy-dispatcher
+  lifecycle: production
+metadata:
+  name: messaging-callback-service
+  tags:
+    - messaging
+  links:
+    -
+      url: "https://code.hq.twilio.com/messaging/callback-service-terraform"
+      title: IaC Repository
+    -
+      url: "https://buildkite.com/twilio/messaging-mdr-callback"
+      title: Buildkite Pipeline
+    -
+      url: "https://github.com/twilio-internal/messaging-callback-service-deploy"
+      title: Deployment Repository
+    -
+      url: "https://code.hq.twilio.com/messaging/mcitll-e2e-monitors"
+      title: E2E Tests Repository
+    -
+      url: "https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382781487/messaging-callback-service+mdr-callbacks"
+      title: Runbook
+  title: messaging-callback-service
+  annotations:
+    twilio.com/email: team_msgorch@twilio.com
+    twilio.com/eu-available: true
+    twilio.com/in-scope-bcr: false
+    twilio.com/in-scope-iso: false
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: true
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: PA9T2AV
+    twilio.com/in-scope-gdpr: false
+    twilio.com/in-scope-soc2: false
+    twilio.com/security-tier: 0
+    twilio.com/sla-impacting: true
+    twilio.com/in-scope-hipaa: true
+    twilio.com/internet-facing: false
+    twilio.com/data-classification: restricted
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+  description: A callback system for messaging that notifies customers of status updates. This service consumes and publishes events from and to a Kafka stream. It offers a REST interface only for diagnostic purposes.
+apiVersion: backstage.io/v1alpha1

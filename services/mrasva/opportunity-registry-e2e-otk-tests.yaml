@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: opportunity-registry-e2e-otk-tests
+  title: opportunity-registry-e2e-otk-tests
+  description: opportunity-registry-e2e-otk-tests
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/opportunity-registry-e2e-otk-tests
+    buildkite.com/project-slug: twilio/twilio-internal-opportunity-registry-e2e-otk-tests
+    github.com/project-slug: twilio-internal/opportunity-registry-e2e-otk-tests
+    jira/project-key: MSIT
+    pagerduty.com/service-id: P5E0NDN
+    twilio.com/email: team_messaging-supply-insights-trust@twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-sox: 'true'
+    twilio.com/ldap-group: team_messaging-supply-insights-trust
+    twilio.com/security-tier: '1'
+    twilio.com/service-tier: '2'
+    twilio.com/slack-channel-name: eng-msit
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/opportunity-registry-e2e-otk-tests-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-opportunity-registry-e2e-otk-tests
+  - title: IaC Repository
+    url: https://www.github.com/twilio-internal/opportunity-registry-e2e-otk-tests-iac
+  tags:
+  - hipaa
+  - sox
+  - stateful
+spec:
+  type: service
+  lifecycle: experimental
+  owner: jm-sup-org-162
+  system: supplier-engagement

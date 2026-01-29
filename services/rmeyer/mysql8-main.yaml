@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: mysql8-main
+  title: mysql8-main
+  description: "MySQL 8 main database service."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/mysql8_main
+  tags:
+    - email-db
+    - email-dna

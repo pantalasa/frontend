@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: Infrastructure
+  lifecycle: production
+  owner: sup-org-1673
+  system: email-delivability-insights
+metadata:
+  name: deliverability_insights_tests
+  title: deliverability_insights_tests
+  description: "deliverability_insights_tests is a CRON job (in k8s) that runs tests and generate bounce events with specific rules and classifications through the smtp sink and verifies that Deliverability Insights returns the correct classification data for the bounce."
+  tags:
+    - email
+    - ep-delivery
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-delivery@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/deliverability_insights_tests/blob/main/README.md
+    pagerduty.com/service-id: PNQB9KE
+    backstage.io/source-location: url:https://github.com/sendgrid/deliverability_insights_tests
+    github.com/project-slug: sendgrid/deliverability_insights_tests
+    twilio.com/slack-id: CDJCC7ETD

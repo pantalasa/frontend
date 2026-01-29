@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: Infrastructure
+  lifecycle: production
+  owner: sup-org-1673
+  system: email-delivery
+metadata:
+  name: helm-eid-envoy-client
+  title: helm-eid-envoy-client
+  description: "helm-eid-envoy-client is for eid-envoy-client that is used alongside eid-receiver to make network calls between on-prem services and services in AWS."
+  tags:
+    - email
+    - ep-delivery
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-delivery@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/helm-eid-envoy-client/blob/main/README.md
+    backstage.io/source-location: url:https://github.com/sendgrid/helm-eid-envoy-client
+    github.com/project-slug: sendgrid/helm-eid-envoy-client
+    twilio.com/slack-id: CDJCC7ETD

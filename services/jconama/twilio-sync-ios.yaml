@@ -1,0 +1,19 @@
+kind: Component
+spec:
+  type: service
+  owner: jm-sup-org-167
+  system: conversations-sdks
+  lifecycle: production
+metadata:
+  name: twilio-sync-ios
+  title: twilio-sync-ios
+  annotations:
+    twilio.com/email: conversations-eng-sdks@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 3
+    pagerduty.com/service-id: PKE9AJP
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+  description: Sync SDK for iOS
+apiVersion: backstage.io/v1alpha1

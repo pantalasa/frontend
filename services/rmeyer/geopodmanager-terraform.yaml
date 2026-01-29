@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: terraform
+  lifecycle: production
+  owner: sup-org-1586
+  system: geopod
+metadata:
+  name: geopodmanager-terraform
+  title: geopodmanager-terraform
+  description: "geopodmanager-terraform manages AWS resources for the geopod manager tool."
+  tags:
+    - email
+    - geopod
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-edge@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/geopodmanager-terraform/blob/main/README.md
+    pagerduty.com/service-id: PH5E2YF
+    backstage.io/source-location: url:https://github.com/sendgrid/geopodmanager-terraform
+    github.com/project-slug: sendgrid/geopodmanager-terraform
+    twilio.com/slack-id: CF7MT3UAC

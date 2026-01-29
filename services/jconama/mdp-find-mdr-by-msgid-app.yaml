@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mdp-find-mdr-by-msgid-app
+  title: mdp-find-mdr-by-msgid-app
+  description: MDP Find MDR By MsgID App is a tool for locating Message Delivery Records
+    by message ID in the Messaging Data Platform (MDP).
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/mdp-find-mdr-by-msgid-app
+    buildkite.com/project-slug: twilio/twilio-internal-mdp-find-mdr-by-msgid-app
+    github.com/project-slug: twilio-internal/mdp-find-mdr-by-msgid-app
+    pagerduty.com/service-id: P8G5P66
+    twilio.com/email: team_messaging-data-infra@twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/pd-incident-owner-schedule: PR5HVZL
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '4'
+    twilio.com/slack-id: C016RLP969K
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/mdp-find-mdr-by-msgid-app-deploy
+  tags:
+  - hipaa
+  - java11
+  - mdp-find-mdr-by-msgid-app
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup5.30
+  system: mdp-search-and-index-system

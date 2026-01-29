@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ratequeue-server
+  title: ratequeue-server
+  description: Ratequeue is an efficient, scalable, highly-available, fault-tolerant, distributed queueing system designed for simultaneously rate-limiting many ephemeral queues.
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/ratequeue-server
+    buildkite.com/project-slug: twilio/twilio-internal-ratequeue-server
+    github.com/project-slug: twilio-internal/ratequeue-server
+    jira/project-key: MSGQUEUING
+    pagerduty.com/service-id: P4NPJP0
+    twilio.com/email: team_messaging-queuing@twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-sox: 'true'
+    twilio.com/ldap-group: team_messaging-queuing
+    twilio.com/security-tier: '1'
+    twilio.com/service-tier: '1'
+    twilio.com/slack-channel-name: eng-messaging-queuing
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/ratequeue-server-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-ratequeue-server
+  - title: IaC Repository
+    url: https://www.github.com/twilio-internal/ratequeue-server-iac
+  tags:
+  - hipaa
+  - sox
+  - stateful
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/sup-org-649
+  system: sms-rate-limiting

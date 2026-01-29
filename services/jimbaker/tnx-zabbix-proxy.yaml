@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tnx-zabbix-proxy
+  title: tnx-zabbix-proxy
+  description: TNX Zabbix Proxy
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/tnx-zabbix-proxy
+    github.com/project-slug: super-network/tnx-zabbix-proxy
+    pagerduty.com/service-id: P92CX01
+    twilio.com/email: team_super-network-infrastructure-platform@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '2'
+  links: []
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-640
+  system: sn-hardware-monitoring

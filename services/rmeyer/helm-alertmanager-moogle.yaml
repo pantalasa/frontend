@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-1658"
+metadata:
+  name: helm-alertmanager-moogle
+  title: helm-alertmanager-moogle
+  description: "helm-alertmanager-moogle service for SendGrid integration."
+  tags:
+    - email
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/helm-alertmanager-moogle

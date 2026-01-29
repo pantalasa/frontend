@@ -1,0 +1,35 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-2824"
+  system: inbound-messaging
+  lifecycle: production
+metadata:
+  name: messaging-ratequeue-ext2-master
+  tags:
+    - messaging
+  links:
+    -
+      url: "https://github.com/twilio-internal/messaging-ratequeue-ext2-master-deploy"
+      title: Deployment Repository
+  title: messaging-ratequeue-ext2-master
+  annotations:
+    jira/project-key: EGN
+    twilio.com/email: team_engine@twilio.com
+    twilio.com/ldap-group: team_engine
+    twilio.com/eu-available: true
+    twilio.com/in-scope-bcr: false
+    twilio.com/in-scope-iso: false
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: PZ6W2KR
+    twilio.com/in-scope-gdpr: false
+    twilio.com/in-scope-soc2: false
+    twilio.com/security-tier: 0
+    twilio.com/sla-impacting: true
+    twilio.com/in-scope-hipaa: true
+    twilio.com/internet-facing: false
+    twilio.com/data-classification: confidential
+  description: Ratequeue cluster for inbound SMS
+apiVersion: backstage.io/v1alpha1

@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: terraform-aurora-dbmain
+  title: terraform-aurora-dbmain
+  description: "Terraform configuration for Aurora database main instance."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/terraform-aurora-dbmain
+  tags:
+    - email-db
+    - email-dna

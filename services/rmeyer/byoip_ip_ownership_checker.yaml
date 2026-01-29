@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1673
+  system: email-delivery
+metadata:
+  name: byoip_ip_ownership_checker
+  title: byoip_ip_ownership_checker
+  description: "byoip_ip_ownership_checker is a CRON job (in k8s) will run and compare the DB IPS user_send_ip and external_ips table to the new DB IPS ips table"
+  tags:
+    - email
+    - ep-delivery
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-delivery@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/byoip_ip_ownership_checker/blob/master/README.md
+    pagerduty.com/service-id: PPVKLCL
+    backstage.io/source-location: url:https://github.com/sendgrid/byoip_ip_ownership_checker
+    github.com/project-slug: sendgrid/byoip_ip_ownership_checker
+    twilio.com/slack-id: CDJCC7ETD

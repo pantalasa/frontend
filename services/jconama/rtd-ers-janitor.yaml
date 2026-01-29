@@ -1,0 +1,28 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-2824"
+  system: notification-services
+  dependsOn:
+    - component:default/ud-entity-schema-api
+    - component:default/feature-service
+    - component:default/eventbus
+  lifecycle: production
+metadata:
+  name: rtd-ers-janitor
+  links:
+    -
+      url: "https://github.com/twilio-internal/rtd-ers-janitor-deploy"
+      title: Deployment Repository
+  title: rtd-ers-janitor
+  annotations:
+    twilio.com/email: conversations_edge_east@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: P3PWPTV
+    twilio.com/security-tier: 0
+    twilio.com/in-scope-hipaa: true
+    twilio.com/pd-incident-owner-schedule: PT3ETZO
+  description: Service to janitor ERS records on demand (GDPR)
+apiVersion: backstage.io/v1alpha1

@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: Infrastructure
+  lifecycle: production
+  owner: sup-org-1586
+  system: geopod
+metadata:
+  name: geopod-cert-rotation
+  title: geopod-cert-rotation
+  description: "geopod-cert-rotation service This application runs on a schedule and performs cert rotation."
+  tags:
+    - email
+    - geopod
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-edge@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/geopod-cert-rotation/blob/main/README.md
+    pagerduty.com/service-id: PH5E2YF
+    backstage.io/source-location: url:https://github.com/sendgrid/geopod-cert-rotation
+    github.com/project-slug: sendgrid/geopod-cert-rotation
+    twilio.com/slack-id: CF7MT3UAC

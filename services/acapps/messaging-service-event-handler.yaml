@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: messaging-service-event-handler
+  title: messaging-service-event-handler
+  description: This role will consume and process all asynchronous messaging services
+    events.
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/messaging-service-event-handler
+    github.com/project-slug: messaging/messaging-service-event-handler
+    pagerduty.com/service-id: P6ZTYC7
+    twilio.com/email: messaging-services@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PEPHN4O
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '3'
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/messaging-service-event-handler-deploy
+  - title: IaC Repository
+    url: https://github.com/twilio-internal/messaging-service-event-handler-terraform
+  - title: Runbook
+    url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382775285/messaging-service-event-handler
+  tags:
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup-org-168
+  system: messaging-services-core
+  dependsOn:
+  - component:default/eventbus
+  - component:default/ud-entity-schema-api
+  - component:default/messaging-number-pool-service
+  - component:default/messaging-service-configuration
+  - component:default/feature-service
+  - component:default/channelorch-ems-api
+  - component:default/eventbus

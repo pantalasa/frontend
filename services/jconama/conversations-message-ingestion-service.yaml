@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: conversations-message-ingestion-service
+  title: conversations-message-ingestion-service
+  description: message ingestion service
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/conversations-message-ingestion-service
+    github.com/project-slug: messaging/conversations-message-ingestion-service
+    twilio.com/email: team_engine@twilio.com
+    twilio.com/ldap-group: team_engine
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '1'
+    jira/project-key: EGN
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/conversations-message-ingestion-service-deploy
+  - title: Application Repository
+    url: https://code.hq.twilio.com/messaging/conversations-message-ingestion-service
+  - title: Buildkite Pipeline
+    url: https://buildkite.com/twilio/messaging/conversations-message-ingestion-service
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-2824
+  system: message-ingestion-service
+  dependsOn:
+  - component:default/eventbus
+  - component:default/ud-entity-schema-api
+  - component:default/accounts-api
+  - component:default/gradual-rollout
+  - component:default/userdata-messaging-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: message-ingestion-service
+  title: Message Ingestion Service
+  namespace: default
+  description: Message Ingestion Service
+  annotations: {}
+  labels: {}
+  tags: []
+  links: []
+spec:
+  owner: group:default/sup-org-2824

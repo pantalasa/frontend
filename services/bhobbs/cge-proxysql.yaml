@@ -1,0 +1,22 @@
+kind: Component
+spec:
+  type: service
+  owner: sup-org-1714
+  system: email-account-management
+  lifecycle: production
+metadata:
+  name: cge-proxysql
+  tags:
+    - email
+    - cge-proxysql
+  title: cge-proxysql
+  annotations:
+    twilio.com/email: eng-Kraken_sg@twilio.com
+    twilio.com/slack-id: CC03BSSZFPDF
+    github.com/project-slug: sendgrid/cge-proxysql
+    twilio.com/service-tier: 5
+    twilio.com/security-tier: 2
+    backstage.io/techdocs-ref: "url:https://github.com/sendgrid/cge-proxysql/blob/main/README.md"
+    twilio.com/alerting-slack-channel-id-prod: C0233THSQE4
+  description: Cge-proxysql contains the helm configuration and dependencies for installing sendgrid proxysql into the cge namespace.
+apiVersion: backstage.io/v1alpha1

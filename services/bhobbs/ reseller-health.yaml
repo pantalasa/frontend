@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: library
+  lifecycle: production
+  owner: sup-org-1923
+  system: email-reseller-platform
+metadata:
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: eng-resellerplatform_sg@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/reseller-health/blob/main/README.md
+    github.com/project-slug: sendgrid/reseller-health
+    twilio.com/internet-facing: "false"
+    backstage.io/source-location: url:https://github.com/sendgrid/reseller-health
+  name: reseller-health
+  title: reseller-health
+  description: "Reseller Health simple library useful for wrapping Health Checks and having a timeout"
+  tags:
+    - email
+    - health-check-library

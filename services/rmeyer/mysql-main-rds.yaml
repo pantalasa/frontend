@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: mysql-main-rds
+  title: mysql-main-rds
+  description: "MySQL main RDS instance service."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/mysql_main_rds
+  tags:
+    - email-db
+    - email-dna

@@ -1,0 +1,85 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: route-registry
+  title: route-registry
+  description: Stores messaging route data
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/carrierops/messaging-route-registry
+    buildkite.com/project-slug: twilio/messaging-route-registry
+    github.com/project-slug: carrierops/messaging-route-registry
+    jira/project-key: SNCE
+    pagerduty.com/service-id: PESCFOL
+    snyk.io/org-id: ccd9f4a3-9bb3-48c3-a25b-2da4db09a45a
+    snyk.io/project-id: 9b78d494-9d1c-4b13-8fcb-751e635e236e
+    twilio.com/email: super-cost@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "3"
+    twilio.com/slack-channel-name: "#help-sn-cost"
+  links:
+  - title: "Application Repository"
+    url: "https://code.hq.twilio.com/carrierops/messaging-route-registry"
+  - title: "Deployment Repository"
+    url: "https://github.com/twilio-internal/route-registry-deploy"
+  - title: "AWS IaC Repository"
+    url: https://code.hq.twilio.com/carrierops/msce-aws-iac
+  - title: "Datadog IaC Repository"
+    url: "https://code.hq.twilio.com/carrierops/msce-datadog-iac"
+  - title: "Buildkite Pipeline"
+    url: "https://buildkite.com/twilio/messaging-route-registry"
+  - title: "Rubook"
+    url: "https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382779383/route-registry+runbook"
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-682
+  system: route-registry
+  dependsOn:
+  - component:default/eventbus
+  - component:default/ud-entity-schema-api
+  - component:default/sms-capabilities-evaluator
+  - component:default/salesforce-proxy
+  - component:default/snce-provider-cost-api
+  - component:default/sn-messaging-decision-rates
+  - component:default/carrierops-provider-service
+  - component:default/network-registry
+  - component:default/sms-product-configuration-service
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: route-registry-api
+  description: "API for managing messaging routes"
+  tags:
+  - supply-management
+  - route-registry-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: sup-org-682
+  system: route-registry
+  definition:
+    $text: https://code.hq.twilio.com/carrierops/messaging-route-registry/blob/main/protocol/api/route-registry.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: route-registry-ui
+  description: "Frontend for managing messaging routes"
+  tags:
+  - supply-management
+  - route-registry-ui
+spec:
+  type: website
+  lifecycle: production
+  owner: sup-org-682
+  system: route-registry
+  source:
+    url: https://code.hq.twilio.com/carrierops/route-registry-ui
+  dependsOn:
+  - component:default/route-registry

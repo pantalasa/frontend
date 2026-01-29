@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1923
+  system: "email-reseller-platform"
+metadata:
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: eng-resellerplatform_sg@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/sendgrid-graphql-api/blob/main/README.md
+    github.com/project-slug: sendgrid/sendgrid-graphql-api
+    buildkite.com/project-slug: sendgrid/sendgrid-graphql-api
+    snyk.io/target-id: sendgrid/sendgrid-graphql-api
+    twilio.com/slack-id: CDKGS75TR
+    twilio.com/alerting-slack-channel-id-stage: C031JT6HNUE
+    twilio.com/alerting-slack-channel-id-prod: CDKSZHQUW
+    twilio.com/internet-facing: "false"
+    backstage.io/source-location: url:https://github.com/sendgrid/sendgrid-graphql-api
+  links:
+    - title: Runbook
+      url: https://twilio-productivity.atlassian.net/wiki/x/_zpzFQ
+  name: sendgrid-graphql-api
+  title: sendgrid-graphql-api
+  description: "SendGrid GraphQL API provides a GraphQL API for consumption by SendGrid frontends."
+  tags:
+    - email
+    - sendgrid-graphql-api
+    - go

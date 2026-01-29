@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: messaging-service-send
+  title: messaging-service-send
+  description: Entry point for messaging services message, responsible for validating incoming requests and enqueue messages into messaging service queue
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/messaging-service-send
+    github.com/project-slug: messaging/messaging-service-send
+    pagerduty.com/service-id: P6ZTYC7
+    twilio.com/email: messaging-services@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PEPHN4O
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '1'
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/messaging-service-send-deploy
+  - title: IaC Repository
+    url: https://github.com/twilio-internal/messaging-service-send-terraform
+  - title: Runbook
+    url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382775335/messaging-service-send
+  tags:
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup-org-168
+  system: messaging-services-core
+  dependsOn:
+  - component:default/messaging-service-orchestrator
+  - component:default/message-state-service
+  - component:default/message-state-service
+  - component:default/messaging-ratequeue-apps-master
+  - component:default/messaging-ratequeue-apps-slave
+  - component:default/geopermission-service
+  - component:default/accounts-api
+  - component:default/dip
+  - component:default/eventbus
+  - component:default/feature-service
+  - component:default/inventory-caching-service
+  - component:default/inventory-federation-service
+  - component:default/messaging-blacklist-service
+  - component:default/messaging-inflight-service
+  - component:default/messaging-limits-store
+  - component:default/messaging-number-pool-service
+  - component:default/messaging-opt-out-service
+  - component:default/number-validation-service
+  - component:default/portal-crane-service
+  - component:default/propertystore-api
+  - component:default/tx-data-api
+  - component:default/yellow-pages
+  - component:default/messaging-app-dequeue
+  - component:default/messaging-service-configuration

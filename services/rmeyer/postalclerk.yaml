@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-1673"
+  system: email-delivery
+metadata:
+  name: postalclerk
+  title: postalclerk
+  description: "postalclerk aggregate sgs results."
+  tags:
+    - email
+    - ep-delivery
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/postalclerk
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/postalclerk/blob/main/README.md
+    github.com/project-slug: sendgrid/postalclerk
+    pagerduty.com/service-id: PYMC1K4
+    twilio.com/email: email-ep-delivery@twilio.com
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/slack-id: CDJCC7ETD

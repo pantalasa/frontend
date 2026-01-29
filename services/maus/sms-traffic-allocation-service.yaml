@@ -1,0 +1,33 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:sup-org-734"
+  system: messaging-routing-service
+  lifecycle: production
+metadata:
+  name: sms-traffic-allocation-service
+  tags:
+    - messaging
+  links:
+    -
+      url: "https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382770333"
+      title: Runbook
+    -
+      url: "https://github.com/twilio-internal/sms-traffic-allocation-service-deploy"
+      title: Deployment Repository
+    -
+      url: "https://www.buildkite.com/twilio/twilio/sms-traffic-allocation-service"
+      title: Buildkite Pipeline
+  title: sms-traffic-allocation-service
+  annotations:
+    twilio.com/email: team_real-time-routing@twilio.com
+    github.com/team-slug: team_real-time-routing
+    twilio.com/ldap-group: team_real-time-routing
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: P4NPJP0
+    twilio.com/security-tier: 2
+    buildkite.com/project-slug: twilio/sms-traffic-allocation-service
+    twilio.com/slack-channel-name: "#eng-sms-routing"
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+  description: Service for managing provider and destination traffic volume limits
+apiVersion: backstage.io/v1alpha1

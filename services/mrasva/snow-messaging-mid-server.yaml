@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: snow-messaging-mid-server
+  title: snow-messaging-mid-server
+  description: ServiceNow dockerized MID server
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/carrierops/snow-messaging-mid-server  
+    github.com/project-slug: carrierops/snow-messaging-mid-server
+    twilio.com/github-server: code.hq.twilio.com
+    buildkite.com/project-slug: twilio/carrierops-snow-messaging-mid-server 
+    jira/project-key: SNCE
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+    pagerduty.com/service-id: PESCFOL
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/email: super-cost@twilio.com
+    twilio.com/slack-channel-name: "#help-sn-cost"
+  links:
+    - title: "Application Repository"
+      url: "https://code.hq.twilio.com/carrierops/snow-messaging-mid-server"
+    - title: "Runbook"
+      url: "https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382782437/snow-messaging-mid-server+runbook"
+      
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-682
+  system: route-registry
+  dependsOn:
+  - component:default/route-registry

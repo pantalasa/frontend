@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1586
+  system: geopod
+metadata:
+  name: geopod_report
+  title: geopod_report
+  description: "geopod_report service for SendGrid integration."
+  tags:
+    - email
+    - geopod
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-edge@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/geopod_report/blob/main/README.md
+    pagerduty.com/service-id: PH5E2YF
+    backstage.io/source-location: url:https://github.com/sendgrid/geopod_report
+    github.com/project-slug: sendgrid/geopod_report
+    twilio.com/slack-id: CF7MT3UAC

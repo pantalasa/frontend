@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: library
+  lifecycle: production
+  owner: "group:default/sup-org-1982"
+metadata:
+  name: helm-reloader
+  title: helm-reloader
+  description: "helm-reloader service for SendGrid integration."
+  tags:
+    - email
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/helm-reloader

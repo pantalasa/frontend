@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: supplier-portal-e2e-otk-tests
+  title: supplier-portal-e2e-otk-tests
+  description: E2E tests for Supplier Portal
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/supplier-portal-e2e-otk-tests
+    buildkite.com/project-slug: twilio/twilio-internal-supplier-portal-e2e-otk-tests
+    github.com/project-slug: twilio-internal/supplier-portal-e2e-otk-tests
+    jira/project-key: MSIT
+    pagerduty.com/service-id: P2XGTWG
+    twilio.com/email: team_messaging-supply-insights-trust@twilio.com
+    twilio.com/ldap-group: team_messaging-supply-insights-trust
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '2'
+    twilio.com/slack-channel-name: eng-msit
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/supplier-portal-e2e-otk-tests-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-supplier-portal-e2e-otk-tests
+  - title: IaC Repository
+    url: https://www.github.com/twilio-internal/supplier-portal-e2e-otk-tests-iac
+spec:
+  type: service
+  lifecycle: experimental
+  owner: jm-sup-org-162
+  system: supplier-engagement

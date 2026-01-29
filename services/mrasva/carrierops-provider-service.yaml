@@ -1,0 +1,134 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: carrierops-provider-service
+  title: carrierops-provider-service
+  description: |
+      Internal API service for managing providers, carriers, and bindings in Twilio's messaging and voice infrastructure. Hosts authoritative configuration data for carrier connections, routing endpoints, and protocol-level parameters.
+
+      Core Functionality
+      • Provider and carrier CRUD operations and metadata management
+      • SMPP and Kannel binding configurations for messaging protocols
+      • Voice and SMS endpoint routing management
+      • Delivery receipt (DLR) error code mappings and NACK retry configurations
+      • SMSC (Short Message Service Center) configurations
+      • Session parameters and TLV (Tag-Length-Value) protocol configurations
+      • Provider-to-Beepsend system ID mappings
+      • Voice capacity group management
+      • Shortcode migration and retry logic for provider transitions
+
+      Request Processing
+      • Multi-versioned API architecture (V1 with enhanced business logic, V2 with direct DB mapping)
+      • Certificate-based authorization with upstream role-based access control
+      • Throttling directives applied per-role and globally
+      • Cache-first data access pattern with periodic refresh (4-120 second intervals)
+      • Region-aware operations (read-write in US1, read-only in AU1/IE1)
+      • Integration with downstream systems: Cartographer (service discovery), Salesforce (escalations), gateway clients
+
+      Architecture
+      • Scala microservice using Pekko HTTP and ZIO effect system
+      • Aurora MySQL primary datastore with Slick ORM, Presto for analytics queries
+      • In-memory caching layer with scheduled refresh for high-performance reads
+      • Multi-region deployment with regional read replicas
+      • Deployed on both ABBA (legacy) and OTK (Kubernetes) platforms
+      • Observability via Kamon metrics (Datadog) and Rollbar error tracking
+      • Swagger/OpenAPI specification with code generation via Guardrail
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/carrierops/provider-service
+    github.com/project-slug: carrierops/provider-service
+    jira/project-key: SREG
+    pagerduty.com/service-id: P5E0NDN
+    snyk.io/org-id: ccd9f4a3-9bb3-48c3-a25b-2da4db09a45a
+    snyk.io/project-id: d26bf658-95c6-42d7-8cb9-8b0d492509cc
+    twilio.com/email: team_messaging-sit@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-pci: "true"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+    twilio.com/data-classification: "restricted"
+    twilio.com/internet-facing: "false"
+    twilio.com/eu-available: "true"
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-gdpr: "false"
+    twilio.com/in-scope-iso: "true"
+    twilio.com/in-scope-soc2: "false"
+    twilio.com/sla-impacting: "false"
+    twilio.com/security-tier: "1"
+    twilio.com/service-tier: "1"
+  links:
+    - title: Deployment Repository
+      url: https://github.com/twilio-internal/carrierops-provider-service-deploy
+      type: repository
+    - title: Runbook
+      url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382767777/carrierops-provider-service+runbook
+      type: documentation
+    - title: Architecture Decision Records
+      url: https://docs.google.com/document/d/1VzjEl8cTuMrR2nKEsPAkl_OJb-M8uQihSBW9onWU8fM/edit?pli=1&tab=t.0#heading=h.gbr33ff2dkkv
+      type: documentation
+    - title: Datadog Dashboard
+      url: https://app.datadoghq.com/dashboard/xf9-ba9-u4r/provider-service
+      type: monitoring
+
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-682
+  system: provider-service
+  dependsOn:
+    - resource:default/github-repo-27485  # Primary Repo
+    - resource:default/github-repo-29911  # Client Repo
+    - resource:default/github-repo-824138985  # IaC Repo
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: provider-service-db
+  description: "RDS instance for carrierops-provider-service"
+  tags:
+    - supply-management
+    - carrierops-provider-service-db
+spec:
+  type: database
+  lifecycle: production
+  owner: group:default/sup-org-682
+  system: provider-service
+  dependsOn:
+    - component:default/carrierops-provider-service
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: carrierops-provider-service-api
+  description: "API for managing carrier configuration data"
+  tags:
+    - supply-management
+    - carrierops-provider-service-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:default/sup-org-682
+  system: provider-service
+  definition:
+    $text: https://code.hq.twilio.com/carrierops/provider-service/blob/main/docs/generated/api.json
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: provider-service-ui
+  description: "Frontend for carrierops-provider-service"
+  tags:
+    - supply-management
+    - carrierops-provider-service-ui
+spec:
+  type: other
+  lifecycle: production
+  owner: group:default/sup-org-682
+  system: provider-service
+  dependsOn:
+    - component:default/carrierops-provider-service
+  source:
+    url: https://oneadmin.internal.us1.twilio.com/cops-dashboard/#/snh/providers?provider_type=all

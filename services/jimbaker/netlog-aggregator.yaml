@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: netlog-aggregator
+  title: netlog-aggregator
+  description: Repository created by Backstage
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/netlog-aggregator
+    buildkite.com/project-slug: twilio/twilio-internal-netlog-aggregator
+    github.com/project-slug: twilio-internal/netlog-aggregator
+    jira/project-key: SNIP
+    pagerduty.com/service-id: replace-me
+    twilio.com/email: team_super-network-infrastructure-platform@twilio.com
+    twilio.com/ldap-group: team_super-network-infrastructure-platform
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '4'
+    twilio.com/slack-channel-name: eng-snipa-alerts
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/netlog-aggregator-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-netlog-aggregator
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-640

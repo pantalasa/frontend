@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ansible-automation-engine
+  title: ansible-automation-engine
+  description: AWX deployment definition
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/ansible-automation-engine
+    buildkite.com/project-slug: twilio/twilio-internal-ansible-automation-engine
+    github.com/project-slug: twilio-internal/ansible-automation-engine
+    jira/project-key: SNIP
+    pagerduty.com/service-id: P92CX01
+    twilio.com/email: team_super-network-infrastructure-platform@twilio.com
+    twilio.com/ldap-group: team_super-network-infrastructure-platform
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '4'
+    twilio.com/slack-channel-name: help-sn-infrastructure-platform
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/ansible-automation-engine-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-ansible-automation-engine
+  - title: IaC Repository
+    url: https://www.github.com/twilio-internal/ansible-automation-engine-iac
+  tags:
+  - stateful
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-640
+  system: network-configuration-system

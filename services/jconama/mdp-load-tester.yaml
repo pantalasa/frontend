@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mdp-load-tester
+  title: mdp-load-tester
+  description: MDP Load Tester is a collection of load testing tools for the Messaging
+    Data Platform (MDP).
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/messaging/mdp-load-tester
+    buildkite.com/project-slug: twilio/messaging/mdp-load-tester
+    github.com/project-slug: messaging/mdp-load-tester
+    pagerduty.com/service-id: P8G5P66
+    twilio.com/email: team_messaging-data-infra@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/pd-incident-owner-schedule: PR5HVZL
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+    twilio.com/slack-id: C016RLP969K
+  links: []
+  tags:
+  - java17
+  - mdp-load-tester
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup5.30
+  system: mdp-business-event-system

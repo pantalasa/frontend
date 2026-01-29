@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: twilio-email-account-provisioner
+  title: Twilio Email Account Provisioner
+  description: >
+    A system for provisioning and managing email accounts in Twilio's SendGrid platform.
+    Handles account creation, updates, and lifecycle management events from TEAL (Twilio Email Account Lifecycle).
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/twilio-email-account-provisioner
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/twilio-email-account-provisioner/blob/main/README.md
+    buildkite.com/project-slug: sendgrid/twilio-email-account-provisioner
+    github.com/project-slug: sendgrid/twilio-email-account-provisioner
+    jira/component: Twilio Email Account Provisioner
+    jira/project-key: CLRF
+    pagerduty.com/service-id: PAC4L9A
+    twilio.com/alerting-slack-channel-id-prod: CDKSZHQUW
+    twilio.com/alerting-slack-channel-id-stage: C031JT6HNUE
+    twilio.com/data-classification: "confidential"
+    twilio.com/email: eng-resellerplatform_sg@twilio.com
+    twilio.com/eu-available: "false"
+    twilio.com/in-scope-bcr: "false"
+    twilio.com/in-scope-gdpr: "false"
+    twilio.com/in-scope-hipaa: "false"
+    twilio.com/in-scope-iso: "false"
+    twilio.com/in-scope-pci: "false"
+    twilio.com/in-scope-soc2: "false"
+    twilio.com/in-scope-sox: "false"
+    twilio.com/internet-facing: "false"
+    twilio.com/security-tier: "0"
+    twilio.com/service-tier: "1"
+    twilio.com/sla-impacting: "false"
+    twilio.com/slack-id: C01C2J8JLLA
+  links:
+    - title: Architecture Documentation
+      url: https://github.com/sendgrid/twilio-email-account-provisioner/blob/main/docs/ARCHITECTURE.md
+    - title: Team Wiki
+      url: https://twilio-productivity.atlassian.net/wiki/spaces/SGCL/pages/347705562/Team+Reseller+Marketplace
+  tags:
+    - email
+    - control-plane
+    - account-provisioning
+    - sqs
+    - eventbridge
+    - go
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-1923
+  system: twilio-email-account-provisioner
+  providesApis:
+    - api:twilio-email-account-provisioner-schema
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: twilio-email-account-provisioner-schema
+  description: >
+    The Twilio Email Account Provisioner Schema defines the structure of events consumed from TEAL
+    for account provisioning and lifecycle management operations.
+  tags:
+    - email
+    - control-plane
+    - account-provisioning
+    - eventbridge
+    - sqs
+    - go
+spec:
+  type: asyncapi
+  lifecycle: production
+  owner: group:default/sup-org-1923
+  system: twilio-email-account-provisioner
+  definition:
+    $text: https://github.com/sendgrid/twilio-email-account-provisioner/blob/main/asyncapi.yml

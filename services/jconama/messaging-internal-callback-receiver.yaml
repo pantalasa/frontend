@@ -1,0 +1,26 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-1358"
+  system: sms-outbound-test-infrastructure
+  lifecycle: production
+metadata:
+  name: messaging-internal-callback-receiver
+  tags:
+    - sms
+  links:
+    -
+      url: "https://github.com/twilio-internal/messaging-internal-callback-receiver-deploy"
+      title: Deployment Repository
+  title: messaging-internal-callback-receiver
+  annotations:
+    twilio.com/email: sms-core@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 4
+    pagerduty.com/service-id: P4NPJP0
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+  description: Service for receiving SMS status change callbacks for tests
+apiVersion: backstage.io/v1alpha1

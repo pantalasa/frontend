@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1586
+  system: geopod
+metadata:
+  name: geopod-manager
+  title: geopod-manager
+  description: "The geopod manager is responsible for managing traffic swings to various endpoints across our datacenters. This application contains both a CLI app and an HTTP server to be used by the Geopod UI."
+  tags:
+    - email
+    - geopod
+  annotations:
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/email: email-ep-edge@twilio.com
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/geopod-manager/blob/main/README.md
+    pagerduty.com/service-id: PH5E2YF
+    backstage.io/source-location: url:https://github.com/sendgrid/geopod-manager
+    github.com/project-slug: sendgrid/geopod-manager
+    twilio.com/slack-id: CF7MT3UAC

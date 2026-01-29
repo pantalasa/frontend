@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-2324"
+metadata:
+  name: eidata-prometheus
+  title: eidata-prometheus
+  description: "eidata-prometheus service for SendGrid integration."
+  tags:
+    - email
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/eidata-prometheus

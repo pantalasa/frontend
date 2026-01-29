@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1923
+  system: "email-reseller-facade"
+  providesApis:
+  - reseller-facade-heroku-api
+metadata:
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/reseller-facade-heroku
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/reseller-facade-heroku/blob/main/README.md
+    buildkite.com/project-slug: sendgrid/reseller-facade-heroku
+    github.com/project-slug: sendgrid/reseller-facade-heroku
+    jira/component: "Reseller Facade Heroku"
+    jira/project-key: CLRF
+    pagerduty.com/service-id: "PXFKI94"
+    snyk.io/target-id: sendgrid/reseller-facade-heroku
+    twilio.com/alerting-slack-channel-id-prod: CDKSZHQUW
+    twilio.com/alerting-slack-channel-id-stage: C031JT6HNUE
+    twilio.com/email: eng-resellerplatform_sg@twilio.com
+    twilio.com/internet-facing: "false"
+    twilio.com/security-tier: "1"
+    twilio.com/service-tier: "0"
+    twilio.com/slack-id: CDKGS75TR
+  links:
+  - title: Runbook
+    url: https://github.com/sendgrid/reseller-facade-heroku/blob/main/docs/runbook.md
+  name: reseller-facade-heroku
+  title: reseller-facade-heroku
+  description: "Reseller Facade Heroku is a service that provides a Heroku marketplace integration with Twilio SendGrid."
+  tags:
+  - email
+  - reseller-facade-heroku
+  - go
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: reseller-facade-heroku-api
+  description: "The Reseller Facade Heroku API for integrating the Heroku Marketplace with Twilio SendGrid's reseller platform."
+  tags:
+  - email
+  - reseller-facade-heroku
+  - go
+spec:
+  type: openapi
+  lifecycle: production
+  owner: sup-org-1923
+  system: "email-reseller-facade"
+  definition:
+    $text: https://github.com/sendgrid/reseller-facade-heroku/blob/main/reference/openapi.yml

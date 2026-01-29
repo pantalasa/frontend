@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sms-product-configuration-service
+  title: sms-product-configuration-service
+  description: Service holding SMS routing product configurations and route profiles
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/sms/sms-product-configuration-service
+    github.com/project-slug: sms/sms-product-configuration-service
+    pagerduty.com/service-id: PVB14I4
+    twilio.com/email: team_routing-core@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+  links:
+  - title: Runbook
+    url: https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382779440
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/sms-product-configuration-service-deploy
+  - title: IaC Repository
+    url: https://code.hq.twilio.com/sms/sms-product-configuration-service-terraform
+  tags:
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-734
+  system: messaging-routing-service
+  dependsOn:
+  - component:default/eventbus
+  - component:default/ud-entity-schema-api
+  - component:default/route-registry
+  - component:default/opportunity-registry
+  - component:default/sn-messaging-decision-rates

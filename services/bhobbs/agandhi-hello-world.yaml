@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1421
+metadata:
+  name: agandhi-hello-world
+  title: agandhi-hello-world
+  description: "agandhi-hello-world service for SendGrid integration."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/agandhi-hello-world
+  tags:
+    - email
+    - mc-orchestra

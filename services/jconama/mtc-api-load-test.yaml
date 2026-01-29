@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mtc-api-load-test
+  title: mtc-api-load-test
+  description: a role used for load testing mtc-api, mtc-sgs via vegeta
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/twilio/mtc-api-load-test
+    github.com/project-slug: twilio/mtc-api-load-test
+    pagerduty.com/service-id: P6QZ8RE
+    twilio.com/email: team-mtc@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PFXZBE9
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+  links: []
+  tags:
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-2446
+  system: message-traffic-control-service

@@ -1,0 +1,23 @@
+kind: Component
+spec:
+  type: Infrastructure
+  owner: sup-org-1714
+  system: email-authentication
+  lifecycle: production
+metadata:
+  name: auth-infra
+  tags:
+    - email
+    - auth-infra
+  title: auth-infra
+  annotations:
+    twilio.com/email: eng-RAM_sg@twilio.com
+    twilio.com/slack-id: CC03BSSZFPDF
+    github.com/project-slug: sendgrid/auth-infra
+    twilio.com/service-tier: 5
+    twilio.com/security-tier: 2
+    backstage.io/techdocs-ref: "url:https://github.com/sendgrid/auth-infra/blob/main/README.md"
+    buildkite.com/project-slug: sendgrid/auth-infra
+    twilio.com/alerting-slack-channel-id-prod: C0233THSQE4
+  description: OCRUD GitOps is solely used to store Kubernetes manifests
+apiVersion: backstage.io/v1alpha1

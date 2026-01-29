@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1421
+metadata:
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/mc-pod-deploy-buildkite-plugin
+  title: mc-pod-deploy-buildkite-plugin
+  description: "MC Pod Deploy Buildkite Plugin for SendGrid integration."
+  tags:
+    - email
+    - mc-orchestra
+  name: mc-pod-deploy-buildkite-plugin

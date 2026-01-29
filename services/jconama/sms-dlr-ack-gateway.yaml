@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sms-dlr-ack-gateway
+  title: sms-dlr-ack-gateway
+  description: Handles SMS Delivery Receipts and Acknowledgments
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/sms/sms-dlr-ack-gateway
+    github.com/project-slug: sms/sms-dlr-ack-gateway
+    pagerduty.com/service-id: P4NPJP0
+    twilio.com/email: sms-core@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PFBNAIJ
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '1'
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/sms-dlr-ack-gateway-deploy
+  tags:
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-1358
+  system: messaging-dlr

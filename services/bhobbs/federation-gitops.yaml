@@ -1,0 +1,23 @@
+kind: Component
+spec:
+  type: Infrastructure
+  owner: sup-org-1714
+  system: email-authentication
+  lifecycle: production
+metadata:
+  name: federation-gitops
+  tags:
+    - email
+    - federation-gitops
+  title: federation-gitops
+  annotations:
+    twilio.com/email: eng-RAM_sg@twilio.com
+    twilio.com/slack-id: C03BSSZFPDF
+    github.com/project-slug: sendgrid/federation-gitops
+    twilio.com/service-tier: 5
+    twilio.com/security-tier: 2
+    backstage.io/techdocs-ref: "url:https://github.com/sendgrid/federation-gitops/blob/main/README.md"
+    buildkite.com/project-slug: sendgrid/federation-gitops
+    twilio.com/alerting-slack-channel-id-prod: C0233THSQE4
+  description: Federation GitOps designed as a deployment target for federation.
+apiVersion: backstage.io/v1alpha1

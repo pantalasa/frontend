@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: broadcast-mdr-consumer
+  title: broadcast-mdr-consumer
+  description: Broadcast MDR Consumer
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/twilio/broadcast-mdr-consumer
+    github.com/project-slug: twilio-internal/broadcast-mdr-consumer
+    twilio.com/email: team_messaging-bulk@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/security-tier: '1'
+    twilio.com/service-tier: '3'
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/broadcast-mdr-consumer-deploy
+  - title: IaC Repository
+    url: https://github.com/twilio-internal/broadcast-mdr-consumer-iac
+  - title: Git Repo
+    url: https://code.hq.twilio.com/twilio/broadcast-mdr-consumer
+  tags:
+  - messaging
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-2446
+  system: messaging-bulk
+  dependsOn:
+  - component:default/eventbus
+  - component:default/ud-entity-schema-api

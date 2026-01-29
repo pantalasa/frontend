@@ -1,0 +1,34 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-649"
+  system: sms-rate-limiting
+  dependsOn:
+    - component:default/message-state-service
+    - component:default/sms-ratequeue-accounts-primary
+    - component:default/sms-ratequeue-accounts-replica
+    - component:default/messaging-ratequeue-master
+    - component:default/messaging-ratequeue-slave
+    - component:default/messaging-inflight-service
+    - component:default/eventbus
+  lifecycle: production
+metadata:
+  name: sms-ratequeue-requeuer
+  tags:
+    - sms
+  links:
+    -
+      url: "https://github.com/twilio-internal/sms-ratequeue-requeuer-deploy"
+      title: Deployment Repository
+  title: sms-ratequeue-requeuer
+  annotations:
+    twilio.com/email: team_messaging-queuing@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 1
+    pagerduty.com/service-id: P4NPJP0
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: P3EUJ41
+  description: Requeues Short Message Service messages from SMS Accounts Ratequeue to SMS Phone Numbers RateQueue
+apiVersion: backstage.io/v1alpha1

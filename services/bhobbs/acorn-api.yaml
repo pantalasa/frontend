@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1923
+  system: email-account-provisioning
+  providesApis:
+  - account-provisioning-api
+metadata:
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/acorn-api
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/acorn-api/blob/main/README.md
+    buildkite.com/project-slug: sendgrid/acorn-api
+    github.com/project-slug: sendgrid/acorn-api
+    jira/component: Acorn API
+    jira/project-key: CLRP
+    pagerduty.com/service-id: PAV9FZS
+    snyk.io/target-id: sendgrid/acorn-api
+    twilio.com/alerting-slack-channel-id-prod: CDKSZHQUW
+    twilio.com/alerting-slack-channel-id-stage: C031JT6HNUE
+    twilio.com/email: eng-resellerplatform_sg@twilio.com
+    twilio.com/internet-facing: "true"
+    twilio.com/security-tier: "0"
+    twilio.com/service-tier: "1"
+    twilio.com/slack-id: CDKGS75TR
+  links:
+  - title: Runbook
+    url: https://github.com/sendgrid/acorn-api/blob/main/docs/runbook.md
+  name: acorn-api
+  title: acorn-api
+  description: "Acorn API is a service that provides account provisioning that has reseller partnership with Twilio Sendgrid"
+  tags:
+  - email
+  - acorn-api
+  - account-provisioning-api
+  - go
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: account-provisioning-api
+  description: "The Twilio SendGrid Account Provisioning API provides a platform for Twilio SendGrid resellers to manage their customer accounts. This API is for companies that have a formal reseller partnership
+    with Twilio SendGrid."
+  tags:
+  - email
+  - account-provisioning-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: sup-org-1923
+  system: email-account-provisioning
+  definition:
+    $text: https://github.com/sendgrid/acorn-api/blob/main/reference/openapi.yml

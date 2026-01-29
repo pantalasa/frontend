@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: notify
+  title: notify
+  description: notify service
+  annotations:
+    backstage.io/source-location: url:https://github.com/segmentio/notify
+    github.com/project-slug: segmentio/notify
+    pagerduty.com/service-id: P3PWPTV
+    twilio.com/email: conversations_edge_east@twilio.com
+    twilio.com/in-scope-hipaa: 'true'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PT3ETZO
+    twilio.com/security-tier: '0'
+    twilio.com/service-tier: '1'
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/notify-deploy
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-2824
+  system: notification-services

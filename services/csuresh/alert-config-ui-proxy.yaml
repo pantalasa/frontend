@@ -1,0 +1,28 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-2398"
+  system: enterprise-insights
+  dependsOn:
+    - component:default/report-center-orchestrator
+    - component:default/ud-entity-schema-api
+    - component:default/alert-config-api
+    - component:default/braavos
+    - component:default/report-center-data-engine
+    - component:default/accounts-api
+    - component:default/accounts-api
+  lifecycle: production
+metadata:
+  name: alert-config-ui-proxy
+  title: alert-config-ui-proxy
+  annotations:
+    twilio.com/email: data-reportcenter@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 4
+    pagerduty.com/service-id: P729B1J
+    twilio.com/security-tier: 0
+    twilio.com/in-scope-hipaa: true
+    twilio.com/pd-incident-owner-schedule: P8O7PRY
+  description: Proxy role for UI to talk to alert-config-api (meerkat-proxy on github)
+apiVersion: backstage.io/v1alpha1

@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sms-smpp-session
+  title: sms-smpp-session
+  description: 'Managing SMPP Credentials, Groups and MO Routing Objects. Tracking Bind statuses and notify actions.'
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/sms-smpp-session
+    github.com/project-slug: twilio-internal/sms-smpp-session
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '1'
+    pagerduty.com/service-id: PNBSD8X
+    twilio.com/pd-incident-owner-schedule: PZV0VW5
+    twilio.com/email: team_sms-customer-edge@twilio.com
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/sms-smpp-session-deploy
+  tags:
+  - sms
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup-org-34
+  system: sms-smpp-api

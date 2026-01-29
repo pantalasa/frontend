@@ -1,0 +1,45 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: registry-api
+  title: registry-api
+  description: Registry API
+  tags:
+    - java
+  annotations:
+    backstage.io/source-location: url:https://github.com/Zipwhip/registry-api
+    jira/project-key: TMINFRA
+    jira/component: registry-api
+    buildkite.com/project-slug: twilio/zipwhip-registry-api
+    github.com/project-slug: zipwhip/registry-api
+    github.com/team-slug: zipwhip/developers
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/in-scope-soc2: 'true'
+    twilio.com/in-scope-iso: 'false'
+    twilio.com/in-scope-gdpr: 'false'
+    twilio.com/in-scope-bcr: 'false'
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '1'
+    pagerduty.com/service-id: PT8ZW7U
+    twilio.com/pd-incident-owner-schedule: P2E936R
+    twilio.com/email: team_zipwhip-core-messaging-engineering@twilio.com
+    twilio.com/internet-facing: 'false'
+    twilio.com/data-classification: restricted
+    twilio.com/eu-available: 'false'
+    twilio.com/sla-impacting: 'false'
+    twilio.com/slack-id: 'C02H6JYEM7G'
+    twilio.com/alerting-slack-channel-id-prod: 'C01G6UDFSMV'
+    twilio.com/alerting-slack-channel-id-stage: 'C05Q8A3DNH3'
+    twilio.com/alerting-slack-channel-id-dev: 'C04SQD21U9F'
+  links:
+    - title: Grafana Dashboard
+      url: https://g-870ae6cc62.grafana-workspace.us-west-2.amazonaws.com/d/rHAemwMMk/registry-api?orgId=1&var-env=UqyRbDl4z&var-uri=All
+    - title: Documentation
+      url: https://zipwhip.atlassian.net/wiki/spaces/INFRA/pages/662864738/Registry+API
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup_org_zip-817
+  system: zw-core-messaging

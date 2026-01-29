@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sms-smpp-inflight-service
+  title: sms-smpp-inflight-service
+  description: SMPP API State Tracking Service
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/sms/sms-smpp-inflight-service
+    github.com/project-slug: sms/sms-smpp-inflight-service
+    pagerduty.com/service-id: PNBSD8X
+    twilio.com/email: team_sms-customer-edge@twilio.com
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/pd-incident-owner-schedule: PZV0VW5
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '1'
+  links:
+  - title: Deployment Repository
+    url: https://github.com/twilio-internal/sms-smpp-inflight-service-deploy
+  tags:
+  - sms
+spec:
+  type: service
+  lifecycle: production
+  owner: jm-sup-org-34
+  system: sms-smpp-api
+  dependsOn:
+  - component:default/message-state-service
+  - component:default/message-state-service

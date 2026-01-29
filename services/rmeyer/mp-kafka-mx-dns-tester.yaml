@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1586
+metadata:
+  name: mp-kafka-mx-dns-tester
+  title: mp-kafka-mx-dns-tester
+  description: mp-kafka-mx-dns-tester service for SendGrid integration.
+  tags:
+  - email-core
+  - email
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/mp-kafka-mx-dns-tester
+    twilio.com/email: email-ep-core@twilio.com
+    twilio.com/slack-id: CUJT2EZ5F
+    jira/project-key: ECORE
+    github.com/project-slug: sendgrid/mp-kafka-mx-dns-tester

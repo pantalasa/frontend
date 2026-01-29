@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-1505
+metadata:
+  name: schema-healthcheck
+  title: schema-healthcheck
+  description: "schema-healthcheck service for database health monitoring."
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/schema_healthcheck
+  tags:
+    - email-db
+    - email-dna

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: benchmark-api
+  title: benchmark-api
+  description: "A role for running assertions against the Testing platform"
+  annotations:
+    backstage.io/source-location: url:https://code.hq.twilio.com/super-network/benchmark-api
+    github.com/project-slug: super-network/benchmark-api
+    twilio.com/github-server: code.hq.twilio.com
+    buildkite.com/project-slug: twilio/super-network-benchmark-api
+    snyk.io/org-id: 0b32c3c8-1097-4b97-85db-8c719794b0b2
+    snyk.io/project-ids: e4852ce4-7d9b-4d6f-9692-dee3f5dda304
+    jira/project-key: SNM
+    pagerduty.com/service-id: PBLO97C
+    twilio.com/in-scope-hipaa: 'false'
+    twilio.com/in-scope-pci: 'false'
+    twilio.com/in-scope-sox: 'false'
+    twilio.com/email: super-network-monitoring@twilio.com
+    twilio.com/ldap-group: super-network-monitoring
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '3'
+    twilio.com/slack-channel-name: "#help-super-network-monitoring"
+  links:
+    - url: "https://code.hq.twilio.com/super-network/benchmark-api"
+      title: "Application Repository"
+    - url: "https://github.com/twilio-internal/benchmark-api-deploy"
+      title: "Deployment Repository"
+    - url: "https://buildkite.com/twilio/super-network-benchmark-api"
+      title: "Buildkite Pipeline"
+    - url: "https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/382771216/benchmark-api+runbook"
+      title: "Runbook"
+spec:
+  type: service
+  lifecycle: production
+  owner: sup-org-579
+  system: carrier-test-platform

@@ -1,0 +1,20 @@
+kind: Component
+spec:
+  type: service
+  owner: jm-sup5.30
+  system: mdp-big-data-processing-system
+  lifecycle: production
+metadata:
+  name: ec2_emr_messaging-data-infra
+  title: ec2_emr_messaging-data-infra
+  annotations:
+    twilio.com/email: team_messaging-data-infra@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: true
+    twilio.com/service-tier: 3
+    pagerduty.com/service-id: P8G5P66
+    twilio.com/security-tier: 0
+    twilio.com/in-scope-hipaa: true
+    twilio.com/pd-incident-owner-schedule: PR5HVZL
+  description: MDP EMR ec2 role
+apiVersion: backstage.io/v1alpha1

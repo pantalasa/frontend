@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/sup-org-1658"
+  system: email-v2-api
+metadata:
+  name: ev_acceptance_tests
+  title: ev_acceptance_tests
+  tags:
+    - email
+    - ep-configuration
+  annotations:
+    backstage.io/source-location: url:https://github.com/sendgrid/ev_acceptance_tests
+    backstage.io/techdocs-ref: url:https://github.com/sendgrid/ev_acceptance_tests/blob/main/README.md
+    github.com/project-slug: sendgrid/ev_acceptance_tests
+    twilio.com/email: email-ep-configuration@twilio.com
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "4"
+    twilio.com/slack-id: C01EVRFDP0T

@@ -1,0 +1,20 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-579"
+  system: sample-based-monitoring
+  lifecycle: production
+metadata:
+  name: snm-emr-data-executor
+  title: snm-emr-data-executor
+  annotations:
+    twilio.com/email: super-network-monitoring@twilio.com
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 5
+    pagerduty.com/service-id: PBLO97C
+    twilio.com/security-tier: 2
+    twilio.com/in-scope-hipaa: false
+    twilio.com/pd-incident-owner-schedule: P9MX5KH
+  description: EMR Serverless execution role for Super-network-monitoring roles
+apiVersion: backstage.io/v1alpha1

@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: comms-api-communications
+  title: comms-api-communications
+  description: Repository created by Backstage
+  annotations:
+    backstage.io/source-location: url:https://github.com/twilio-internal/comms-api-communications
+    buildkite.com/project-slug: twilio/twilio-internal-comms-api-communications
+    github.com/project-slug: twilio-internal/comms-api-communications
+    jira/project-key: LMN
+    pagerduty.com/service-id: replace-me
+    twilio.com/email: team_messaging-bulk@twilio.com
+    twilio.com/ldap-group: team_messaging-bulk
+    twilio.com/security-tier: '2'
+    twilio.com/service-tier: '5'
+    twilio.com/slack-channel-name: eng-serrano
+  links:
+  - title: Deployment Repository
+    url: https://www.github.com/twilio-internal/comms-api-communications-deploy
+  - title: Buildkite Pipeline
+    url: https://www.buildkite.com/twilio/twilio-internal-comms-api-communications
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/sup-org-2446

@@ -1,0 +1,44 @@
+kind: Component
+spec:
+  type: service
+  owner: "group:default/sup-org-734"
+  system: messaging-routing-service
+  lifecycle: experimental
+metadata:
+  name: routing-configurations
+  links:
+    -
+      url: "https://twilio-productivity.atlassian.net/wiki/spaces/RT/pages/1402011743/routing-configurations+runbook"
+      title: Runbook
+    -
+      url: "https://github.com/twilio-internal/routing-configurations"
+      title: Application Repository
+    -
+      url: "https://github.com/twilio-internal/routing-configurations-deploy"
+      title: Deployment Repository
+    -
+      url: "https://www.buildkite.com/twilio/twilio-internal-routing-configurations"
+      title: Buildkite Pipeline
+  title: routing-configurations
+  annotations:
+    jira/project-key: ROC
+    twilio.com/email: team_routing-core@twilio.com
+    twilio.com/ldap-group: team_routing-core
+    twilio.com/eu-available: false
+    twilio.com/in-scope-bcr: false
+    twilio.com/in-scope-iso: false
+    twilio.com/in-scope-pci: false
+    twilio.com/in-scope-sox: false
+    twilio.com/service-tier: 2
+    pagerduty.com/service-id: PVB14I4
+    twilio.com/in-scope-gdpr: false
+    twilio.com/in-scope-soc2: false
+    twilio.com/security-tier: 2
+    twilio.com/sla-impacting: false
+    twilio.com/in-scope-hipaa: false
+    buildkite.com/project-slug: twilio/twilio-internal-routing-configurations
+    twilio.com/internet-facing: false
+    twilio.com/slack-channel-name: eng-sms-routing
+    twilio.com/data-classification: restricted
+  description: Central control plane service for all Messaging routing configuration data
+apiVersion: backstage.io/v1alpha1

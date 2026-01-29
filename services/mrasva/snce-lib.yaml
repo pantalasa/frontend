@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: library
+  lifecycle: production
+  owner: sup-org-682
+  system: rate-manager
+metadata:
+  annotations:
+    buildkite.com/project-slug: twilio/carrierops-snce-lib
+    twilio.com/github-server: code.hq.twilio.com
+    twilio.com/security-tier: "2"
+    twilio.com/service-tier: "3"
+    twilio.com/email: super-cost@twilio.com
+    twilio.com/slack-channel-name: "#help-sn-cost"
+    backstage.io/techdocs-ref: url:https://code.hq.twilio.com/carrierops/snce-lib/blob/main/README.md
+    github.com/project-slug: carrierops/snce-lib
+    twilio.com/internet-facing: "false"
+    backstage.io/source-location: url:https://code.hq.twilio.com/carrierops/snce-lib
+  name: snce-lib
+  title: snce-lib
+  description: "Messaging Supply Cost Engineering Library"

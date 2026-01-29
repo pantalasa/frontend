@@ -1,0 +1,15 @@
+kind: Component
+spec:
+  type: service
+  owner: sup-org-1421
+  lifecycle: production
+metadata:
+  name: kjoerres.testing7.25.22
+  tags:
+    - email
+    - mc-orchestra
+  title: kjoerres.testing7.25.22
+  annotations:
+    backstage.io/source-location: "url:https://github.com/sendgrid/kjoerres.testing7.25.22"
+  description: kjoerres.testing7.25.22 service for SendGrid integration.
+apiVersion: backstage.io/v1alpha1
