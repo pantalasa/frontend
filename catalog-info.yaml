@@ -1,8 +1,10 @@
-kind: Location
-spec:
-  targets:
-    - ./services/*/*.yaml
-metadata:
-  name: Twilio-MNE
-  description: Twilio MNE consolidated entities
 apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: frontend
+  description: Pantalasa frontend service
+spec:
+  type: frontend
+  lifecycle: production
+  owner: eng-team
+  system: public-websites
