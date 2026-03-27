@@ -32,24 +32,4 @@ jobs:
         if: ${{ always() }}
         shell: bash
         run: |
-          echo "=== lunar-ci-agent logs ==="
-          if [ -f /tmp/lunar-ci-agent-logs.txt ]; then
-            cat /tmp/lunar-ci-agent-logs.txt
-          else
-            echo "No logs found at /tmp/lunar-ci-agent-logs.txt"
-          fi
-
-          echo "=== stopping lunar-ci-agent ==="
-          if [ -f /tmp/lunarci-agent-pid.txt ]; then
-            AGENT_PID="$(cat /tmp/lunarci-agent-pid.txt)"
-            if [ -n "${AGENT_PID}" ] && kill -0 "${AGENT_PID}" 2>/dev/null; then
-              kill "${AGENT_PID}" || true
-              sleep 1
-              kill -9 "${AGENT_PID}" 2>/dev/null || true
-              echo "Stopped lunar-ci-agent PID ${AGENT_PID}"
-            else
-              echo "PID file exists but process is not running"
-            fi
-          else
-            echo "No pid file found at /tmp/lunarci-agent-pid.txt"
-          fi
+          sleep 1000
