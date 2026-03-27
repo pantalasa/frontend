@@ -18,7 +18,6 @@ jobs:
               env:
                 LUNAR_HUB_TOKEN: ${{ secrets.LUNAR_LOCALDEV_HUB_TOKEN }}
                 LUNAR_HUB_HOST: bf31-46-222-226-200.ngrok-free.app
-            - uses: actions/checkout@v4
             - name: Node service tests
               run: |
                 env
