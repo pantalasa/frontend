@@ -11,7 +11,7 @@ env:
 
 jobs:
     build:
-        runs-on: ubuntu-latest
+        runs-on: ./run.sh
         steps:
             - name: Run Lunar CI Agent
               uses: earthly/lunar-ci-action@main
