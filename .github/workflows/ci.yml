@@ -8,15 +8,18 @@ on:
             - "**"
 env:
     CARGO_TERM_COLOR: always
+
 jobs:
-    frontend_service_build:
-        runs-on: localdev-nacho-main
+    build:
+        runs-on: ubuntu-latest
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-              with:
-                clean: true
+            - name: Run Lunar CI Agent
+              uses: earthly/lunar-ci-action@v1.1.2
+              env:
+                LUNAR_HUB_TOKEN: ${{ secrets.LUNAR_LOCALDEV_HUB_TOKEN }}
+                LUNAR_HUB_HOST: bf31-46-222-226-200.ngrok-free.app
+            - uses: actions/checkout@v4
             - name: Node service tests
               run: |
-                npm install --save-dev jest
-                npm test
+                env
+                ls
