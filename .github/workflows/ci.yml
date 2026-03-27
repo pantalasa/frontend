@@ -1,24 +1,55 @@
 name: GH-Actions
+
 on:
-    push:
-        branches:
-            - "**"
-    pull_request:
-        branches:
-            - "**"
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - "**"
+
 env:
-    CARGO_TERM_COLOR: always
- 
+  CARGO_TERM_COLOR: always
+
 jobs:
-    build:
-        runs-on: nacho-test
-        steps:
-            - name: Run Lunar CI Agent
-              uses: earthly/lunar-ci-action@main
-              env:
-                LUNAR_HUB_TOKEN: ${{ secrets.LUNAR_LOCALDEV_HUB_TOKEN }}
-                LUNAR_HUB_HOST: bf31-46-222-226-200.ngrok-free.app
-            - name: Node service tests
-              run: |
-                env
-                ls
+  build:
+    runs-on: nacho-test
+
+    steps:
+      - name: Run Lunar CI Agent
+        uses: earthly/lunar-ci-action@main
+        env:
+          LUNAR_HUB_TOKEN: ${{ secrets.LUNAR_LOCALDEV_HUB_TOKEN }}
+          LUNAR_HUB_HOST: bf31-46-222-226-200.ngrok-free.app
+
+      - name: Node service tests
+        shell: bash
+        run: |
+          env
+          ls
+
+      - name: Teardown Lunar CI Agent (always last)
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          echo "=== lunar-ci-agent logs ==="
+          if [ -f /tmp/lunar-ci-agent-logs.txt ]; then
+            cat /tmp/lunar-ci-agent-logs.txt
+          else
+            echo "No logs found at /tmp/lunar-ci-agent-logs.txt"
+          fi
+
+          echo "=== stopping lunar-ci-agent ==="
+          if [ -f /tmp/lunarci-agent-pid.txt ]; then
+            AGENT_PID="$(cat /tmp/lunarci-agent-pid.txt)"
+            if [ -n "${AGENT_PID}" ] && kill -0 "${AGENT_PID}" 2>/dev/null; then
+              kill "${AGENT_PID}" || true
+              sleep 1
+              kill -9 "${AGENT_PID}" 2>/dev/null || true
+              echo "Stopped lunar-ci-agent PID ${AGENT_PID}"
+            else
+              echo "PID file exists but process is not running"
+            fi
+          else
+            echo "No pid file found at /tmp/lunarci-agent-pid.txt"
+          fi
