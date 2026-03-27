@@ -33,4 +33,4 @@ jobs:
         if: ${{ always() }}
         shell: bash
         run: |
-          sleep 1000
+          echo "=== stopping lunar-ci-agent ==="
