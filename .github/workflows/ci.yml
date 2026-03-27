@@ -21,6 +21,7 @@ jobs:
         env:
           LUNAR_HUB_TOKEN: ${{ secrets.LUNAR_HUB_TOKEN }}
           LUNAR_HUB_HOST: lunar.demo.earthly.dev
+          LUNAR_LOG_LEVEL: info
 
       - name: Node service tests
         shell: bash
