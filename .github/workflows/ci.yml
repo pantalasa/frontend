@@ -1,6 +1,6 @@
 name: GH-Actions
 
-on:
+on: 
   push:
     branches:
       - "**"
