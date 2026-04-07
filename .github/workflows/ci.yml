@@ -12,6 +12,12 @@ jobs:
   frontend_service_build:
     runs-on: ubuntu-latest
     steps:
+      - name: Run Lunar CI Agent
+        uses: earthly/lunar-ci-action@main
+        env:
+          LUNAR_HUB_TOKEN: ${{ secrets.LUNAR_HUB_TOKEN }}
+          LUNAR_HUB_HOST: lunar.demo.earthly.dev
+          LUNAR_LOG_LEVEL: debug    
       - name: Checkout code
         uses: actions/checkout@v4
         with:
