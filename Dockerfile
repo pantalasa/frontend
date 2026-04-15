@@ -8,5 +8,6 @@ LABEL application_name="frontend-cronos"
 LABEL description="Frontend for cronos.pantalasa.org"
 LABEL owner="pantalasa-core-team@pantalasa.org"
 LABEL source_uri="git@github.com:pantalasa-cronos/frontend.git"
+LABEL org.opencontainers.image.revision="${GIT_SHA}"
 EXPOSE 80
 ENTRYPOINT ["node", "src/index.js"]
