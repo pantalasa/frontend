@@ -1,0 +1,19 @@
+{
+  "service": {
+    "name": "frontend",
+    "owner": "mick@pantalasa.org",
+    "domain": "engineering.dashboard",
+    "tier": "tier-2"
+  },
+  "deployment": {
+    "platform": "kubernetes",
+    "region": "us-east-1",
+    "replicas": 2,
+    "rollout_strategy": "rolling"
+  },
+  "business": {
+    "capability": "merchant-dashboard-ui",
+    "cost_center": "CC-1044",
+    "compliance": []
+  }
+}
